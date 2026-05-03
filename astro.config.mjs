@@ -6,6 +6,9 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Tools Wiki",
+      components: {
+        Head: './src/components/Head.astro',
+      },
       customCss: ["./src/styles/custom.css"],
       sidebar: [
         { slug: "git" },

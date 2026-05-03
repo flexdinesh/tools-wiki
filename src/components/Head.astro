@@ -1,0 +1,12 @@
+---
+import Default from '@astrojs/starlight/components/Head.astro';
+---
+
+<Default />
+
+<script>
+  import { init } from '@plausible-analytics/tracker';
+  init({
+    domain: 'toolswiki.deebox.dev',
+  });
+</script>
