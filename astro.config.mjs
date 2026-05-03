@@ -7,12 +7,16 @@ export default defineConfig({
     starlight({
       title: "Tools Wiki",
       components: {
-        Head: './src/components/Head.astro',
+        Head: "./src/components/Head.astro",
       },
       customCss: ["./src/styles/custom.css"],
-      social: {
-        github: "https://github.com/flexdinesh/tools-wiki",
-      },
+      social: [
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/flexdinesh/tools-wiki",
+        },
+      ],
       sidebar: [
         { slug: "git" },
         { slug: "ssh" },
@@ -26,4 +30,3 @@ export default defineConfig({
     }),
   ],
 });
-
