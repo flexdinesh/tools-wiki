@@ -2,11 +2,11 @@
 import Default from '@astrojs/starlight/components/Head.astro';
 ---
 
-<Default />
-
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.deebox.xyz/js/pa-udA0PJ0Wycc1FPqtx8ycv.js"></script>
 <script>
-  import { init } from '@plausible-analytics/tracker';
-  init({
-    domain: 'plausible.deebox.xyz',
-  });
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
 </script>
+
+<Default />

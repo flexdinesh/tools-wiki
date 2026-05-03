@@ -14,9 +14,6 @@ importers:
       '@cloudflare/workers-types':
         specifier: ^4.20260503.1
         version: 4.20260503.1
-      '@plausible-analytics/tracker':
-        specifier: ^0.4.4
-        version: 0.4.4
       astro:
         specifier: ^6.2.1
         version: 6.2.1(@types/node@24.12.2)(rollup@4.60.2)(typescript@5.9.3)
@@ -606,9 +603,6 @@ packages:
     resolution: {integrity: sha512-Fa2Iyw7kaDRzGMfNYNUXNW2zbL5FQVDgSOcbDHdzBrDEdpqOqg8TcZ68F22ol6NJ9IGzvUdmeyZypLW5dyhqsg==}
     cpu: [x64]
     os: [win32]
-
-  '@plausible-analytics/tracker@0.4.4':
-    resolution: {integrity: sha512-fz0NOYUEYXtg1TBaPEEvtcBq3FfmLFuTe1VZw4M8sTWX129br5dguu3M15+plOQnc181ShYe67RfwhKgK89VnA==}
 
   '@rollup/pluginutils@5.3.0':
     resolution: {integrity: sha512-5EdhGZtnu3V88ces7s53hhfK5KSASnJZv8Lulpc04cWO3REESroJXg73DFsOmgbU2BhwV0E20bu2IDZb3VKW4Q==}
@@ -3006,8 +3000,6 @@ snapshots:
 
   '@pagefind/windows-x64@1.5.2':
     optional: true
-
-  '@plausible-analytics/tracker@0.4.4': {}
 
   '@rollup/pluginutils@5.3.0(rollup@4.60.2)':
     dependencies:
