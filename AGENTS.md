@@ -5,8 +5,8 @@ This repo contains concise cheatsheets and wiki for tools. Each tool gets a sing
 ## File Structure
 
 - One file per tool.
-- Filename must match the tool name exactly: `{tool}.md` (e.g. `git.md`, `docker.md`).
-- No subdirectories, no multiple files per tool.
+- Filename must match the tool name exactly: `src/content/docs/{tool}.md` (e.g. `src/content/docs/git.md`, `src/content/docs/docker.md`).
+- Subdirectories are allowed and map to URL hierarchy (e.g., `src/content/docs/neovim/grug-far.md` → `/neovim/grug-far/`). No multiple files per tool.
 
 ## Document Structure
 
@@ -37,6 +37,10 @@ A  new-file.md
 ````
 
 ```
+
+## Package Manager
+
+This repo uses **pnpm**. Do not use npm. Run `pnpm install` to install dependencies.
 
 ## Agent Workflow
 

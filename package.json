@@ -1,0 +1,21 @@
+{
+  "name": "tools-wiki",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "sst deploy",
+    "diff": "sst diff"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.38.4",
+    "@cloudflare/workers-types": "^4.20260503.1",
+    "astro": "^6.2.1",
+    "sharp": "^0.34.5",
+    "sst": "4.12.11"
+  }
+}

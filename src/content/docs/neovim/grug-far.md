@@ -1,4 +1,8 @@
-# grud-far
+---
+title: grug-far
+draft: false
+head: []
+---
 
 Grug Far is the multi-file search and replace UI included in this LazyVim setup.
 

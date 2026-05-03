@@ -1,0 +1,158 @@
+---
+import { getCollection } from 'astro:content';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+const docs = await getCollection('docs');
+
+// Use `id` (Astro 5 loader) or fall back to `slug` (legacy)
+function getEntryId(entry: (typeof docs)[number]): string {
+  return entry.id ?? entry.slug ?? '';
+}
+
+// Filter out the index page
+const toolEntries = docs.filter((entry) => {
+  const id = getEntryId(entry);
+  return id !== 'index' && id !== '';
+});
+
+// Group by parent directory
+const groups = new Map<string, typeof toolEntries>();
+for (const entry of toolEntries) {
+  const id = getEntryId(entry);
+  const parts = id.split('/');
+  const dir = parts.length > 1 ? parts.slice(0, -1).join('/') : '.';
+  if (!groups.has(dir)) {
+    groups.set(dir, []);
+  }
+  groups.get(dir)!.push(entry);
+}
+
+// Sort groups and entries alphabetically
+const sortedGroups = [...groups.entries()]
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([dir, entries]) => ({
+    dir,
+    entries: entries.sort((a, b) => {
+      const idA = getEntryId(a);
+      const idB = getEntryId(b);
+      const nameA = (a.data.title || idA.split('/').pop() || '').toLowerCase();
+      const nameB = (b.data.title || idB.split('/').pop() || '').toLowerCase();
+      return nameA.localeCompare(nameB);
+    }),
+  }));
+
+function getToolName(id: string): string {
+  const parts = id.split('/');
+  return parts[parts.length - 1] || id;
+}
+
+function getToolUrl(id: string): string {
+  return `/${id}/`;
+}
+---
+
+<StarlightPage frontmatter={{ title: 'Tools Wiki' }}>
+  <div class="landing">
+    <p class="intro">
+      A searchable collection of cheatsheets and quick-reference guides for
+      developer tools.
+    </p>
+
+    {
+      sortedGroups.length === 0 ? (
+        <p>No tools added yet.</p>
+      ) : (
+        <ul class="tool-list not-content">
+          {sortedGroups.map((group) => (
+            <>
+              {group.dir !== '.' && (
+                <li class="group-heading">
+                  <h2>{group.dir}</h2>
+                </li>
+              )}
+              {group.entries.map((entry) => {
+                const id = getEntryId(entry);
+                return (
+                  <li>
+                    <a href={getToolUrl(id)}>
+                      <code>{getToolName(id)}</code>
+                    </a>
+                  </li>
+                );
+              })}
+            </>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</StarlightPage>
+
+<style>
+  .landing {
+    max-width: 48rem;
+  }
+
+  .intro {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 2.5rem;
+  }
+
+  .tool-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tool-list .group-heading {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .tool-list .group-heading:first-child {
+    margin-top: 0;
+  }
+
+  .tool-list .group-heading h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-accent);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .tool-list li:not(.group-heading) {
+    flex: 1 1 180px;
+    max-width: 240px;
+  }
+
+  .tool-list li a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    color: var(--color-text);
+    transition:
+      background-color 0.15s,
+      border-color 0.15s;
+  }
+
+  .tool-list li a:hover {
+    background-color: var(--color-code-bg);
+    border-color: var(--color-accent);
+  }
+
+  .tool-list li a code {
+    background: none;
+    padding: 0;
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+</style>

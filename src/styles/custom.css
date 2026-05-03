@@ -1,0 +1,19 @@
+/* Light mode */
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a2e;
+  --color-accent: #4f46e5;
+  --color-code-bg: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-link: #4f46e5;
+}
+
+/* Dark mode */
+[data-theme='dark'] {
+  --color-bg: #0f172a;
+  --color-text: #e2e8f0;
+  --color-accent: #818cf8;
+  --color-code-bg: #1e293b;
+  --color-border: #334155;
+  --color-link: #818cf8;
+}

@@ -1,0 +1,62 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_DEFAULT_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_DEFAULT_ACCOUNT_ID }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Fix Pulumi version conflict
+        run: sudo rm -f /usr/local/bin/pulumi-language-nodejs
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate Cloudflare secrets
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_DEFAULT_ACCOUNT_ID"
+
+      - name: Show SST diff
+        run: |
+          set +e
+          pnpm run diff -- --stage=production --print-logs 2>&1 | tee /tmp/sst-diff.log
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -ne 0 ] && ! grep -q "stage not found" /tmp/sst-diff.log; then
+            exit "$status"
+          fi
+
+      - name: Deploy with SST
+        run: pnpm run deploy -- --stage=production --print-logs
+
+      - name: Dump SST log on failure
+        if: failure()
+        run: |
+          ls -R .sst || true
+          if [ -f .sst/log/sst.log ]; then
+            cat .sst/log/sst.log
+          fi
