@@ -34,7 +34,7 @@ pnpm run deploy -- --stage=production
 
 SST builds the Astro site, uploads `dist/`, and deploys a Cloudflare Worker that serves static assets.
 
-Production also binds the custom domain `toolswiki.deebox.xyz`.
+Production also binds the custom domain `toolswiki.deebox.dev`.
 
 ## GitHub Actions
 

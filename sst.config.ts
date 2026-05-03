@@ -21,7 +21,7 @@ export default $config({
 
     const worker = new sst.cloudflare.Worker("Website", {
       url: true,
-      domain: $app.stage === "production" ? "toolswiki.deebox.xyz" : undefined,
+      domain: $app.stage === "production" ? "toolswiki.deebox.dev" : undefined,
       handler: "./src/worker.ts",
       assets: {
         directory: "./dist",

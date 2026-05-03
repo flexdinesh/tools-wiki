@@ -1,22 +1,23 @@
-import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
+import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
 
 export default defineConfig({
-  site: 'https://toolswiki.deebox.xyz',
+  site: "https://toolswiki.deebox.dev",
   integrations: [
     starlight({
-      title: 'Tools Wiki',
-      customCss: ['./src/styles/custom.css'],
+      title: "Tools Wiki",
+      customCss: ["./src/styles/custom.css"],
       sidebar: [
-        { slug: 'git' },
-        { slug: 'ssh' },
-        { slug: 'tmux' },
+        { slug: "git" },
+        { slug: "ssh" },
+        { slug: "tmux" },
         {
-          label: 'neovim',
+          label: "neovim",
           collapsed: false,
-          items: [{ slug: 'neovim/grug-far' }],
+          items: [{ slug: "neovim/grug-far" }],
         },
       ],
     }),
   ],
 });
+
