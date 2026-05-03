@@ -10,6 +10,9 @@ export default defineConfig({
         Head: './src/components/Head.astro',
       },
       customCss: ["./src/styles/custom.css"],
+      social: {
+        github: "https://github.com/flexdinesh/tools-wiki",
+      },
       sidebar: [
         { slug: "git" },
         { slug: "ssh" },
