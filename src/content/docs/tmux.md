@@ -102,6 +102,21 @@ Ctrl+b $
 
 ### Kill a session
 
+Kill the highlighted session from session preview mode. Use `j` / `k` to navigate, `x` to kill, and `y` to confirm.
+
+```
+Ctrl+b s
+j / k
+x
+y
+```
+
+Example confirmation prompt:
+
+```text
+kill-session mysession? (y/n)
+```
+
 Kill the current session.
 
 ```bash
@@ -196,6 +211,21 @@ A confirmation prompt appears: `kill-window window#? (y/n)`.
 
 ```
 Ctrl+b &
+```
+
+Kill the highlighted window from window preview mode. Use `j` / `k` to navigate, `x` to kill, and `y` to confirm.
+
+```
+Ctrl+b w
+j / k
+x
+y
+```
+
+Example confirmation prompt:
+
+```text
+kill-window window#? (y/n)
 ```
 
 ### Reorder windows
