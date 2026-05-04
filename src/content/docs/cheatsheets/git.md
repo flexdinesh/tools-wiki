@@ -1,7 +1,6 @@
 ---
 title: git
-draft: false
-head: []
+description: Config, commit, log, push, worktree, patch, diff, and stacked rebase.
 ---
 
 ## Config

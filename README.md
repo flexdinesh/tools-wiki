@@ -1,4 +1,4 @@
-# Tools Wiki
+# tools wiki
 
 A searchable collection of cheatsheets and quick-reference guides for developer tools. Built with [Astro Starlight](https://starlight.astro.build).
 
@@ -43,3 +43,4 @@ pnpm run build      # outputs to dist/
 docker build -t tools-wiki .
 docker run -p 8080:80 tools-wiki
 ```
+

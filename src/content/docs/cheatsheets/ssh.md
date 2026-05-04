@@ -1,7 +1,6 @@
 ---
 title: ssh
-draft: false
-head: []
+description: Connect, key generation, copy keys, known hosts, SSH agent, and port forwarding.
 ---
 
 ## Connect

@@ -14,6 +14,7 @@
   "dependencies": {
     "@astrojs/starlight": "^0.38.4",
     "@cloudflare/workers-types": "^4.20260503.1",
+    "@fontsource/fira-code": "^5.2.7",
     "astro": "^6.2.1",
     "sharp": "^0.34.5",
     "sst": "4.12.11"

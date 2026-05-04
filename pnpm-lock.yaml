@@ -14,6 +14,9 @@ importers:
       '@cloudflare/workers-types':
         specifier: ^4.20260503.1
         version: 4.20260503.1
+      '@fontsource/fira-code':
+        specifier: ^5.2.7
+        version: 5.2.7
       astro:
         specifier: ^6.2.1
         version: 6.2.1(@types/node@24.12.2)(rollup@4.60.2)(typescript@5.9.3)
@@ -400,6 +403,9 @@ packages:
 
   '@expressive-code/plugin-text-markers@0.41.7':
     resolution: {integrity: sha512-Ewpwuc5t6eFdZmWlFyeuy3e1PTQC0jFvw2Q+2bpcWXbOZhPLsT7+h8lsSIJxb5mS7wZko7cKyQ2RLYDyK6Fpmw==}
+
+  '@fontsource/fira-code@5.2.7':
+    resolution: {integrity: sha512-tnB9NNund9TwIym8/7DMJe573nlPEQb+fKUV5GL8TBYXjIhDvL0D7mgmNVNQUPhXp+R7RylQeiBdkA4EbOHPGQ==}
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -2845,6 +2851,8 @@ snapshots:
   '@expressive-code/plugin-text-markers@0.41.7':
     dependencies:
       '@expressive-code/core': 0.41.7
+
+  '@fontsource/fira-code@5.2.7': {}
 
   '@img/colour@1.1.0': {}
 

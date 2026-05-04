@@ -1,0 +1,39 @@
+---
+title: tools wiki
+description: A searchable collection of cheatsheets and quick-reference guides for developer tools.
+template: splash
+hero:
+  tagline: Concise cheatsheets for developer tools. Copy-paste ready.
+  actions:
+    - text: Browse cheatsheets
+      link: /cheatsheets/git/
+      icon: right-arrow
+    - text: GitHub
+      link: https://github.com/flexdinesh/tools-wiki
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+## Cheatsheets
+
+<CardGrid stagger>
+  <Card title="git" icon="seti:git">
+    Config, commit, log, push, worktree, patch, diff, and stacked rebase.
+  </Card>
+  <Card title="ssh" icon="seti:config">
+    Connect, key generation, copy keys, known hosts, SSH agent, and port forwarding.
+  </Card>
+  <Card title="tmux" icon="seti:shell">
+    Sessions, windows, panes, copy mode, buffers, configuration, status bar, and scripting.
+  </Card>
+</CardGrid>
+
+## Neovim
+
+<CardGrid stagger>
+  <Card title="grug-far" icon="seti:search">
+    Multi-file search and replace with one-by-one apply, sync-all, and import path replacement.
+  </Card>
+</CardGrid>

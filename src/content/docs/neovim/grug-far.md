@@ -1,7 +1,6 @@
 ---
 title: grug-far
-draft: false
-head: []
+description: Multi-file search and replace with one-by-one apply, sync-all, and import path replacement.
 ---
 
 Grug Far is the multi-file search and replace UI included in this LazyVim setup.

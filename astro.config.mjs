@@ -5,7 +5,7 @@ export default defineConfig({
   site: "https://toolswiki.deebox.dev",
   integrations: [
     starlight({
-      title: "Tools Wiki",
+      title: "tools wiki",
       components: {
         Head: "./src/components/Head.astro",
       },
@@ -18,13 +18,15 @@ export default defineConfig({
         },
       ],
       sidebar: [
-        { slug: "git" },
-        { slug: "ssh" },
-        { slug: "tmux" },
+        {
+          label: "cheatsheets",
+          collapsed: false,
+          autogenerate: { directory: "cheatsheets" },
+        },
         {
           label: "neovim",
           collapsed: false,
-          items: [{ slug: "neovim/grug-far" }],
+          autogenerate: { directory: "neovim" },
         },
       ],
     }),

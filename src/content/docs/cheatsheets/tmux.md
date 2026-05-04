@@ -1,7 +1,6 @@
 ---
 title: tmux
-draft: false
-head: []
+description: Sessions, windows, panes, copy mode, buffers, configuration, status bar, and scripting.
 ---
 
 ## Sessions

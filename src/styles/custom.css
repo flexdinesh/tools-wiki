@@ -1,3 +1,6 @@
+@import "@fontsource/fira-code/400.css";
+@import "@fontsource/fira-code/600.css";
+
 /* Light mode */
 :root {
   --color-bg: #ffffff;
@@ -9,11 +12,19 @@
 }
 
 /* Dark mode */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --color-bg: #0f172a;
   --color-text: #e2e8f0;
   --color-accent: #818cf8;
   --color-code-bg: #1e293b;
   --color-border: #334155;
   --color-link: #818cf8;
+}
+
+/* Font configuration */
+:root,
+[data-theme="dark"] {
+  --sl-font: 'Fira Code', monospace;
+  --sl-font-mono: 'Fira Code', monospace;
+  font-feature-settings: "liga" off, "calt" off;
 }
