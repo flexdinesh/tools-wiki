@@ -14,29 +14,39 @@ hero:
       variant: minimal
 ---
 
-import { Card, CardGrid } from "@astrojs/starlight/components";
+import { CardGrid, LinkCard } from "@astrojs/starlight/components";
 
 ## Cheatsheets
 
 <CardGrid stagger>
-  <Card title="git" icon="seti:git">
-    Config, commit, log, push, worktree, patch, diff, and stacked rebase.
-  </Card>
-  <Card title="ssh" icon="seti:config">
-    Connect, key generation, copy keys, known hosts, SSH agent, and port forwarding.
-  </Card>
-  <Card title="tmux" icon="seti:shell">
-    Sessions, windows, panes, copy mode, buffers, configuration, status bar, and scripting.
-  </Card>
-  <Card title="neovim" icon="seti:vim">
-    Modes, navigation, editing, search, explorer, buffers, and LSP shortcuts.
-  </Card>
+  <LinkCard
+    title="git"
+    href="/cheatsheets/git/"
+    description="Config, commit, log, push, worktree, patch, diff, and stacked rebase."
+  />
+  <LinkCard
+    title="ssh"
+    href="/cheatsheets/ssh/"
+    description="Connect, key generation, copy keys, known hosts, SSH agent, and port forwarding."
+  />
+  <LinkCard
+    title="tmux"
+    href="/cheatsheets/tmux/"
+    description="Sessions, windows, panes, copy mode, buffers, configuration, status bar, and scripting."
+  />
+  <LinkCard
+    title="neovim"
+    href="/cheatsheets/neovim/"
+    description="Modes, navigation, editing, search, explorer, buffers, and LSP shortcuts."
+  />
 </CardGrid>
 
 ## Neovim Plugins
 
 <CardGrid stagger>
-  <Card title="grug-far" icon="seti:search">
-    Multi-file search and replace with one-by-one apply, sync-all, and import path replacement.
-  </Card>
+  <LinkCard
+    title="grug-far"
+    href="/neovim/grug-far/"
+    description="Multi-file search and replace with one-by-one apply, sync-all, and import path replacement."
+  />
 </CardGrid>
