@@ -46,6 +46,13 @@ export default {
         if (response.ok) return addAgentHeaders(response);
       }
     }
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    const headers = new Headers(response.headers);
+    headers.set('Vary', 'Accept, User-Agent');
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
   },
 };
