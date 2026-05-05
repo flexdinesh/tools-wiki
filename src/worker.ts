@@ -28,6 +28,8 @@ function addAgentHeaders(response: Response): Response {
   const headers = new Headers(response.headers);
   headers.set('Content-Type', 'text/markdown; charset=utf-8');
   headers.set('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');
+  headers.set('X-Worker-Version', '3');
+  headers.set('X-Is-Agent', 'yes');
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
@@ -49,6 +51,8 @@ export default {
     const response = await env.ASSETS.fetch(request);
     const headers = new Headers(response.headers);
     headers.set('Vary', 'Accept, User-Agent');
+    headers.set('X-Worker-Version', '3');
+    headers.set('X-Is-Agent', 'no');
     return new Response(response.body, {
       status: response.status,
       statusText: response.statusText,
