@@ -25,6 +25,7 @@ export default $config({
       handler: "./src/worker.ts",
       assets: {
         directory: "./dist",
+        runWorkerFirst: true,
       },
       transform: {
         worker: {
