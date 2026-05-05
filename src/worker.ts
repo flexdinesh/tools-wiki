@@ -39,8 +39,20 @@ function addAgentHeaders(response: Response): Response {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
+    const url = new URL(request.url);
+
+    // Probe endpoint — proves worker deploys and executes
+    if (url.pathname === '/__worker-test') {
+      return new Response('worker running v4', {
+        headers: {
+          'Content-Type': 'text/plain',
+          'X-Worker-Version': '4',
+          'X-MD-Paths': String(MD_PATHS.size),
+        },
+      });
+    }
+
     if (isAgentRequest(request)) {
-      const url = new URL(request.url);
       const mdPath = toMdPath(url.pathname);
       if (mdPath) {
         const mdRequest = new Request(new URL(mdPath, url.origin).toString(), request);
