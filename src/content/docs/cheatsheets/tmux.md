@@ -10,13 +10,13 @@ Note: `Ctrl+b` is the default prefix. If you use a custom prefix, use that.
 | Key | Purpose | Result |
 | --- | --- | --- |
 | `Ctrl+b d` | Detach from the current session. | The session keeps running in the background and the terminal returns to the parent shell. |
-| `Ctrl+b s` | Show the session chooser. | A navigable list of sessions appears. |
+| `Ctrl+b s` | Open session interactive mode. | A navigable list of sessions appears. |
 | `Ctrl+b (` | Move to the previous session. | The status bar updates to show the previous session name. |
 | `Ctrl+b )` | Move to the next session. | The status bar updates to show the next session name. |
-| `Ctrl+b w` | Show session and window preview. | A navigable session/window tree appears at the bottom of the terminal. |
+| `Ctrl+b w` | Open session/window interactive mode. | A navigable session/window tree appears at the bottom of the terminal. |
 | `Ctrl+b $` | Rename the current session. | The status bar prompts for a new session name. |
 
-### tmux new
+### Start an unnamed session
 
 Start a new unnamed session in the current terminal.
 
@@ -24,7 +24,7 @@ Start a new unnamed session in the current terminal.
 $ tmux new
 ```
 
-### tmux new -s mysession
+### Start a named session
 
 Start a new session with a specific name.
 
@@ -32,7 +32,7 @@ Start a new session with a specific name.
 $ tmux new -s mysession
 ```
 
-### tmux new-session -A -s mysession
+### Start or attach to a named session
 
 Start a new session, or attach to an existing session with the same name.
 
@@ -40,7 +40,7 @@ Start a new session, or attach to an existing session with the same name.
 $ tmux new-session -A -s mysession
 ```
 
-### tmux attach
+### Attach to the latest session
 
 Reconnect to the last running session.
 
@@ -49,7 +49,7 @@ $ tmux attach
 $ tmux a
 ```
 
-### tmux attach -t mysession
+### Attach to a named session
 
 Reconnect to a specific session.
 
@@ -58,7 +58,7 @@ $ tmux attach -t mysession
 $ tmux a -t mysession
 ```
 
-### tmux attach -d
+### Attach and detach other clients
 
 Attach to a session and detach other clients connected to it, which maximizes your view.
 
@@ -66,7 +66,7 @@ Attach to a session and detach other clients connected to it, which maximizes yo
 $ tmux attach -d
 ```
 
-### tmux ls
+### List sessions
 
 Show all running sessions with their window counts and creation times.
 
@@ -78,7 +78,7 @@ $ tmux list-sessions
 mysession: 3 windows (created Sun May  3 17:47:30 2026) (attached)
 ```
 
-### tmux kill-session
+### Kill the current session
 
 Kill the current session.
 
@@ -86,7 +86,7 @@ Kill the current session.
 $ tmux kill-session
 ```
 
-### tmux kill-session -t mysession
+### Kill a named session
 
 Kill a named session.
 
@@ -94,7 +94,7 @@ Kill a named session.
 $ tmux kill-session -t mysession
 ```
 
-### tmux kill-session -a
+### Kill all other sessions
 
 Kill all sessions except the current one.
 
@@ -102,7 +102,7 @@ Kill all sessions except the current one.
 $ tmux kill-session -a
 ```
 
-### tmux kill-session -a -t mysession
+### Kill all sessions except one
 
 Kill all sessions except a named session.
 
@@ -110,22 +110,22 @@ Kill all sessions except a named session.
 $ tmux kill-session -a -t mysession
 ```
 
-### Choose a session from preview mode
+### Select a session from interactive mode
 
-Open the session chooser and switch to a highlighted session.
+Open session interactive mode and switch to a highlighted session.
 
 ```bash
-# Press Ctrl+b s to enter session preview mode.
+# Press Ctrl+b s to enter session interactive mode.
 # Use j / k to move through sessions.
 # Press Enter to switch to the highlighted session.
 ```
 
-### Kill a session from preview mode
+### Kill a session from interactive mode
 
-Kill the highlighted session from session preview mode.
+Kill the highlighted session from session interactive mode.
 
 ```bash
-# Press Ctrl+b s to enter session preview mode.
+# Press Ctrl+b s to enter session interactive mode.
 # Use j / k to move through sessions.
 # Press x to kill the highlighted session.
 # Press y to confirm when prompted.
@@ -145,13 +145,13 @@ Kill the highlighted session from session preview mode.
 | `Ctrl+b n` | Switch to the next window. | The next window becomes active. |
 | `Ctrl+b 0 ... Ctrl+b 9` | Switch to a window by number. | The numbered window becomes active. |
 | `Ctrl+b l` | Toggle the last active window. | The previously active window opens. |
-| `Ctrl+b w` | Open the session/window list. | A navigable session and window tree appears for interactive selection. |
+| `Ctrl+b w` | Open session/window interactive mode. | A navigable session and window tree appears for interactive selection. |
 | `Ctrl+b <` | Open the window actions menu. | Window actions appear at the bottom of the terminal. |
 | `Ctrl+b ,` | Rename the current window. | The status bar prompts for a new window name. |
 | `Ctrl+b &` | Close the current window. | A confirmation prompt appears: `kill-window window#? (y/n)`. |
 | `Ctrl+b !` | Convert the current pane to a window. | The current pane detaches and becomes a new window in the same session. |
 
-### tmux new -s mysession -n mywindow
+### Start a session with a named window
 
 Start a new session with a named window.
 
@@ -159,7 +159,7 @@ Start a new session with a named window.
 $ tmux new -s mysession -n mywindow
 ```
 
-### tmux swap-window -s 2 -t 1
+### Swap two windows
 
 Swap window number 2 with window number 1.
 
@@ -167,7 +167,7 @@ Swap window number 2 with window number 1.
 $ tmux swap-window -s 2 -t 1
 ```
 
-### tmux swap-window -t -1
+### Move the current window left
 
 Move the current window one position to the left.
 
@@ -175,7 +175,7 @@ Move the current window one position to the left.
 $ tmux swap-window -t -1
 ```
 
-### tmux move-window
+### Move a window between sessions
 
 Move a window from one session to another.
 
@@ -183,7 +183,7 @@ Move a window from one session to another.
 $ tmux move-window -s src_session:src_window -t target_session:target_window
 ```
 
-### tmux movew
+### Move windows with short aliases
 
 Use short-form aliases to move windows between sessions.
 
@@ -192,7 +192,7 @@ $ tmux movew -s foo:0 -t bar:9
 $ tmux movew -s 0:0 -t 1:9
 ```
 
-### tmux move-window -r
+### Renumber windows
 
 Renumber windows to remove gaps in the numbering sequence.
 
@@ -201,22 +201,22 @@ $ tmux move-window -r
 $ tmux movew -r
 ```
 
-### Choose a window from preview mode
+### Select a window from interactive mode
 
-Open the session/window chooser and switch to a highlighted window.
+Open session/window interactive mode and switch to a highlighted window.
 
 ```bash
-# Press Ctrl+b w to enter session/window preview mode.
+# Press Ctrl+b w to enter session/window interactive mode.
 # Use j / k to move through sessions and windows.
 # Press Enter to switch to the highlighted window.
 ```
 
-### Kill a window from preview mode
+### Kill a window from interactive mode
 
-Kill the highlighted window from window preview mode.
+Kill the highlighted window from window interactive mode.
 
 ```bash
-# Press Ctrl+b w to enter session/window preview mode.
+# Press Ctrl+b w to enter session/window interactive mode.
 # Use j / k to move through windows.
 # Press x to kill the highlighted window.
 # Press y to confirm when prompted.
@@ -248,7 +248,7 @@ Kill the highlighted window from window preview mode.
 | `Ctrl+b x` | Close the current pane. | A confirmation prompt appears: `kill-pane pane#? (y/n)`. |
 | `Ctrl+b >` | Open the pane actions menu. | Pane actions appear at the bottom of the terminal. |
 
-### tmux split-window -h
+### Split panes vertically from the command line
 
 Split the current pane vertically from the command line.
 
@@ -256,7 +256,7 @@ Split the current pane vertically from the command line.
 $ tmux split-window -h
 ```
 
-### tmux split-window -v
+### Split panes horizontally from the command line
 
 Split the current pane horizontally from the command line.
 
@@ -264,7 +264,7 @@ Split the current pane horizontally from the command line.
 $ tmux split-window -v
 ```
 
-### tmux join-pane -s 2 -t 1
+### Merge one window into another
 
 Merge window 2 into window 1 as panes.
 
@@ -272,7 +272,7 @@ Merge window 2 into window 1 as panes.
 $ tmux join-pane -s 2 -t 1
 ```
 
-### tmux join-pane -s 2.1 -t 1.0
+### Move a pane between windows
 
 Move a specific pane from one window to another, such as pane 1 from window 2 into window 1 after pane 0.
 
@@ -280,7 +280,7 @@ Move a specific pane from one window to another, such as pane 1 from window 2 in
 $ tmux join-pane -s 2.1 -t 1.0
 ```
 
-### tmux setw synchronize-panes
+### Synchronize panes
 
 Toggle sending the same keystrokes to all panes in the current window. This is useful for running identical commands across multiple split panes.
 
@@ -324,16 +324,16 @@ Enter copy mode to scroll through and copy text from the terminal history.
 
 | Command | Purpose | Result |
 | --- | --- | --- |
-| `tmux list-buffers` | List paste buffers. | Buffer names, sizes, and previews are printed. |
+| `tmux list-buffers` | List paste buffers. | Buffer names, sizes, and content snippets are printed. |
 | `tmux show-buffer` | Display the most recent paste buffer. | The buffer contents are printed. |
-| `tmux choose-buffer` | Open the buffer chooser. | An interactive buffer list opens for previewing and pasting buffers. |
+| `tmux choose-buffer` | Open buffer interactive mode. | An interactive buffer list opens for selecting and pasting buffers. |
 | `tmux capture-pane` | Copy visible pane contents. | The visible contents of the current pane are copied into a new paste buffer. |
 | `tmux save-buffer buf.txt` | Save the most recent buffer to a file. | The buffer contents are written to `buf.txt`. |
 | `tmux delete-buffer -b 1` | Delete buffer 1. | The selected paste buffer is removed. |
 
-### tmux list-buffers
+### List buffers
 
-List all paste buffers with their sizes and previews.
+List all paste buffers with their sizes and content snippets.
 
 ```bash
 $ tmux list-buffers
@@ -341,7 +341,7 @@ buffer1: 3 bytes: "far"
 buffer0: 89 bytes: "let's convert the cheatsheet in this website into tmux doc"
 ```
 
-### tmux show-buffer
+### Show the latest buffer
 
 Display the contents of the most recent paste buffer.
 
@@ -350,15 +350,15 @@ $ tmux show-buffer
 far
 ```
 
-### Choose and paste a buffer
+### Select and paste a buffer
 
-Open an interactive buffer chooser to preview and select a buffer to paste.
+Open buffer interactive mode to select a buffer to paste.
 
 ```bash
 $ tmux choose-buffer
 # Use j / k to move through buffers.
 # Press Enter to paste the highlighted buffer.
-# Press q to close the chooser without pasting.
+# Press q to close interactive mode without pasting.
 ```
 
 ---
@@ -420,7 +420,7 @@ $ tmux setw -g window-status-current-format "#[fg=white,bold] #I:#W "
 
 ## Scripting
 
-### tmux has-session -t mysession
+### Check if a session exists
 
 Exit code `0` means the session exists, and exit code `1` means it does not. This is useful in shell scripts.
 
@@ -429,7 +429,7 @@ $ tmux has-session -t mysession && echo "exists" || echo "not found"
 not found
 ```
 
-### tmux send-keys
+### Send keys to a pane
 
 Simulate typing a command into a specific pane.
 
@@ -437,7 +437,7 @@ Simulate typing a command into a specific pane.
 $ tmux send-keys -t mysession:0.0 'ls -la' Enter
 ```
 
-### tmux new-window
+### Run a command in a new window
 
 Create a new window that runs a command. The window closes when the command exits.
 
@@ -445,7 +445,7 @@ Create a new window that runs a command. The window closes when the command exit
 $ tmux new-window -n logs 'tail -f /var/log/syslog'
 ```
 
-### tmux split-window
+### Run a command in a split pane
 
 Split the current pane and run a command in the new pane.
 
@@ -453,7 +453,7 @@ Split the current pane and run a command in the new pane.
 $ tmux split-window -h 'htop'
 ```
 
-### tmux capture-pane -pS -
+### Capture pane contents to a file
 
 Dump the full scrollback history of a pane to a file.
 
@@ -461,7 +461,7 @@ Dump the full scrollback history of a pane to a file.
 $ tmux capture-pane -pS - > output.txt
 ```
 
-### tmux list-panes
+### List all pane PIDs
 
 Print the process ID of the shell running in each pane.
 
@@ -481,7 +481,7 @@ $ tmux list-panes -a -F '#{pane_pid}'
 | `Ctrl+b :` | Enter command mode. | A tmux command prompt opens at the bottom of the terminal. |
 | `:list-keys` | List keys from command mode. | Key bindings are shown from within tmux command mode. |
 
-### tmux list-keys
+### List key bindings
 
 Show all key bindings and their descriptions.
 
@@ -494,7 +494,7 @@ bind-key    -T copy-mode    \;                        send-keys -X jump-again
 ...
 ```
 
-### tmux info
+### Show tmux info
 
 Display every session, window, pane, and terminal capability.
 
@@ -509,7 +509,7 @@ Terminal 0: xterm-ghostty for /dev/pts/0, flags=0x34:
 ...
 ```
 
-### tmux -V
+### Check tmux version
 
 Check the installed tmux version.
 
