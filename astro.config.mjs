@@ -24,7 +24,7 @@ export default defineConfig({
           autogenerate: { directory: "cheatsheets" },
         },
         {
-          label: "neovim",
+          label: "neovim plugins",
           collapsed: false,
           autogenerate: { directory: "neovim" },
         },
