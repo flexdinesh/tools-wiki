@@ -47,13 +47,41 @@ Rules:
 
 - `src/content/docs/index.mdx` is the Starlight splash page served at `/`.
 - It uses Starlight frontmatter with `template: splash`, `hero`, and actions.
-- It imports `Card` and `CardGrid` from `@astrojs/starlight/components`.
+- It imports `CardGrid` and `LinkCard` from `@astrojs/starlight/components`.
 - The home page cards are maintained manually; when adding a new public tool page, update the relevant CardGrid entry if the tool should appear on the home page.
 - The home page Neovim section is for Neovim plugins only; keep the main `neovim` page under Cheatsheets.
 
 ## Document Structure
 
 Each `{tool}.md` is organized by high-level usage workflows as `##` sections.
+Choose the entry format based on the type of content in that section.
+
+### Simple shortcut docs
+
+Use a tabular structure for plain shortcuts or single-action commands that do not need a multi-step workflow or detailed terminal output.
+This is the preferred format for keyboard shortcuts like `neovim.md` and `vscode.md`.
+
+Use columns that fit the tool:
+
+- Keyboard shortcuts: `Key`, `Purpose`, `Result`
+- Cross-platform shortcuts: `macOS`, `Windows/Linux`, `Purpose`, `Result`
+- Simple commands without meaningful output: `Command`, `Purpose`, `Result`
+
+Example:
+
+```markdown
+## Editing
+
+| Key | Purpose | Result |
+| --- | --- | --- |
+| `dd` | Delete current line. | Current line is cut. |
+| `yy` | Yank current line. | Current line is copied. |
+```
+
+### Multi-step shortcut and workflow docs
+
+Use headed command entries with fenced examples for CLI commands, multi-step shortcuts, setup flows, or workflows where representative output helps the reader.
+This is the preferred format for command-heavy pages like `git.md`.
 
 Examples for `git.md`:
 
@@ -66,13 +94,11 @@ Examples for `git.md`:
 - `## Diff`
 - `## Stacked Rebase`
 
-## Command Entry Format
-
 Under each section, list commands. For each command, provide:
 
 1. **Purpose**: Brief, one-sentence description.
 2. **Example command**: The exact command string.
-3. **Example output**: Representative output the user sees.
+3. **Example output**: Representative output the user sees, when useful.
 
 Example:
 
