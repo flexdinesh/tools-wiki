@@ -5,6 +5,8 @@ description: Sessions, windows, panes, copy mode, buffers, configuration, status
 
 ## Sessions
 
+Note: `Ctrl+b` is the default prefix. If you use a custom prefix, use that.
+
 ### Start a session
 
 Start a new session in the current terminal.
@@ -101,21 +103,6 @@ Ctrl+b $
 
 ### Kill a session
 
-Kill the highlighted session from session preview mode. Use `j` / `k` to navigate, `x` to kill, and `y` to confirm.
-
-```
-Ctrl+b s
-j / k
-x
-y
-```
-
-Example confirmation prompt:
-
-```text
-kill-session mysession? (y/n)
-```
-
 Kill the current session.
 
 ```bash
@@ -138,6 +125,16 @@ Kill all sessions except a named session.
 
 ```bash
 $ tmux kill-session -a -t mysession
+```
+
+Kill the highlighted session from session preview mode.
+
+```
+# Ctrl+b s to enter session preview mode
+Use j / k to navigate, x to kill, and y to confirm.
+
+# example confirmation prompt:
+kill-session mysession? (y/n)
 ```
 
 ---
@@ -833,3 +830,4 @@ Open the tmux command prompt at the bottom of the terminal. Type any tmux comman
 ```
 Ctrl+b :
 ```
+
