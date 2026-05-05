@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/generate-md-manifest.mjs",
     "preview": "astro preview",
     "deploy": "sst deploy",
     "diff": "sst diff"

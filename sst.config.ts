@@ -28,7 +28,7 @@ export default $config({
       },
       transform: {
         worker: {
-          observability: { enabled: true },
+          observability: { enabled: false },
         },
       },
     });
