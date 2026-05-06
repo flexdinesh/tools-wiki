@@ -1,24 +1,37 @@
 @import "@fontsource/fira-code/400.css";
 @import "@fontsource/fira-code/600.css";
 
+/* https://starlight.astro.build/guides/css-and-tailwind/#theming */
+
 /* Light mode */
 :root {
-  --color-bg: #ffffff;
-  --color-text: #1a1a2e;
-  --color-accent: #4f46e5;
-  --color-code-bg: #f1f5f9;
-  --color-border: #e2e8f0;
-  --color-link: #4f46e5;
+  --sl-color-accent-low: #c8d8ed;
+  --sl-color-accent: #2e6cb7;
+  --sl-color-accent-high: #193354;
+  --sl-color-white: #181818;
+  --sl-color-gray-1: #272727;
+  --sl-color-gray-2: #383838;
+  --sl-color-gray-3: #585858;
+  --sl-color-gray-4: #8b8b8b;
+  --sl-color-gray-5: #c2c2c2;
+  --sl-color-gray-6: #eeeeee;
+  --sl-color-gray-7: #f6f6f6;
+  --sl-color-black: #ffffff;
 }
 
 /* Dark mode */
 [data-theme="dark"] {
-  --color-bg: #0f172a;
-  --color-text: #e2e8f0;
-  --color-accent: #818cf8;
-  --color-code-bg: #1e293b;
-  --color-border: #334155;
-  --color-link: #818cf8;
+  --sl-color-accent-low: #142539;
+  --sl-color-accent: #2b6ab5;
+  --sl-color-accent-high: #b5cbe6;
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #eeeeee;
+  --sl-color-gray-2: #c2c2c2;
+  --sl-color-gray-3: #8b8b8b;
+  --sl-color-gray-4: #585858;
+  --sl-color-gray-5: #383838;
+  --sl-color-gray-6: #272727;
+  --sl-color-black: #181818;
 }
 
 /* Font configuration */
