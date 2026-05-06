@@ -50,3 +50,15 @@
   --color-gray-900: #181818;
 }
 
+/* Mobile-first table sizing: keep shortcut/command columns readable. */
+.sl-markdown-content table th:first-child,
+.sl-markdown-content table td:first-child {
+  min-width: 6rem;
+}
+
+@media (min-width: 50rem) {
+  .sl-markdown-content table th:first-child,
+  .sl-markdown-content table td:first-child {
+    min-width: 9rem;
+  }
+}
