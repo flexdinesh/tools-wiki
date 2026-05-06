@@ -53,8 +53,10 @@ Rules:
 
 ## Document Structure
 
-Each `{tool}.md` is organized by high-level usage workflows as `##` sections.
+Each `{tool}.md` is organized by high-level usage workflows or command groups as `##` sections.
 Choose the entry format based on the type of content in that section.
+
+For CLI cheatsheets, prefer subcommand-focused `##` sections when commands are independent. Include the tool name in the section title, such as `## git config` or `## docker ps`. Use purpose-focused sections only when examples are commonly used together as a workflow or how-to, such as patch creation and application. `## Misc` is acceptable for entries that do not fit a clear subcommand or workflow.
 
 ### Simple shortcut docs
 
@@ -85,16 +87,16 @@ This is the preferred format for command-heavy pages like `git.md`.
 
 Examples for `git.md`:
 
-- `## Config`
-- `## Commit`
-- `## Log`
-- `## Push`
-- `## Worktree`
-- `## Patch`
-- `## Diff`
-- `## Stacked Rebase`
+- `## git config`
+- `## git commit`
+- `## git log`
+- `## git push`
+- `## git worktree`
+- `## Patch workflows`
+- `## git diff`
+- `## git rebase`
 
-Under each section, list commands. For each command, provide:
+Under each section, list purpose-focused entries. Use `###` headings that describe the task, not exact command strings. For each entry, provide:
 
 1. **Purpose**: Brief, one-sentence description.
 2. **Example command**: The exact command string.
@@ -103,7 +105,7 @@ Under each section, list commands. For each command, provide:
 Example:
 
 ````markdown
-### git status --short
+### Show concise status
 
 Shows a concise status with file change indicators.
 

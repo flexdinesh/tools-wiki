@@ -7,6 +7,8 @@ Shortcut notation: macOS uses `Cmd` and `Option`; Windows/Linux uses `Ctrl` and 
 
 ## Command Palette
 
+Open commands, settings, and quick navigation.
+
 | macOS | Windows/Linux | Purpose | Result |
 | --- | --- | --- | --- |
 | `Cmd+Shift+P` | `Ctrl+Shift+P` | Open Command Palette. | Run any VS Code command by name. |
@@ -15,6 +17,8 @@ Shortcut notation: macOS uses `Cmd` and `Option`; Windows/Linux uses `Ctrl` and 
 | `Cmd+K Cmd+S` | `Ctrl+K Ctrl+S` | Open Keyboard Shortcuts. | A searchable keybindings list opens. |
 
 ## File Navigation
+
+Jump between files, lines, symbols, and editor groups.
 
 | macOS | Windows/Linux | Purpose | Result |
 | --- | --- | --- | --- |
@@ -29,6 +33,8 @@ Shortcut notation: macOS uses `Cmd` and `Option`; Windows/Linux uses `Ctrl` and 
 | `Cmd+Shift+T` | `Ctrl+Shift+T` | Reopen closed editor. | The most recently closed editor reopens. |
 
 ## Editing
+
+Move, copy, format, and comment code quickly.
 
 | macOS | Windows/Linux | Purpose | Result |
 | --- | --- | --- | --- |
@@ -45,6 +51,8 @@ Shortcut notation: macOS uses `Cmd` and `Option`; Windows/Linux uses `Ctrl` and 
 
 ## Multi-Cursor and Selection
 
+Edit multiple locations at once.
+
 | macOS | Windows/Linux | Purpose | Result |
 | --- | --- | --- | --- |
 | `Option+Click` | `Alt+Click` | Add cursor with mouse. | A new cursor appears at the clicked location. |
@@ -56,6 +64,8 @@ Shortcut notation: macOS uses `Cmd` and `Option`; Windows/Linux uses `Ctrl` and 
 
 ## Search and Replace
 
+Find and replace text in files or projects.
+
 | macOS | Windows/Linux | Purpose | Result |
 | --- | --- | --- | --- |
 | `Cmd+F` | `Ctrl+F` | Find in file. | The Find widget opens in the editor. |
@@ -64,6 +74,8 @@ Shortcut notation: macOS uses `Cmd` and `Option`; Windows/Linux uses `Ctrl` and 
 | `Cmd+Shift+H` | `Ctrl+Shift+H` | Replace across files. | The Search view opens with replace controls enabled. |
 
 ## Terminal and Panels
+
+Toggle the terminal, sidebar, and tool panels.
 
 | macOS | Windows/Linux | Purpose | Result |
 | --- | --- | --- | --- |
@@ -79,6 +91,8 @@ Shortcut notation: macOS uses `Cmd` and `Option`; Windows/Linux uses `Ctrl` and 
 
 ## Code Navigation and Refactoring
 
+Navigate symbols and apply code actions.
+
 | macOS | Windows/Linux | Purpose | Result |
 | --- | --- | --- | --- |
 | `Cmd+.` | `Ctrl+.` | Quick Fix. | Available fixes and refactors open. |
@@ -88,6 +102,8 @@ Shortcut notation: macOS uses `Cmd` and `Option`; Windows/Linux uses `Ctrl` and 
 | `Ctrl+Space` | `Ctrl+Space` | Trigger suggestions. | IntelliSense suggestions open at the cursor. |
 
 ## Debugging
+
+Run and step through debug sessions.
 
 | macOS | Windows/Linux | Purpose | Result |
 | --- | --- | --- | --- |

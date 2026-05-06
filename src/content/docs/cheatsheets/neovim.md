@@ -5,6 +5,8 @@ description: Modes, navigation, editing, search and replace, explorer, buffers, 
 
 ## Modes
 
+Enter common editing states.
+
 | Key | Purpose | Result |
 | --- | --- | --- |
 | `i` | Enter insert mode before the cursor. | Start typing at the cursor. |
@@ -15,6 +17,8 @@ description: Modes, navigation, editing, search and replace, explorer, buffers, 
 | `Ctrl+v` | Enter visual block mode. | Select a rectangular block. |
 
 ## Navigation
+
+Move through code, symbols, and jump history.
 
 ### General
 
@@ -45,6 +49,8 @@ description: Modes, navigation, editing, search and replace, explorer, buffers, 
 | `[f` / `]f` | Move by function if configured. | Cursor moves to previous/next function through an LSP or outline plugin. |
 
 ## Editing
+
+Select, yank, delete, and paste text.
 
 ### Visual selections
 
@@ -82,6 +88,8 @@ Select text first with `v`, `V`, or `Ctrl+v`, then run an operation.
 
 ## Search and Replace
 
+Find text and replace it safely.
+
 ### Search and replace all instances in a file
 
 | Command | Purpose | Result |
@@ -118,6 +126,8 @@ Confirmation prompt shortcuts:
 
 ## Scrolling
 
+Move the viewport without editing text.
+
 | Key | Purpose | Result |
 | --- | --- | --- |
 | `Ctrl+u` | Scroll half page up. | Cursor and screen move up. |
@@ -127,7 +137,7 @@ Confirmation prompt shortcuts:
 
 ## Explorer
 
-LazyVim / Neo-tree shortcuts.
+Navigate project files with Neo-tree.
 
 | Key | Purpose | Result |
 | --- | --- | --- |
@@ -142,6 +152,8 @@ LazyVim / Neo-tree shortcuts.
 
 ## Buffers
 
+Move between open files.
+
 | Key | Purpose | Result |
 | --- | --- | --- |
 | `Shift+h` | Move to previous buffer. | Previous buffer opens. |
@@ -149,6 +161,8 @@ LazyVim / Neo-tree shortcuts.
 | `Ctrl+6` | Toggle alternate buffer. | Previous active buffer opens. |
 
 ## LSP
+
+Use language server actions.
 
 | Key | Purpose | Result |
 | --- | --- | --- |
@@ -158,6 +172,8 @@ LazyVim / Neo-tree shortcuts.
 | `K` | Show hover/type info. | LSP hover documentation appears. |
 
 ## Misc
+
+Run common editor commands.
 
 | Command | Purpose | Result |
 | --- | --- | --- |

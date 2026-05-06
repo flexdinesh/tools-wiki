@@ -5,6 +5,8 @@ description: Sessions, windows, panes, copy mode, buffers, configuration, status
 
 ## Sessions
 
+Create, attach, switch, and remove sessions.
+
 Note: `Ctrl+b` is the default prefix. If you use a custom prefix, use that.
 
 | Key | Purpose | Result |
@@ -138,6 +140,8 @@ Kill the highlighted session from session interactive mode.
 
 ## Windows
 
+Create, move, select, and close windows.
+
 | Key | Purpose | Result |
 | --- | --- | --- |
 | `Ctrl+b c` | Create a new window. | A new empty window opens with a shell prompt. |
@@ -229,6 +233,8 @@ Kill the highlighted window from window interactive mode.
 
 ## Panes
 
+Split, move, resize, and synchronize panes.
+
 | Key | Purpose | Result |
 | --- | --- | --- |
 | `Ctrl+b %` | Split the current pane vertically. | A new side-by-side pane opens on the right. |
@@ -292,7 +298,7 @@ $ tmux setw synchronize-panes
 
 ## Copy Mode
 
-Enter copy mode to scroll through and copy text from the terminal history.
+Scroll and copy terminal history.
 
 | Key | Purpose | Result |
 | --- | --- | --- |
@@ -321,6 +327,8 @@ Enter copy mode to scroll through and copy text from the terminal history.
 ---
 
 ## Buffers
+
+List, inspect, paste, and save buffers.
 
 | Command | Purpose | Result |
 | --- | --- | --- |
@@ -365,6 +373,8 @@ $ tmux choose-buffer
 
 ## Configuration
 
+Adjust tmux options and reload config.
+
 | Command | Purpose | Result |
 | --- | --- | --- |
 | `tmux source-file ~/.tmux.conf` | Reload the tmux config. | Changes apply without restarting the tmux server. |
@@ -398,6 +408,8 @@ $ tmux setw -g pane-base-index 1
 
 ## Status Bar
 
+Show, hide, move, and style the status bar.
+
 | Command | Purpose | Result |
 | --- | --- | --- |
 | `tmux set -g status off` | Hide the status bar. | The status bar disappears. |
@@ -419,6 +431,8 @@ $ tmux setw -g window-status-current-format "#[fg=white,bold] #I:#W "
 ---
 
 ## Scripting
+
+Automate sessions, panes, and windows.
 
 ### Check if a session exists
 
@@ -475,6 +489,8 @@ $ tmux list-panes -a -F '#{pane_pid}'
 
 ## Help
 
+Inspect commands, key bindings, and tmux state.
+
 | Key | Purpose | Result |
 | --- | --- | --- |
 | `Ctrl+b ?` | List key bindings. | Key bindings and descriptions open in a scrollable view. |
@@ -516,4 +532,55 @@ Check the installed tmux version.
 ```bash
 $ tmux -V
 tmux 3.6a
+```
+
+---
+
+## Popular use cases
+
+Use `tmux` to keep workspaces, logs, and remote sessions alive across terminals.
+
+### Start a persistent project workspace
+
+Create a named session with a named first window.
+
+```bash
+$ tmux new -s api -n server
+```
+
+### Run logs in a split pane
+
+Split the current window and start a log command in the new pane.
+
+```bash
+$ tmux split-window -h
+$ tmux send-keys 'tail -f app.log' C-m
+```
+
+### Keep a remote process attached to a session
+
+SSH to a server and attach to a long-running tmux session.
+
+```bash
+$ ssh deploy@example.com
+$ tmux attach -t app
+```
+
+### Search captured pane output
+
+Capture recent pane contents and pipe them into `grep`.
+
+```bash
+$ tmux capture-pane -p -S -2000 | grep ERROR
+2026-05-06 10:14:22 ERROR database connection failed
+```
+
+### List pane PIDs for debugging
+
+Print every pane with the PID of its foreground process.
+
+```bash
+$ tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index} #{pane_pid}'
+api:0.0 12345
+api:0.1 12346
 ```
