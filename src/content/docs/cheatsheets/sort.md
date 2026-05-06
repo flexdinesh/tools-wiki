@@ -1,251 +1,124 @@
 ---
 title: sort
-description: Sort lines by text, numbers, fields, reverse order, uniqueness, and pipeline-friendly output.
+description: Sort text, numbers, fields, unique lines, and pipeline output.
 ---
 
-`sort` reads lines from files or standard input, orders them, and writes the result to standard output. These examples use options that are common on macOS/BSD and GNU/Linux unless noted.
+`sort` orders lines from files or standard input. It is commonly paired with `uniq`, `head`, and other pipeline tools.
 
 ## Basics
 
-Order lines alphabetically and control duplicates.
-
 ### Sort alphabetically
 
-Sort lines alphabetically.
+Sort lines lexicographically.
 
 ```bash
 $ sort names.txt
-Alice
-Bob
-Carol
 alice
+bob
+carol
 ```
 
 ### Sort in reverse
 
-Sort lines in reverse order.
+Use `-r` to reverse the sort order.
 
 ```bash
 $ sort -r names.txt
+carol
+bob
 alice
-Carol
-Bob
-Alice
-```
-
-### Fold case while sorting
-
-Fold lowercase and uppercase together while sorting.
-
-```bash
-$ sort -f names.txt
-Alice
-alice
-Bob
-Carol
 ```
 
 ### Sort unique lines
 
-Sort lines and print only one copy of each duplicate line.
+Use `-u` to sort and keep one copy of each line.
 
 ```bash
 $ sort -u names.txt
-Alice
-Bob
-Carol
+alice
+bob
+carol
 ```
-
-### Write back to the same file
-
-Write sorted output back to the same file.
-
-```bash
-$ sort -o names.txt names.txt
-```
-
----
 
 ## Numeric Sort
 
-Compare fields as numbers instead of plain text.
-
 ### Sort numbers ascending
 
-Sort by numeric value instead of text order.
+Use `-n` when lines should be compared as numbers.
 
 ```bash
 $ sort -n scores.txt
 2
-9
 10
 100
 ```
 
 ### Sort numbers descending
 
-Sort numbers from largest to smallest.
+Combine `-n` and `-r` to rank largest numbers first.
 
 ```bash
 $ sort -nr scores.txt
 100
 10
-9
 2
 ```
 
-### Sort by numeric field
+## Fields and Keys
 
-Sort by the second whitespace-separated field as a number.
+### Sort by a numeric field
+
+Use `-k` to choose the field and `n` for numeric comparison.
 
 ```bash
 $ sort -k2,2n scores.txt
-bob 72
-alice 91
-carol 98
+alice 72
+carol 88
+bob 95
 ```
-
-### Sort by descending numeric field
-
-Sort by the third whitespace-separated field as a descending number.
-
-```bash
-$ sort -k3,3nr data.tsv
-carol design 98
-alice api 91
-bob web 72
-```
-
----
-
-## Fields and Keys
-
-Sort by selected fields and delimiters.
 
 ### Sort CSV by field
 
-Use a comma as the field delimiter and sort by the second field.
+Use `-t` to set the delimiter before choosing the key.
 
 ```bash
 $ sort -t, -k2,2 users.csv
-2,Alice,admin
-3,Bob,member
-1,Carol,member
+2,alice,admin
+1,bob,viewer
+3,carol,editor
 ```
 
-### Sort CSV by descending field
-
-Sort comma-separated rows by the third field as a descending number.
-
-```bash
-$ sort -t, -k3,3nr users.csv
-carol,design,98
-alice,api,91
-bob,web,72
-```
-
-### Sort with a tie-breaker
-
-Sort by a primary key, then use another field as a tie-breaker.
-
-```bash
-$ sort -k2,2 -k1,1 names.txt
-Alice admin
-Carol admin
-Bob member
-Dave member
-```
-
-### Ignore leading blanks
-
-Ignore leading blanks when comparing lines.
-
-```bash
-$ sort -b names.txt
-  Alice
- Bob
-Carol
-```
-
----
-
-## Check Sorted Input
-
-Validate sorted input without rewriting it.
-
-### Check sorted order
-
-Check whether a file is already sorted. Sorted input produces no output and exits successfully.
-
-```bash
-$ sort -c names.txt
-```
-
-### Check sorted unique input
-
-Check whether input is sorted and has no duplicate lines.
-
-```bash
-$ sort -cu names.txt
-```
-
----
-
-## Popular use cases
-
-Use `sort` in pipelines to rank, deduplicate, and stabilize command output.
+## Common Pipelines
 
 ### Rank CPU usage
 
-Sort `ps` output by CPU percentage and show the busiest processes.
+Sort processes by CPU usage and keep the top rows.
 
 ```bash
 $ ps aux | sort -k3,3nr | head -n 5
-alice  4242  38.0  1.2  app-server
-alice  4170  12.5  0.8  node
-root    301   5.1  0.4  WindowServer
+alice 4242  38.0  1.2 app-server
+alice 4170  12.5  0.8 node
+root   301   5.1  0.4 WindowServer
 ```
 
 ### Find the smallest entries
 
-Sort disk-usage output numerically before limiting it with `head`.
+Sort disk usage numerically and show the smallest entries.
 
 ```bash
 $ du -sk * | sort -n | head -n 10
 4	README.md
-16	scripts
-48	src
+8	package.json
+64	src
 ```
 
 ### Count commits by author
 
-Sort author names before `uniq -c`, then sort the counts descending.
+Sort names so `uniq -c` can count them, then rank by count.
 
 ```bash
 $ git log --format='%an' | sort | uniq -c | sort -nr
   42 Alice
   17 Bob
-   9 Carol
-```
-
-### Extract distinct CSV values
-
-Extract a CSV field and print each distinct value once.
-
-```bash
-$ cut -d, -f2 users.csv | sort -u
-admin
-member
-owner
-```
-
-### Stabilize file listings
-
-Make `find` output deterministic before passing paths to another tool.
-
-```bash
-$ find . -type f -name "*.log" | sort
-./logs/app.log
-./logs/worker.log
-./test/output.log
+   5 Carol
 ```

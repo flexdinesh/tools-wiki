@@ -1,197 +1,104 @@
 ---
 title: uniq
-description: Collapse adjacent duplicate lines, count repeats, find duplicates, print unique lines, and compose deduplication pipelines.
+description: Collapse adjacent duplicates, count repeats, and deduplicate sorted pipeline output.
 ---
 
-`uniq` reads lines from a file or standard input and compares each line with the previous line. Because it only removes adjacent duplicates, it is commonly used after `sort` when you want global deduplication.
+`uniq` filters adjacent matching lines. Sort first when you want to deduplicate across the whole input.
 
 ## Basics
 
-Compare adjacent lines and collapse repeats.
-
 ### Collapse adjacent duplicates
 
-Collapse adjacent duplicate lines into one line.
+Print one copy of each adjacent repeated line.
 
 ```bash
 $ uniq names.txt
-Alice
-Bob
-Alice
-Carol
+alice
+bob
+alice
 ```
 
 ### Count adjacent repeats
 
-Prefix each output line with the number of adjacent repeats.
+Use `-c` to prefix each adjacent group with its count.
 
 ```bash
 $ uniq -c names.txt
-   2 Alice
-   3 Bob
-   1 Carol
+   2 alice
+   1 bob
+   1 alice
 ```
 
-### Print adjacent duplicates
+### Print adjacent duplicates only
 
-Print only lines that are repeated next to each other.
+Use `-d` to print only lines that repeat next to each other.
 
 ```bash
 $ uniq -d names.txt
-Alice
-Bob
+alice
 ```
 
-### Print adjacent unique lines
+### Print adjacent unique lines only
 
-Print only lines that are not repeated next to each other.
+Use `-u` to print lines that are not repeated next to themselves.
 
 ```bash
 $ uniq -u names.txt
-Carol
+bob
+alice
 ```
-
-### Ignore case while comparing
-
-Compare lines without case sensitivity.
-
-```bash
-$ uniq -i names.txt
-Alice
-Bob
-Carol
-```
-
----
 
 ## Deduplicate Globally
 
-Sort before `uniq` to compare all duplicates.
-
 ### Deduplicate all lines
 
-Sort first so duplicate lines become adjacent, then collapse them.
+Sort first so equal lines become adjacent.
 
 ```bash
 $ sort names.txt | uniq
-Alice
-Bob
-Carol
+alice
+bob
 ```
 
 ### Count all distinct lines
 
-Count how many times each distinct line appears.
+Combine `sort`, `uniq -c`, and another sort to rank values by frequency.
 
 ```bash
-$ sort names.txt | uniq -c
-   2 Alice
-   3 Bob
-   1 Carol
+$ sort names.txt | uniq -c | sort -nr
+   3 alice
+   1 bob
 ```
 
 ### Print global duplicates
 
-Print values that appear more than once anywhere in the input.
+Sort first, then use `uniq -d` to show values that appear more than once.
 
 ```bash
 $ sort names.txt | uniq -d
-Alice
-Bob
+alice
 ```
 
-### Print globally unique lines
-
-Print values that appear exactly once in the input.
-
-```bash
-$ sort names.txt | uniq -u
-Carol
-```
-
----
-
-## Ignore Parts of Lines
-
-Skip fields or characters before comparing lines.
-
-### Skip fields
-
-Skip the first whitespace-separated field before comparing lines.
-
-```bash
-$ uniq -f 1 events.txt
-INFO started
-ERROR failed
-INFO stopped
-```
-
-### Skip characters
-
-Skip the first 11 characters before comparing lines.
-
-```bash
-$ uniq -s 11 events.txt
-10:00:00 started
-10:00:02 failed
-10:00:04 stopped
-```
-
----
-
-## Popular use cases
-
-Use `uniq` after sorting input to count repeated values and find duplicates.
+## Common Pipelines
 
 ### Count CSV values
 
-Extract a CSV field, group equal values, and rank the counts.
+Extract one CSV column, count distinct values, and rank them.
 
 ```bash
 $ cut -d, -f2 users.csv | sort | uniq -c | sort -nr
-  12 member
-   3 admin
-   1 owner
-```
-
-### Count repeated log endings
-
-Extract the final word from matching log lines and rank the repeated values.
-
-```bash
-$ grep "ERROR" app.log | awk '{print $NF}' | sort | uniq -c | sort -nr
-   8 timeout
-   3 failed
-   2 refused
-```
-
-### Count commits by author email
-
-Pipe Git author emails through `sort` and `uniq -c` to find frequent contributors.
-
-```bash
-$ git log --format='%ae' | sort | uniq -c | sort -nr
-  42 alice@example.com
-  17 bob@example.com
-```
-
-### Find duplicate basenames
-
-Find JavaScript files with the same basename in different directories.
-
-```bash
-$ find . -type f -name "*.js" | awk -F/ '{print $NF}' | sort | uniq -d
-index.js
-utils.js
+  42 admin
+  18 editor
+   7 viewer
 ```
 
 ### Rank shell history
 
-Remove history numbers, group repeated commands, and show the most common commands.
+Normalize shell history lines and show the most repeated commands.
 
 ```bash
 $ history | awk '{$1=""; sub(/^ /, ""); print}' | sort | uniq -c | sort -nr | head -n 10
-  28 git status
-  14 pnpm build
-  11 ls -la
+  84 git status
+  51 pnpm exec astro build
+  37 ls
 ```
