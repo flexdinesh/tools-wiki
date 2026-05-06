@@ -22,8 +22,7 @@
 }
 
 /* Font configuration */
-:root,
-[data-theme="dark"] {
+:root {
   --sl-font: "Fira Code", monospace;
   --sl-font-mono: "Fira Code", monospace;
   font-feature-settings:
