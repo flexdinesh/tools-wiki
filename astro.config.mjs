@@ -1,15 +1,18 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
+import tailwindcss from "@tailwindcss/vite";
+
 export default defineConfig({
   site: "https://toolswiki.deebox.dev",
+
   integrations: [
     starlight({
       title: "tools wiki",
       components: {
         Head: "./src/components/Head.astro",
       },
-      customCss: ["./src/styles/custom.css"],
+      customCss: ["./src/styles/global.css"],
       social: [
         {
           icon: "github",
@@ -31,4 +34,9 @@ export default defineConfig({
       ],
     }),
   ],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
+
