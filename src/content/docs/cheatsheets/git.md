@@ -1,6 +1,6 @@
 ---
 title: git
-description: Config, clone, status, commit, log, push, worktree, patch, diff, show, branch, tag, grep, and rebase workflows.
+description: Everyday config, clone, status, commit, log, push, worktree, patch, diff, show, branch, tag, grep, rebase, and stacked-branch workflows.
 ---
 
 ## git config
@@ -9,14 +9,13 @@ Set identity, signing, editor, and credential behavior.
 
 ### Check config
 
-Show all config settings with their source file and scope (global, local, worktree).
+Show all config settings with their source file and scope.
 
 ```bash
 $ git config --list --show-origin --show-scope
 file:/home/user/.gitconfig  global  user.name=Alice Example
 file:/home/user/.gitconfig  global  user.email=alice@example.com
-file:.git/config             local  user.name=bob
-file:.git/config             local  user.email=bob@work.example.com
+file:.git/config             local   core.repositoryformatversion=0
 ```
 
 ### Set global identity
@@ -24,61 +23,40 @@ file:.git/config             local  user.email=bob@work.example.com
 Set name and email for all repos on the machine.
 
 ```bash
-$ git config --global user.name "Your Name Here"
-$ git config --global user.email your@email.example
+$ git config --global user.name "Alice Example"
+$ git config --global user.email alice@example.com
 ```
 
 ### Set local identity
 
-Set name and email for the current repo only (overrides global).
+Set name and email for the current repo only.
 
 ```bash
-$ git config user.name "Your Name Here"
-$ git config user.email your@email.example
+$ git config user.name "Alice Example"
+$ git config user.email alice@work.example.com
 ```
 
 ### Sign commits with SSH
 
-Configure commit signing using an SSH key.
+Configure commit signing with an SSH key.
 
 ```bash
-$ git config gpg.format ssh
-$ git config user.signingkey ~/.ssh/id_ed25519.pub
-$ git config commit.gpgsign true
+$ git config --global gpg.format ssh
+$ git config --global user.signingkey ~/.ssh/id_ed25519.pub
+$ git config --global commit.gpgsign true
 ```
 
-Per-repo signing example (GitHub):
-
-```bash
-$ git config user.name "Alice Example"
-$ git config user.email alice@example.com
-$ git config gpg.format ssh
-$ git config user.signingkey ~/.ssh/id_ed25519.pub
-$ git config commit.gpgsign true
-```
-
-Per-repo signing example (Gitea):
-
-```bash
-$ git config user.name "bob"
-$ git config user.email bob@work.example.com
-$ git config gpg.format ssh
-$ git config user.signingkey ~/.ssh/id_ed25519.pub
-$ git config commit.gpgsign true
-```
-
-### Edit config in editor
+### Edit global config
 
 Open the global gitconfig in your default editor.
 
 ```bash
-$ export EDITOR=nvim
-$ git config --edit --global
+$ git config --global --edit
 ```
 
-### Cache credentials
+### Cache HTTPS credentials
 
-Cache HTTPS credentials for a set duration so you aren't prompted repeatedly.
+Cache HTTPS credentials so Git does not prompt for every operation.
 
 ```bash
 $ git config --global credential.helper 'cache --timeout=86400'
@@ -90,19 +68,27 @@ $ git config --global credential.helper 'cache --timeout=86400'
 
 Create a local copy of a remote repository.
 
-### Clone without SSL verification
+### Clone a repository
 
-Skip HTTPS certificate validation (useful for self-signed or internal Git servers).
+Clone a remote repository into a new local directory.
 
 ```bash
-$ git -c http.sslVerify=false clone https://example.com/path/to/git
-Cloning into 'git'...
+$ git clone git@github.com:user/repo.git
+Cloning into 'repo'...
 remote: Enumerating objects: 142, done.
 remote: Counting objects: 100% (142/142), done.
 remote: Compressing objects: 100% (97/97), done.
-remote: Total 142 (delta 48), reused 131 (delta 38)
 Receiving objects: 100% (142/142), 1.20 MiB | 2.33 MiB/s, done.
 Resolving deltas: 100% (48/48), done.
+```
+
+### Clone a specific branch
+
+Clone only one branch when you do not need the full branch list locally.
+
+```bash
+$ git clone --branch feature/new-ui --single-branch git@github.com:user/repo.git
+Cloning into 'repo'...
 ```
 
 ---
@@ -111,51 +97,74 @@ Resolving deltas: 100% (48/48), done.
 
 Inspect working tree and index state.
 
-### Filter changed files
+### Show concise status
 
-Filter changed files by status or path.
+Show changed files with short status codes.
 
 ```bash
-$ git status --short | grep '^ M'
+$ git status --short
  M src/app.ts
- M src/config.ts
+A  src/dashboard.ts
+?? notes.md
+```
+
+### Show branch and upstream status
+
+Show the current branch and whether it is ahead or behind its upstream.
+
+```bash
+$ git status --short --branch
+## feature/new-ui...origin/feature/new-ui [ahead 2]
+ M src/app.ts
 ```
 
 ---
 
 ## git commit
 
-Create commits and amend metadata on the latest commit.
+Create commits and update the latest commit.
 
-### Update date of latest commit
+### Commit staged changes
 
-Change the timestamp on the most recent commit without editing its message.
+Create a commit from files already added to the index.
 
 ```bash
-$ git commit --amend --no-edit --date=now
-[main d3adb33] Updated README with examples
- Date: Sat May 3 14:22:00 2026 +0530
- 1 file changed, 5 insertions(+), 2 deletions(-)
+$ git add src/app.ts src/config.ts
+$ git commit -m "Add dashboard filter"
+[feature/new-ui a1b2c3d] Add dashboard filter
+ 2 files changed, 21 insertions(+), 3 deletions(-)
 ```
 
-### Change author of latest commit
+### Amend latest commit
+
+Add staged changes to the latest commit without changing its message.
+
+```bash
+$ git add src/config.ts
+$ git commit --amend --no-edit
+[feature/new-ui d4e5f6g] Add dashboard filter
+ Date: Sat May 3 14:22:00 2026 +0530
+ 2 files changed, 25 insertions(+), 3 deletions(-)
+```
+
+### Change latest commit message
+
+Open the latest commit message in your editor.
+
+```bash
+$ git commit --amend
+```
+
+### Change latest commit author
 
 Rewrite the author field on the latest commit.
 
 ```bash
 $ git commit --amend --author="Alice Example <alice@example.com>"
-[main a1b2c3d] Updated README with examples
+[feature/new-ui a1b2c3d] Add dashboard filter
  Author: Alice Example <alice@example.com>
  Date: Sat May 3 14:22:00 2026 +0530
- 1 file changed, 5 insertions(+), 2 deletions(-)
-```
-
-### Amend date and author together
-
-Update the date and author metadata in one amend operation.
-
-```bash
-$ git commit --amend --no-edit --date=now --author="Alice Example <alice@example.com>"
+ 2 files changed, 21 insertions(+), 3 deletions(-)
 ```
 
 ---
@@ -164,115 +173,79 @@ $ git commit --amend --no-edit --date=now --author="Alice Example <alice@example
 
 Filter, format, search, and summarize commit history.
 
-### Filter by date
+### Show compact branch history
 
-Show commits since a specific date, one line each.
+Show a graph of recent commits with branch and tag names.
 
 ```bash
-$ git log --oneline --since 2024-07-30
-a1b2c3d Add feature flag for new dashboard
-e4f5g6h Fix null pointer in user service
-i7j8k9l Bump version to 2.1.0
+$ git log --oneline --graph --decorate --all
+* a1b2c3d (HEAD -> feature/new-ui) Add dashboard filter
+* e4f5g6h Update dashboard loading state
+| * i7j8k9l (origin/main, main) Bump dependencies
+|/
+* b1c2d3e Add dashboard shell
+```
+
+### Show commits on current branch
+
+Show commits on your branch that are not on `origin/main`.
+
+```bash
+$ git log --oneline origin/main..HEAD
+a1b2c3d Add dashboard filter
+e4f5g6h Update dashboard loading state
+```
+
+### Search commit messages
+
+Find commits with matching text in the subject or body.
+
+```bash
+$ git log --oneline --grep="fix"
+f1e2d3c Fix dashboard empty state
+c4b5a6d Fix login redirect
 ```
 
 ### Filter by author
 
-Match commits where the author name matches a Perl regex pattern.
+Show commits from one author.
 
 ```bash
-$ git log --oneline --perl-regexp --author='^(.*(Alice))'
-a1b2c3d Add feature flag for new dashboard
-e4f5g6h Refactor auth middleware
+$ git log --oneline --author="Alice"
+a1b2c3d Add dashboard filter
+e4f5g6h Update dashboard loading state
 ```
 
 ### Filter by multiple authors
 
-Match commits from any author in a Perl regex group.
+Show commits from any author whose name matches an extended regex.
 
 ```bash
-$ git log --oneline --perl-regexp --author='^(.*(alice|bob|charlie|dave|eve))'
+$ git log --oneline --extended-regexp --author="Alice|Bob"
+a1b2c3d Add dashboard filter
+e4f5g6h Update dashboard loading state
+c4b5a6d Fix login redirect
 ```
 
-### Exclude authors
+### Filter by date
 
-Exclude commits from specific authors with a negative lookahead.
+Show recent commits since a relative date.
 
 ```bash
-$ git log --oneline --perl-regexp --author='^(?!(.*(John|Paul|Ringo)))'
+$ git log --oneline --since="2 weeks ago"
+a1b2c3d Add dashboard filter
+e4f5g6h Update dashboard loading state
+i7j8k9l Bump dependencies
 ```
 
-### Pretty log format
+### Show history for a file
 
-Show a compact, colour-coded log with relative dates.
-
-```bash
-$ git log --since 2024-09-25 origin/main --perl-regexp \
-    --author=$AUTHOR_REGEX \
-    --pretty=format:"%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s" \
-    --date=relative
-a1b2c3d  3 days ago   Alice  Add feature flag for new dashboard
-e4f5g6h  5 days ago   Alice  Refactor auth middleware
-```
-
-### Exclude merge commits
-
-Show only non-merge commits that are direct children of the branch tip.
+Show commits that changed a specific file.
 
 ```bash
-$ git log --oneline --first-parent
-a1b2c3d Add feature flag for new dashboard
-e4f5g6h Refactor auth middleware
-i7j8k9l Fix null pointer in user service
-```
-
-For a specific branch:
-
-```bash
-$ git log --oneline --first-parent my-feature
-```
-
-### Find commits touching specific directories
-
-See which commits modified files inside given directories over the past week.
-
-```bash
-$ git log --since="7 days ago" --oneline -- .github/ .husky/ .idea/ .vscode/ gradle/ scripts/
-a1b2c3d Update CI action versions
-e4f5g6h Bump Gradle wrapper to 8.7
-i7j8k9l Add JetBrains run configuration
-```
-
-### Search commit subjects
-
-Search commit subjects with familiar text tools.
-
-```bash
-$ git log --oneline | grep -i fix | head -5
-e4f5g6h Fix null pointer in user service
-a7b8c9d Fix broken dashboard route
-c1d2e3f hotfix: restore login redirect
-```
-
-### Count commits by author
-
-Count commits by author.
-
-```bash
-$ git log --format='%an' | sort | uniq -c | sort -nr | head
-  142 Alice Example
-   87 Bob Reviewer
-   31 Charlie Dev
-```
-
-### Rank recently changed files
-
-Find files changed most often in recent history.
-
-```bash
-$ git log --since='30 days ago' --name-only --pretty=format: | grep -v '^$' | sort | uniq -c | sort -nr | head
-  18 src/app.ts
-  11 src/config.ts
-   7 README.md
+$ git log --oneline -- src/app.ts
+a1b2c3d Add dashboard filter
+b1c2d3e Add dashboard shell
 ```
 
 ---
@@ -281,28 +254,31 @@ $ git log --since='30 days ago' --name-only --pretty=format: | grep -v '^$' | so
 
 Send local refs to remotes safely.
 
-### Force-push safely
+### Push current branch and set upstream
 
-Overwrite the remote branch but refuse if someone else has pushed to it since you last fetched.
+Push the current branch and remember its upstream remote branch.
 
 ```bash
-$ git push origin HEAD --force-with-lease
+$ git push -u origin HEAD
 Enumerating objects: 7, done.
 Counting objects: 100% (7/7), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
 Writing objects: 100% (4/4), 462 bytes | 462.00 KiB/s, done.
-Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
 To github.com:user/repo.git
- + e4f5g6h...a1b2c3d HEAD -> main (forced update)
+ * [new branch]      HEAD -> feature/new-ui
+branch 'feature/new-ui' set up to track 'origin/feature/new-ui'.
 ```
 
-### Push without SSL verification
+### Force-push safely
 
-Skip HTTPS certificate validation while pushing to a remote.
+Overwrite the remote branch but refuse if someone else pushed since you last fetched.
 
 ```bash
-$ git -c http.sslVerify=false push origin HEAD
+$ git push --force-with-lease
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Writing objects: 100% (4/4), 462 bytes | 462.00 KiB/s, done.
+To github.com:user/repo.git
+ + e4f5g6h...a1b2c3d feature/new-ui -> feature/new-ui (forced update)
 ```
 
 ---
@@ -318,35 +294,17 @@ Show all active worktrees with their paths, branches, and HEAD commits.
 ```bash
 $ git worktree list
 ~/workspace/repo          a1b2c3d [main]
-~/workspace/repo-master   d4e5f6g [master]
 ~/workspace/repo-feature  h7i8j9k [feature/new-ui]
-```
-
-### Add worktree from existing branch
-
-Create a new worktree directory linked to an existing branch.
-
-```bash
-$ git worktree add ../repo-master master
-Preparing worktree (checking out 'master')
-HEAD is now at d4e5f6g Merge pull request #42
 ```
 
 ### Add worktree with new branch
 
-Create a new branch and worktree in one step, tracking the current remote branch.
+Create a new branch and checkout in a separate directory.
 
 ```bash
-$ git worktree add --track ../repo-feature -b feature/new-ui
+$ git worktree add ../repo-feature -b feature/new-ui origin/main
 Preparing worktree (new branch 'feature/new-ui')
-branch 'feature/new-ui' set up to track 'origin/main'
-HEAD is now at a1b2c3d Add feature flag for new dashboard
-```
-
-Place the worktree inside the repo folder instead of next to it:
-
-```bash
-$ git worktree add --track ./repo-feature -b feature/new-ui
+HEAD is now at a1b2c3d Add dashboard shell
 ```
 
 ### Remove a worktree
@@ -357,12 +315,6 @@ Clean up a worktree that is no longer needed.
 $ git worktree remove ../repo-feature
 ```
 
-For worktrees inside the repo directory:
-
-```bash
-$ git worktree remove ./repo-feature
-```
-
 ---
 
 ## Patch workflows
@@ -371,53 +323,38 @@ Create, inspect, and apply patch files.
 
 ### Create a patch
 
-Generate a `.patch` file from the latest commit. The `-1` flag controls how many commits are included.
+Generate a `.patch` file from the latest commit.
 
 ```bash
 $ git format-patch -1 HEAD
-0001-Add-feature-flag-for-new-dashboard.patch
+0001-Add-dashboard-filter.patch
 ```
 
-### Inspect a patch
+### Check a patch
 
-Show which files the patch touches without applying it.
+Dry-run a patch before applying it.
 
 ```bash
-$ git apply --stat 0001-Add-feature-flag-for-new-dashboard.patch
- src/dashboard.ts  | 12 ++++++++++++
- src/config.ts     |  3 +++
- 2 files changed, 15 insertions(+)
+$ git apply --check 0001-Add-dashboard-filter.patch
 ```
 
-### Check for errors
-
-Dry-run to check if the patch will apply cleanly before committing.
-
-```bash
-$ git apply --check 0001-Add-feature-flag-for-new-dashboard.patch
-```
-
-If no output, the patch will apply without conflicts.
+If there is no output, the patch applies cleanly.
 
 ### Apply a patch
 
-Apply the patch to the working tree with verbose output for any errors.
+Apply a patch to the working tree without committing it.
 
 ```bash
-$ git apply --verbose 0001-Add-feature-flag-for-new-dashboard.patch
-Checking patch src/dashboard.ts...
-Checking patch src/config.ts...
-Applied patch src/dashboard.ts cleanly.
-Applied patch src/config.ts cleanly.
+$ git apply 0001-Add-dashboard-filter.patch
 ```
 
 ### Apply and commit a patch
 
-Apply the patch and create a commit, preserving the original author and message.
+Apply an email-style patch and create a commit with the original author and message.
 
 ```bash
-$ git am < 0001-Add-feature-flag-for-new-dashboard.patch
-Applying: Add feature flag for new dashboard
+$ git am < 0001-Add-dashboard-filter.patch
+Applying: Add dashboard filter
 ```
 
 ---
@@ -428,7 +365,7 @@ Compare worktrees, indexes, commits, branches, and paths.
 
 ### Show unstaged changes
 
-Show unstaged changes in the working tree.
+Show changes in the working tree that are not staged yet.
 
 ```bash
 $ git diff
@@ -446,7 +383,7 @@ index 2f3a8ad..8c4b03d 100644
 
 ### Show staged changes
 
-Show staged changes that will be included in the next commit.
+Show changes that will be included in the next commit.
 
 ```bash
 $ git add src/app.ts
@@ -463,32 +400,14 @@ index 2f3a8ad..8c4b03d 100644
  }
 ```
 
-### Show all uncommitted changes
-
-Show all uncommitted changes, including both staged and unstaged changes.
-
-```bash
-$ git diff HEAD
-diff --git a/src/app.ts b/src/app.ts
-index 2f3a8ad..8c4b03d 100644
---- a/src/app.ts
-+++ b/src/app.ts
-@@ -1,5 +1,5 @@
--const timeoutMs = 1000;
-+const timeoutMs = 3000;
- export function start() {
-   connect({ timeoutMs });
- }
-```
-
 ### Summarize changed files
 
-Show a compact summary of changed files and line counts.
+Show changed files with line counts.
 
 ```bash
 $ git diff --stat
- src/app.ts      | 2 +-
- src/config.ts   | 6 ++++++
+ src/app.ts    | 2 +-
+ src/config.ts | 6 ++++++
  2 files changed, 7 insertions(+), 1 deletion(-)
 ```
 
@@ -502,58 +421,19 @@ src/app.ts
 src/config.ts
 ```
 
-### Highlight word changes
+### Compare branch changes since merge base
 
-Highlight changed words inline instead of showing whole changed lines.
-
-```bash
-$ git diff --word-diff
-@@ -1 +1 @@
--The API timeout is [-one second-]{+three seconds+}.
-```
-
-### Check whitespace errors
-
-Detect whitespace errors and conflict markers before committing.
+Show what changed on your branch since it branched from `origin/main`.
 
 ```bash
-$ git diff --check
-src/app.ts:12: trailing whitespace.
-+  const status = "ready";
-src/config.ts:4: leftover conflict marker
-```
-
-If there is no output, Git did not find whitespace errors or conflict markers.
-
-### Compare branch tips
-
-Compare the exact tips of two branches.
-
-```bash
-$ git diff --stat main..feature
- src/dashboard.ts | 18 ++++++++++++++++++
- src/config.ts    |  3 +++
- 2 files changed, 21 insertions(+)
-```
-
-### Compare since merge base
-
-Show what changed on `feature` since it branched from `main`.
-
-```bash
-$ git diff --name-status main...feature
-A	src/dashboard.ts
-M	src/config.ts
-```
-
-### Compare two commits
-
-Compare two commits directly.
-
-```bash
-$ git diff --stat HEAD~1 HEAD
- README.md | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+$ git diff origin/main...HEAD
+diff --git a/src/dashboard.ts b/src/dashboard.ts
+new file mode 100644
+index 0000000..8c4b03d
+--- /dev/null
++++ b/src/dashboard.ts
+@@ -0,0 +1 @@
++export function renderDashboard() {}
 ```
 
 ### Limit diff to a path
@@ -571,39 +451,18 @@ index 2f3a8ad..8c4b03d 100644
 +const timeoutMs = 3000;
 ```
 
-### Ignore whitespace changes
+### Check whitespace and conflict markers
 
-Ignore whitespace-only changes when reviewing a diff.
-
-```bash
-$ git diff -w
-diff --git a/src/app.ts b/src/app.ts
-index 2f3a8ad..8c4b03d 100644
---- a/src/app.ts
-+++ b/src/app.ts
-@@ -1 +1 @@
--return user.name;
-+return user.displayName;
-```
-
-### Format changed files
-
-Run a command on changed files, such as formatting only modified TypeScript files.
+Detect whitespace errors and conflict markers before committing.
 
 ```bash
-$ git diff --name-only -- '*.ts' | xargs pnpm exec prettier --write
-src/app.ts 42ms
-src/config.ts 18ms
+$ git diff --check
+src/app.ts:12: trailing whitespace.
++  const status = "ready";
+src/config.ts:4: leftover conflict marker
 ```
 
-### Summarize branch churn
-
-Summarize added and deleted lines for a branch.
-
-```bash
-$ git diff --numstat main...HEAD | awk '{ added += $1; deleted += $2 } END { print added " added, " deleted " deleted" }'
-42 added, 9 deleted
-```
+If there is no output, Git did not find whitespace errors or conflict markers.
 
 ---
 
@@ -621,7 +480,7 @@ commit a1b2c3d4e5f6g7h8i9j0
 Author: Alice Example <alice@example.com>
 Date:   Sat May 3 14:22:00 2026 +0530
 
-    Add feature flag for new dashboard
+    Add dashboard filter
 
 diff --git a/src/config.ts b/src/config.ts
 index 6b7c8d9..9a0b1c2 100644
@@ -629,7 +488,7 @@ index 6b7c8d9..9a0b1c2 100644
 +++ b/src/config.ts
 @@ -1 +1,2 @@
  export const apiBaseUrl = "https://api.example.com";
-+export const newDashboard = true;
++export const dashboardFilter = true;
 ```
 
 ### Show commit stats
@@ -642,7 +501,7 @@ commit a1b2c3d4e5f6g7h8i9j0
 Author: Alice Example <alice@example.com>
 Date:   Sat May 3 14:22:00 2026 +0530
 
-    Add feature flag for new dashboard
+    Add dashboard filter
 
  src/dashboard.ts | 12 ++++++++++++
  src/config.ts    |  1 +
@@ -659,25 +518,10 @@ commit a1b2c3d4e5f6g7h8i9j0
 Author: Alice Example <alice@example.com>
 Date:   Sat May 3 14:22:00 2026 +0530
 
-    Add feature flag for new dashboard
+    Add dashboard filter
 
 src/dashboard.ts
 src/config.ts
-```
-
-### Show full commit metadata
-
-Show fuller author and committer metadata for a commit.
-
-```bash
-$ git show --pretty=fuller --no-patch HEAD
-commit a1b2c3d4e5f6g7h8i9j0
-Author:     Alice Example <alice@example.com>
-AuthorDate: Sat May 3 14:22:00 2026 +0530
-Commit:     Bob Reviewer <bob@example.com>
-CommitDate: Sat May 3 15:01:00 2026 +0530
-
-    Add feature flag for new dashboard
 ```
 
 ### Print file at a commit
@@ -687,103 +531,104 @@ Print a file exactly as it existed at a commit.
 ```bash
 $ git show HEAD:src/config.ts
 export const apiBaseUrl = "https://api.example.com";
-export const newDashboard = true;
-```
-
-### Show file from another branch
-
-Show a file from another branch without checking it out.
-
-```bash
-$ git show main:README.md
-# Project
-
-Documentation and examples for the project.
-```
-
-### Show word-level patch
-
-Show a commit patch with word-level highlighting.
-
-```bash
-$ git show --word-diff HEAD
-commit a1b2c3d4e5f6g7h8i9j0
-Author: Alice Example <alice@example.com>
-Date:   Sat May 3 14:22:00 2026 +0530
-
-    Add feature flag for new dashboard
-
-@@ -1 +1 @@
--The dashboard is [-disabled-]{+enabled+} by default.
+export const dashboardFilter = true;
 ```
 
 ---
 
 ## git rebase
 
-Move stacked branches as their bases change.
+Move commits to a new base, clean up local history, and handle conflicts.
 
-### Rebase onto a new parent
+### Rebase current branch onto latest main
 
-Move a branch so it starts from a different base commit. Useful for stacked branches when the parent branch is rewritten.
-
-```
-main:        A---B---C---H---I
-                  \          \
-old commits:       D---E      D'---E'  (new hashes!)
-                        \
-my-feature-2:            F---G
-```
+Replay your branch commits on top of the latest `origin/main`.
 
 ```bash
-$ git rebase --onto my-feature-1 my-feature-2-base my-feature-2
-Successfully rebased and updated refs/heads/my-feature-2.
+$ git fetch origin
+$ git rebase origin/main
+Successfully rebased and updated refs/heads/feature/new-ui.
 ```
 
-The general form:
+### Resolve conflicts during rebase
+
+Fix conflicted files, stage them, and continue the rebase.
+
+```bash
+$ git status
+interactive rebase in progress; onto a1b2c3d
+You are currently rebasing branch 'feature/new-ui' on 'a1b2c3d'.
+
+Unmerged paths:
+  both modified:   src/app.ts
+
+$ git add src/app.ts
+$ git rebase --continue
+```
+
+Abort and return to the pre-rebase state if needed.
+
+```bash
+$ git rebase --abort
+```
+
+### Clean up recent commits interactively
+
+Edit, reorder, squash, or reword recent local commits before sharing them.
+
+```bash
+$ git rebase -i HEAD~3
+```
+
+In the editor:
+
+```text
+pick a1b2c3d Add dashboard shell
+reword e4f5g6h Update loading copy
+squash i7j8k9l Fix typo
+```
+
+### Move commits from one base to another
+
+Use `--onto` when you need to transplant a commit range to a different base.
+
+```bash
+$ git rebase --onto main old-base feature
+Successfully rebased and updated refs/heads/feature.
+```
+
+The general form is:
 
 ```bash
 $ git rebase --onto <new-base> <old-base> <branch>
 ```
 
-### Clean up after parent merges
-
-Once the parent branch merges into `main`, drop its commits from your stacked branch with an interactive rebase.
-
-```bash
-$ git checkout my-feature-2
-$ git rebase -i main
-```
-
-In the editor, delete the lines for commits that belong to the merged parent:
-
-```
-pick D' ...  ← DELETE (merged from feature-1)
-pick E' ...  ← DELETE (merged from feature-1)
-pick F  ...  ← KEEP (your own work)
-pick G  ...  ← KEEP (your own work)
-```
+Git takes commits reachable from `<branch>` but not reachable from `<old-base>` and replays them onto `<new-base>`.
 
 ---
 
 ## git branch
 
-Create, update, list, and delete branch refs.
+Create, update, list, rename, and delete branch refs.
 
-### Update a stacked-branch base marker
+### List local and remote branches
 
-When you rebase `my-feature-2` onto `my-feature-1`, update the tracking base so future rebases use the correct old-base.
+Show all branches Git knows about locally.
 
 ```bash
-# After every rebase of my-feature-2 onto my-feature-1:
-$ git branch -f my-feature-2-base my-feature-1
+$ git branch --all
+* feature/new-ui
+  main
+  remotes/origin/feature/new-ui
+  remotes/origin/main
 ```
 
-Full cycle — repeat each time `my-feature-1` is rewritten:
+### Rename current branch
+
+Rename the branch you are currently on.
 
 ```bash
-$ git rebase --onto my-feature-1 my-feature-2-base my-feature-2
-$ git branch -f my-feature-2-base my-feature-1
+$ git branch -m feature/dashboard-filter
 ```
 
 ### Delete merged branches
@@ -804,7 +649,7 @@ Remove paths from the working tree or index.
 
 ### Untrack a file without deleting it
 
-Stop tracking a file in Git while keeping it on disk (e.g. a `.npmrc` that should be local).
+Stop tracking a file in Git while keeping it on disk.
 
 ```bash
 $ git rm --cached .npmrc
@@ -812,23 +657,6 @@ rm '.npmrc'
 ```
 
 The file remains on disk but is removed from the index. Add it to `.gitignore` afterwards.
-
----
-
-## git ls-files
-
-List tracked files and compose the output with text tools.
-
-### Count lines in tracked Markdown
-
-Find tracked files by extension and pass them to another command.
-
-```bash
-$ git ls-files | grep '\.md$' | xargs wc -l
-     128 README.md
-      74 docs/setup.md
-     202 total
-```
 
 ---
 
@@ -855,44 +683,6 @@ v2.3.0
 
 Search tracked file contents.
 
-### List files with matches
-
-List files containing a search term.
-
-```bash
-$ git grep -n 'TODO' | cut -d: -f1 | sort -u
-src/app.ts
-src/config.ts
-src/dashboard.ts
-```
-
----
-
-## Popular use cases
-
-Use Git output in pipelines to review changes, search tracked files, and run checks.
-
-### Run checks on changed files
-
-List files changed on the current branch and pass them to a checker.
-
-```bash
-$ git diff --name-only origin/main...HEAD | xargs pnpm prettier --check
-Checking formatting...
-All matched files use Prettier code style!
-```
-
-### Review branch change size
-
-Compare your branch to the merge base and summarize changed files.
-
-```bash
-$ git diff --stat origin/main...HEAD
- src/app.ts      | 12 +++++++++---
- src/config.ts   |  4 ++--
- 2 files changed, 11 insertions(+), 5 deletions(-)
-```
-
 ### Search tracked files
 
 Search only files Git tracks and print the file and line for each match.
@@ -903,15 +693,21 @@ src/app.ts:12:TODO: handle empty responses
 src/config.ts:8:TODO: document defaults
 ```
 
+---
+
+## Popular use cases
+
+Walk through common multi-command workflows.
+
 ### Count commits by author
 
 Count author names from Git history and rank them.
 
 ```bash
 $ git log --format='%an' | sort | uniq -c | sort -nr
-  42 Alice
-  17 Bob
-   9 Carol
+  42 Alice Example
+  17 Bob Reviewer
+   9 Carol Dev
 ```
 
 ### Find frequently changed files
@@ -919,8 +715,66 @@ $ git log --format='%an' | sort | uniq -c | sort -nr
 List file paths from commits, count repeats, and show the files with the most churn.
 
 ```bash
-$ git log --name-only --pretty=format: | sort | uniq -c | sort -nr | head
+$ git log --name-only --pretty=format: | grep -v '^$' | sort | uniq -c | sort -nr | head
   18 src/app.ts
   11 package.json
    9 README.md
+```
+
+### Rebase a stacked child branch after the parent branch changes
+
+Use a marker branch to remember where the child branch was originally based, then move only the child commits onto the updated parent branch.
+
+Start with a stack where `feature/ui` is based on `feature/api`:
+
+```text
+main:        A---B---C
+                  \
+feature/api:       D---E
+                        \
+feature/ui:              F---G
+```
+
+Record the current parent tip before the parent branch is rewritten:
+
+```bash
+$ git branch -f feature/ui-base feature/api
+```
+
+Later, `main` moves forward and `feature/api` is rebased, so the parent commits get new hashes:
+
+```text
+main:        A---B---C---H---I
+                          \
+feature/api:               D'---E'
+
+feature/ui still points to the old stack: D---E---F---G
+```
+
+Move only the child commits from the old parent base to the updated parent branch:
+
+```bash
+$ git rebase --onto feature/api feature/ui-base feature/ui
+Successfully rebased and updated refs/heads/feature/ui.
+```
+
+Update the marker after the rebase succeeds:
+
+```bash
+$ git branch -f feature/ui-base feature/api
+```
+
+Push the rewritten child branch safely if it exists on the remote:
+
+```bash
+$ git push --force-with-lease
+```
+
+If the parent branch is merged or squash-merged into `main`, move only the child commits onto `origin/main`:
+
+```bash
+$ git fetch origin
+$ git rebase --onto origin/main feature/ui-base feature/ui
+$ git branch -f feature/ui-base origin/main
+$ git push --force-with-lease
 ```
