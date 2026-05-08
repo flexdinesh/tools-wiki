@@ -31,6 +31,15 @@ Use a shell glob to remove matching files.
 $ rm *.tmp
 ```
 
+### List removed files
+
+Use `-v` to print each file as it is removed.
+
+```bash
+$ rm -v old.txt
+removed 'old.txt'
+```
+
 ## Directories
 
 ### Remove a directory and its contents
@@ -66,4 +75,14 @@ Use `-f` when missing files should not print errors or fail scripts.
 
 ```bash
 $ rm -f missing.txt
+```
+
+## Popular Use Cases
+
+### Remove all .DS_Store files recursively
+
+Find `.DS_Store` files under the current directory and remove them from all nested directories.
+
+```bash
+$ find . -type f -name ".DS_Store" -exec rm -fv {} +
 ```
