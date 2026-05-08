@@ -421,12 +421,27 @@ src/app.ts
 src/config.ts
 ```
 
-### Compare branch changes since merge base
+### Compare two branch tips
 
-Show what changed on your branch since it branched from `origin/main`.
+Show differences between the exact `main` tip and the current `HEAD` snapshot.
 
 ```bash
-$ git diff origin/main...HEAD
+$ git diff main HEAD
+diff --git a/src/config.ts b/src/config.ts
+index 6b7c8d9..9a0b1c2 100644
+--- a/src/config.ts
++++ b/src/config.ts
+@@ -1 +1,2 @@
+ export const apiBaseUrl = "https://api.example.com";
++export const dashboardFilter = true;
+```
+
+### Compare branch changes since merge base
+
+Show what changed on your branch since it branched from `main`.
+
+```bash
+$ git diff main...HEAD
 diff --git a/src/dashboard.ts b/src/dashboard.ts
 new file mode 100644
 index 0000000..8c4b03d
@@ -529,9 +544,10 @@ src/config.ts
 Print a file exactly as it existed at a commit.
 
 ```bash
-$ git show HEAD:src/config.ts
-export const apiBaseUrl = "https://api.example.com";
-export const dashboardFilter = true;
+$ git show HEAD:README.md
+# tools wiki
+
+A searchable collection of cheatsheets and quick-reference guides for developer tools.
 ```
 
 ---
