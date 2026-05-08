@@ -28,28 +28,50 @@ src/index.ts:12:// TODO: handle empty state
 
 ### Ignore case
 
-Use `-i` to match text regardless of case.
+Use `--ignore-case` or `-i` to match text regardless of case.
 
 ```bash
+$ rg --ignore-case "error"
+logs/app.log:42:ERROR failed to connect
+logs/app.log:45:error retrying
+
 $ rg -i "error"
 logs/app.log:42:ERROR failed to connect
 logs/app.log:45:error retrying
 ```
 
-### Search fixed strings
+### Force case-sensitive search
 
-Use `-F` when the pattern should be treated literally.
+Use `--case-sensitive` or `-s` to force exact case matching, especially when aliases or config enable ignore-case or smart-case behavior.
 
 ```bash
+$ rg --case-sensitive "Error"
+src/errors.ts:3:export class NetworkError extends Error {}
+
+$ rg -s "Error"
+src/errors.ts:3:export class NetworkError extends Error {}
+```
+
+### Search fixed strings
+
+Use `--fixed-strings` or `-F` when the pattern should be treated literally.
+
+```bash
+$ rg --fixed-strings "user.name"
+src/user.ts:10:return user.name
+
 $ rg -F "user.name"
 src/user.ts:10:return user.name
 ```
 
 ### Match whole words
 
-Use `-w` to avoid matching inside longer words.
+Use `--word-regexp` or `-w` to avoid matching inside longer words.
 
 ```bash
+$ rg --word-regexp "log"
+src/logger.ts:4:export function log(message) {
+
 $ rg -w "log"
 src/logger.ts:4:export function log(message) {
 ```
@@ -78,38 +100,104 @@ src/errors.ts:3:export class NetworkError extends Error {}
 
 ### Search a file type
 
-Use `-t` to search files of a known type.
+Use `--type` or `-t` to search files of a known type.
 
 ```bash
+$ rg "fetch" --type ts
+src/api.ts:18:const res = await fetch(url)
+
 $ rg "fetch" -t ts
 src/api.ts:18:const res = await fetch(url)
 ```
 
 ### Search a glob
 
-Use `-g` to include files matching a glob.
+Use `--glob` or `-g` to include files matching a glob.
 
 ```bash
+$ rg "fetch" --glob "*.ts"
+src/api.ts:18:const res = await fetch(url)
+
 $ rg "fetch" -g "*.ts"
 src/api.ts:18:const res = await fetch(url)
 ```
 
-### Combine include and exclude globs
+### Search multiple file types with one glob
 
-Add a negated glob to skip matching files.
+Use brace expansion in `--glob` or `-g` to include multiple file extensions.
 
 ```bash
+$ rg "TODO" --glob "*.{md,css,ts}"
+README.md:8:TODO: add setup notes
+src/styles.css:4:/* TODO: theme tokens */
+src/index.ts:12:// TODO: handle empty state
+
+$ rg "TODO" -g "*.{md,css,ts}"
+README.md:8:TODO: add setup notes
+src/styles.css:4:/* TODO: theme tokens */
+src/index.ts:12:// TODO: handle empty state
+```
+
+### Exclude multiple file types with one glob
+
+Prefix a brace glob with `!` in `--glob` or `-g` to exclude multiple file extensions.
+
+```bash
+$ rg "TODO" --glob "!*.{md,css,ts}"
+src/index.html:6:<!-- TODO: add meta tags -->
+
+$ rg "TODO" -g "!*.{md,css,ts}"
+src/index.html:6:<!-- TODO: add meta tags -->
+```
+
+### Combine include and exclude globs
+
+Add a negated glob to skip matching files with `--glob` or `-g`.
+
+```bash
+$ rg "fetch" --glob "*.ts" --glob "!*.test.ts"
+src/api.ts:18:const res = await fetch(url)
+
 $ rg "fetch" -g "*.ts" -g "!*.test.ts"
 src/api.ts:18:const res = await fetch(url)
 ```
 
 ### Exclude a directory
 
-Use a negated glob to skip noisy directories.
+Use a negated glob with `--glob` or `-g` to skip noisy directories.
 
 ```bash
 $ rg "TODO" --glob "!node_modules/**"
 src/index.ts:12:// TODO: handle empty state
+
+$ rg "TODO" -g "!node_modules/**"
+src/index.ts:12:// TODO: handle empty state
+```
+
+### Search ignored files
+
+Use `--no-ignore` or `-u` to search files normally skipped by ignore files such as `.gitignore`, `.ignore`, or `.rgignore`.
+
+```bash
+$ rg --no-ignore "generated client"
+dist/client.js:1:// generated client
+
+$ rg -u "generated client"
+dist/client.js:1:// generated client
+```
+
+### Search ignored and hidden files
+
+Use `--no-ignore --hidden` or `-uu` to search ignored files and hidden files or directories.
+
+```bash
+$ rg --no-ignore --hidden "API_KEY"
+.env:1:API_KEY=example
+dist/config.js:2:const API_KEY = "example"
+
+$ rg -uu "API_KEY"
+.env:1:API_KEY=example
+dist/config.js:2:const API_KEY = "example"
 ```
 
 ## File Lists and Counts
@@ -127,9 +215,13 @@ src/api.ts
 
 ### List files with matches
 
-Use `-l` when you only need matching filenames.
+Use `--files-with-matches` or `-l` when you only need matching filenames.
 
 ```bash
+$ rg --files-with-matches "TODO"
+README.md
+src/index.ts
+
 $ rg -l "TODO"
 README.md
 src/index.ts
@@ -137,9 +229,13 @@ src/index.ts
 
 ### Count matching lines
 
-Use `-c` to count matching lines per file.
+Use `--count` or `-c` to count matching lines per file.
 
 ```bash
+$ rg --count "TODO"
+README.md:1
+src/index.ts:2
+
 $ rg -c "TODO"
 README.md:1
 src/index.ts:2
@@ -149,18 +245,27 @@ src/index.ts:2
 
 ### Show line numbers
 
-Use `-n` to include line numbers in results.
+Use `--line-number` or `-n` to include line numbers in results.
 
 ```bash
+$ rg --line-number "TODO"
+src/index.ts:12:// TODO: handle empty state
+
 $ rg -n "TODO"
 src/index.ts:12:// TODO: handle empty state
 ```
 
 ### Show context
 
-Use `-C` to show lines before and after each match.
+Use `--context` or `-C` to show lines before and after each match.
 
 ```bash
+$ rg --context 2 "panic!"
+src/main.rs-10-    let value = load();
+src/main.rs-11-    if value.is_none() {
+src/main.rs:12:        panic!("missing value");
+src/main.rs-13-    }
+
 $ rg -C 2 "panic!"
 src/main.rs-10-    let value = load();
 src/main.rs-11-    if value.is_none() {
