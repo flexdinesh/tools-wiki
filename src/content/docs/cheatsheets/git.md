@@ -1,6 +1,6 @@
 ---
 title: git
-description: Everyday config, clone, status, commit, log, push, worktree, patch, diff, show, branch, tag, grep, rebase, and stacked-branch workflows.
+description: Everyday config, clone, status, clean, commit, log, push, worktree, patch, diff, show, branch, tag, grep, rebase, and stacked-branch workflows.
 ---
 
 ## git config
@@ -116,6 +116,46 @@ Show the current branch and whether it is ahead or behind its upstream.
 $ git status --short --branch
 ## feature/new-ui...origin/feature/new-ui [ahead 2]
  M src/app.ts
+```
+
+---
+
+## git clean
+
+Remove untracked files and directories from the working tree.
+
+### Preview files before cleaning
+
+Show what Git would remove without deleting anything.
+
+```bash
+$ git clean --dry-run
+Would remove debug.log
+Would remove tmp/output.json
+```
+
+### Remove untracked files and directories
+
+Delete untracked files and untracked directories.
+
+```bash
+$ git clean -fd
+Removing build/
+Removing debug.log
+```
+
+### Clean interactively
+
+Choose what to remove from an interactive prompt.
+
+```bash
+$ git clean -i
+Would remove the following items:
+  debug.log  tmp/output.json
+*** Commands ***
+    1: clean    2: filter by pattern    3: select by numbers
+    4: ask each 5: quit                 6: help
+What now>
 ```
 
 ---
