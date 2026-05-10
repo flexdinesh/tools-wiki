@@ -1,6 +1,6 @@
 ---
 title: ssh
-description: Connect, key generation, copy keys, known hosts, SSH agent, and port forwarding.
+description: Connect, start remote programs, key generation, copy keys, known hosts, SSH agent, and port forwarding.
 ---
 
 ## Connect
@@ -26,6 +26,14 @@ Log in using a specific private key instead of the default.
 $ ssh -i ~/.ssh/id_ed25519 alice@github.com
 Hi alice! You've successfully authenticated, but GitHub does not provide shell access.
 Connection to github.com closed.
+```
+
+### Start a program after connecting
+
+Force pseudo-terminal allocation and start an interactive program on the remote host.
+
+```bash
+$ ssh -i ~/.ssh/project-access user@server.example.com -t "tmux"
 ```
 
 ---
