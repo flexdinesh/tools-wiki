@@ -548,6 +548,14 @@ Create a named session with a named first window.
 $ tmux new -s api -n server
 ```
 
+### Reopen your main workspace
+
+Create or attach to a default `main` session. Use this as a daily terminal entrypoint so the same workspace is reused across terminal restarts, SSH reconnects, and machine sessions.
+
+```bash
+$ tmux new-session -A -s main
+```
+
 ### Run logs in a split pane
 
 Split the current window and start a log command in the new pane.
