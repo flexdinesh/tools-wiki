@@ -272,28 +272,12 @@ Split the current pane horizontally from the command line.
 $ tmux split-window -v
 ```
 
-### Merge one window into another
-
-Merge window 2 into window 1 as panes.
-
-```bash
-$ tmux join-pane -s 2 -t 1
-```
-
 ### Move a pane between windows
 
 Move a specific pane from one window to another, such as pane 1 from window 2 into window 1 after pane 0.
 
 ```bash
 $ tmux join-pane -s 2.1 -t 1.0
-```
-
-### Synchronize panes
-
-Toggle sending the same keystrokes to all panes in the current window. This is useful for running identical commands across multiple split panes.
-
-```bash
-$ tmux setw synchronize-panes
 ```
 
 ---
@@ -428,63 +412,6 @@ $ tmux set -g status-left "#[fg=green]#S "
 $ tmux set -g status-right "#[fg=yellow]%d %b %H:%M"
 $ tmux setw -g window-status-format " #I:#W "
 $ tmux setw -g window-status-current-format "#[fg=white,bold] #I:#W "
-```
-
----
-
-## Scripting
-
-Automate sessions, panes, and windows.
-
-### Check if a session exists
-
-Exit code `0` means the session exists, and exit code `1` means it does not. This is useful in shell scripts.
-
-```bash
-$ tmux has-session -t mysession && echo "exists" || echo "not found"
-not found
-```
-
-### Send keys to a pane
-
-Simulate typing a command into a specific pane.
-
-```bash
-$ tmux send-keys -t mysession:0.0 'ls -la' Enter
-```
-
-### Run a command in a new window
-
-Create a new window that runs a command. The window closes when the command exits.
-
-```bash
-$ tmux new-window -n logs 'tail -f /var/log/syslog'
-```
-
-### Run a command in a split pane
-
-Split the current pane and run a command in the new pane.
-
-```bash
-$ tmux split-window -h 'htop'
-```
-
-### Capture pane contents to a file
-
-Dump the full scrollback history of a pane to a file.
-
-```bash
-$ tmux capture-pane -pS - > output.txt
-```
-
-### List all pane PIDs
-
-Print the process ID of the shell running in each pane.
-
-```bash
-$ tmux list-panes -a -F '#{pane_pid}'
-12345
-67890
 ```
 
 ---
