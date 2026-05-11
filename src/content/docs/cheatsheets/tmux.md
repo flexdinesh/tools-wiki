@@ -9,6 +9,8 @@ Create, attach, switch, and remove sessions.
 
 Note: `Ctrl+b` is the default prefix. If you use a custom prefix, use that.
 
+Note: Any command shown as `tmux {command}` can also run from tmux command mode with `Ctrl+b :`, then `{command}`. For example, `tmux new` in the shell is the same as `Ctrl+b :new` within a session.
+
 | Key | Purpose | Result |
 | --- | --- | --- |
 | `Ctrl+b d` | Detach from the current session. | The session keeps running in the background and the terminal returns to the parent shell. |
