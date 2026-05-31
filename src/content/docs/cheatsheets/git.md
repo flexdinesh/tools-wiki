@@ -347,6 +347,21 @@ Preparing worktree (new branch 'feature/new-ui')
 HEAD is now at a1b2c3d Add dashboard shell
 ```
 
+### Set upstream for a new worktree branch
+
+A new branch has no remote branch yet, so it has no upstream. Push with `-u` to create the remote branch and set it as the upstream.
+
+```bash
+$ git worktree add ../wt-login -b feature/login
+Preparing worktree (new branch 'feature/login')
+HEAD is now at a1b2c3d Add dashboard shell
+
+$ git push -u origin HEAD
+To github.com:user/repo.git
+ * [new branch]      HEAD -> feature/login
+branch 'feature/login' set up to track 'origin/feature/login'.
+```
+
 ### Remove a worktree
 
 Clean up a worktree that is no longer needed.
