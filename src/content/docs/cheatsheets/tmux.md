@@ -17,6 +17,7 @@ Note: Any command shown as `tmux {command}` can also run from tmux command mode 
 | `Ctrl+b s` | Open session interactive mode. | A navigable list of sessions appears. |
 | `Ctrl+b (` | Move to the previous session. | The status bar updates to show the previous session name. |
 | `Ctrl+b )` | Move to the next session. | The status bar updates to show the next session name. |
+| `Ctrl+b l` | Toggle the last active window. | The previously active window opens. |
 | `Ctrl+b w` | Open session/window interactive mode. | A navigable session/window tree appears at the bottom of the terminal. |
 | `Ctrl+b $` | Rename the current session. | The status bar prompts for a new session name. |
 
