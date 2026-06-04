@@ -11,6 +11,7 @@ export default defineConfig({
       title: "tools wiki",
       components: {
         Head: "./src/components/Head.astro",
+        Hero: "./src/components/Hero.astro",
       },
       customCss: ["./src/styles/global.css"],
       social: [
@@ -39,4 +40,3 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 });
-

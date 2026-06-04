@@ -1,0 +1,176 @@
+---
+import { Image } from "astro:assets";
+import DraftContentNotice from "virtual:starlight/components/DraftContentNotice";
+import { LinkButton } from "@astrojs/starlight/components";
+
+const { entry } = Astro.locals.starlightRoute;
+const { data } = entry;
+const { title = data.title, tagline, image, actions = [] } = entry.data.hero || {};
+const showSearchTip = data.title === "tools wiki";
+
+let darkImage: ImageMetadata | undefined;
+let lightImage: ImageMetadata | undefined;
+let rawHtml: string | undefined;
+
+if (image) {
+  if ("file" in image) {
+    darkImage = image.file;
+  } else if ("dark" in image) {
+    darkImage = image.dark;
+    lightImage = image.light;
+  } else {
+    rawHtml = image.html;
+  }
+}
+---
+
+<div class="hero">
+  {
+    darkImage && (
+      <Image
+        src={darkImage}
+        loading="eager"
+        decoding="async"
+        width={400}
+        height={400}
+        alt={image?.alt || ""}
+        class:list={{ "light:sl-hidden": Boolean(lightImage) }}
+      />
+    )
+  }
+  {
+    lightImage && (
+      <Image
+        src={lightImage}
+        loading="eager"
+        decoding="async"
+        width={400}
+        height={400}
+        alt={image?.alt || ""}
+        class="dark:sl-hidden"
+      />
+    )
+  }
+  {rawHtml && <div class="hero-html sl-flex" set:html={rawHtml} />}
+  <div class="sl-flex stack">
+    <div class="sl-flex copy">
+      <h1 id="_top" data-page-title set:html={title} />
+      {data.draft && <DraftContentNotice />}
+      {tagline && <div class="tagline" set:html={tagline} />}
+      {
+        showSearchTip && (
+<div class="search-tip">Use <code>ctrl+k</code> / <code>cmd+k</code> to search commands.</div>
+        )
+      }
+    </div>
+    {
+      actions.length > 0 && (
+        <div class="sl-flex actions">
+          {actions.map(({ attrs: { class: className, ...attrs } = {}, icon, link: href, text, variant }) => {
+            const iconName = icon && "name" in icon ? icon.name : undefined;
+            return (
+              <LinkButton {href} {variant} icon={iconName} class:list={[className]} {...attrs}>
+                {text}
+                {icon && "html" in icon && <Fragment set:html={icon.html} />}
+              </LinkButton>
+            );
+          })}
+        </div>
+      )
+    }
+  </div>
+</div>
+
+<style>
+  @layer starlight.core {
+    .hero {
+      display: grid;
+      grid-template-columns: 100%;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .hero > img,
+    .hero > .hero-html {
+      object-fit: contain;
+      width: min(70%, 20rem);
+      height: auto;
+      margin-inline: auto;
+    }
+
+    .stack {
+      flex-direction: column;
+      gap: clamp(1.5rem, calc(1.5rem + 1vw), 2rem);
+      text-align: center;
+    }
+
+    .copy {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .copy > * {
+      max-width: 50ch;
+    }
+
+    h1 {
+      font-size: clamp(var(--sl-text-3xl), calc(0.25rem + 5vw), var(--sl-text-6xl));
+      line-height: var(--sl-line-height-headings);
+      font-weight: 600;
+      color: var(--sl-color-white);
+    }
+
+    .tagline {
+      font-size: clamp(var(--sl-text-base), calc(0.0625rem + 2vw), var(--sl-text-xl));
+      color: var(--sl-color-gray-2);
+    }
+
+    .search-tip {
+      font-size: var(--sl-text-md);
+      color: var(--sl-color-gray-2);
+    }
+
+    .search-tip code {
+      border: 1px solid var(--sl-color-gray-5);
+      border-radius: 0.25rem;
+      padding: 0.125rem 0.375rem;
+      color: var(--sl-color-white);
+      background: var(--sl-color-gray-6);
+      font-size: 0.875em;
+    }
+
+    .actions {
+      gap: 1rem 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @media (min-width: 50rem) {
+      .hero {
+        grid-template-columns: 7fr 4fr;
+        gap: 3%;
+        padding-block: clamp(2.5rem, calc(1rem + 10vmin), 10rem);
+      }
+
+      .hero > img,
+      .hero > .hero-html {
+        order: 2;
+        width: min(100%, 25rem);
+      }
+
+      .stack {
+        text-align: start;
+      }
+
+      .copy {
+        align-items: flex-start;
+      }
+
+      .actions {
+        justify-content: flex-start;
+      }
+    }
+  }
+</style>
