@@ -168,10 +168,12 @@ $ tmux new -s mysession -n mywindow
 
 ### Swap two windows
 
-Swap window number 2 with window number 1.
-
 ```bash
+# Swap window number 2 with window number 1.
 $ tmux swap-window -s 2 -t 1
+
+# Swap the current window with window number 1.
+$ tmux swap-window -t 1
 ```
 
 ### Move the current window left
@@ -188,15 +190,6 @@ Move a window from one session to another.
 
 ```bash
 $ tmux move-window -s src_session:src_window -t target_session:target_window
-```
-
-### Move windows with short aliases
-
-Use short-form aliases to move windows between sessions.
-
-```bash
-$ tmux movew -s foo:0 -t bar:9
-$ tmux movew -s 0:0 -t 1:9
 ```
 
 ### Renumber windows
