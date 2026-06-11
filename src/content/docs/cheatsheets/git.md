@@ -1,6 +1,6 @@
 ---
 title: git
-description: Everyday config, clone, status, clean, commit, log, push, worktree, patch, diff, show, branch, tag, grep, rebase, and stacked-branch workflows.
+description: Everyday config, clone, status, clean, commit, log, push, worktree, restore, patch, diff, show, branch, tag, grep, rebase, and stacked-branch workflows.
 ---
 
 ## git config
@@ -368,6 +368,23 @@ Clean up a worktree that is no longer needed.
 
 ```bash
 $ git worktree remove ../repo-feature
+```
+
+---
+
+## git restore
+
+Restore files in the working tree from another source.
+
+### Restore a file from another branch
+
+Apply one file's state from another branch into the current branch without merging that branch.
+
+```bash
+$ git restore --source main -- pnpm-lock.yaml
+$ git diff -- pnpm-lock.yaml
+$ git add pnpm-lock.yaml
+$ git commit -m "chore: reset pnpm lockfile from branch main"
 ```
 
 ---
