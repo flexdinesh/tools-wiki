@@ -809,11 +809,11 @@ $ git log --name-only --pretty=format: | grep -v '^$' | sort | uniq -c | sort -n
    9 README.md
 ```
 
-### Rebase a stacked child branch after the parent branch changes
+### Stacked rebase for stacked PRs
 
-Use a marker branch to remember where the child branch was originally based, then move only the child commits onto the updated parent branch.
+Use the parent branch reflog to find the old parent tip, then move only the child commits onto the updated parent branch.
 
-Start with a stack where `feature/ui` is based on `feature/api`:
+Start with a stack where `feature/api` branches from `main`, then `feature/ui` branches from `feature/api`:
 
 ```text
 main:        A---B---C
@@ -823,13 +823,17 @@ feature/api:       D---E
 feature/ui:              F---G
 ```
 
-Record the current parent tip before the parent branch is rewritten:
+Update `main`, then rebase the parent branch:
 
 ```bash
-$ git branch -f feature/ui-base feature/api
+$ git switch main
+$ git pull
+$ git switch feature/api
+$ git rebase main
+Successfully rebased and updated refs/heads/feature/api.
 ```
 
-Later, `main` moves forward and `feature/api` is rebased, so the parent commits get new hashes:
+After the parent rebase, `feature/api` has new commits and `feature/ui` still points to the old stack:
 
 ```text
 main:        A---B---C---H---I
@@ -839,30 +843,37 @@ feature/api:               D'---E'
 feature/ui still points to the old stack: D---E---F---G
 ```
 
-Move only the child commits from the old parent base to the updated parent branch:
+Find the last `feature/api` head before the rebase:
 
 ```bash
-$ git rebase --onto feature/api feature/ui-base feature/ui
+$ git reflog --date=local feature/api
+e5f6g7h feature/api@{Sat Jun 13 10:04:21 2026}: rebase (finish): refs/heads/feature/api onto i9j0k1l
+d4e5f6g feature/api@{Sat Jun 13 09:58:42 2026}: commit: Add API validation
+```
+
+Move only the child commits from the old parent tip to the updated parent branch:
+
+```bash
+$ git switch feature/ui
+$ git rebase --onto feature/api d4e5f6g
 Successfully rebased and updated refs/heads/feature/ui.
 ```
 
-Update the marker after the rebase succeeds:
+The child branch now sits on the rewritten parent branch:
 
-```bash
-$ git branch -f feature/ui-base feature/api
+```text
+main:        A---B---C---H---I
+                          \
+feature/api:               D'---E'
+                                  \
+feature/ui:                        F'---G'
 ```
 
-Push the rewritten child branch safely if it exists on the remote:
+Push the rewritten branches safely if they exist on the remote:
 
 ```bash
+$ git switch feature/api
 $ git push --force-with-lease
-```
-
-If the parent branch is merged or squash-merged into `main`, move only the child commits onto `origin/main`:
-
-```bash
-$ git fetch origin
-$ git rebase --onto origin/main feature/ui-base feature/ui
-$ git branch -f feature/ui-base origin/main
+$ git switch feature/ui
 $ git push --force-with-lease
 ```
