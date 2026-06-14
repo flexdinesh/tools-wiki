@@ -215,7 +215,7 @@ Filter, format, search, and summarize commit history.
 
 ### Show compact branch history
 
-Show a graph of recent commits with branch and tag names.
+Show a graph across all local and remote branches, tags, and refs.
 
 ```bash
 $ git log --oneline --graph --decorate --all
@@ -231,9 +231,61 @@ $ git log --oneline --graph --decorate --all
 Show commits on your branch that are not on `origin/main`.
 
 ```bash
-$ git log --oneline origin/main..HEAD
-a1b2c3d Add dashboard filter
-e4f5g6h Update dashboard loading state
+$ git log --oneline --graph origin/main..HEAD
+* a1b2c3d Add dashboard filter
+* e4f5g6h Update dashboard loading state
+```
+
+### Show commits missing from current branch
+
+Show commits on `origin/main` that are not on your current branch.
+
+```bash
+$ git log --oneline --graph HEAD..origin/main
+* i7j8k9l Bump dependencies
+* m1n2o3p Update CI cache
+```
+
+### Compare both sides of a branch
+
+Show commits unique to each side before merging, rebasing, or opening a pull request.
+
+```bash
+$ git log --oneline --graph --left-right HEAD...origin/main
+< a1b2c3d Add dashboard filter
+< e4f5g6h Update dashboard loading state
+> i7j8k9l Bump dependencies
+> m1n2o3p Update CI cache
+```
+
+### Show the latest commits
+
+Limit the graph to the latest commit count.
+
+```bash
+$ git log --oneline --graph -20
+* a1b2c3d Add dashboard filter
+* e4f5g6h Update dashboard loading state
+* b1c2d3e Add dashboard shell
+```
+
+### Show only the latest commit
+
+Show just the current `HEAD` commit.
+
+```bash
+$ git log --oneline --graph HEAD^..HEAD
+* a1b2c3d Add dashboard filter
+```
+
+### Show commits since the branch point
+
+Show commits added since the current branch diverged from `origin/main`.
+
+```bash
+$ git log --oneline --graph $(git merge-base HEAD origin/main)..HEAD
+* a1b2c3d Add dashboard filter
+* e4f5g6h Update dashboard loading state
 ```
 
 ### Search commit messages
@@ -251,9 +303,9 @@ c4b5a6d Fix login redirect
 Show commits from one author.
 
 ```bash
-$ git log --oneline --author="Alice"
-a1b2c3d Add dashboard filter
-e4f5g6h Update dashboard loading state
+$ git log --oneline --graph --author="Alice"
+* a1b2c3d Add dashboard filter
+* e4f5g6h Update dashboard loading state
 ```
 
 ### Filter by multiple authors
@@ -272,10 +324,10 @@ c4b5a6d Fix login redirect
 Show recent commits since a relative date.
 
 ```bash
-$ git log --oneline --since="2 weeks ago"
-a1b2c3d Add dashboard filter
-e4f5g6h Update dashboard loading state
-i7j8k9l Bump dependencies
+$ git log --oneline --graph --since="1 week ago"
+* a1b2c3d Add dashboard filter
+* e4f5g6h Update dashboard loading state
+* i7j8k9l Bump dependencies
 ```
 
 ### Show history for a file
@@ -283,9 +335,56 @@ i7j8k9l Bump dependencies
 Show commits that changed a specific file.
 
 ```bash
-$ git log --oneline -- src/app.ts
-a1b2c3d Add dashboard filter
-b1c2d3e Add dashboard shell
+$ git log --oneline --graph -- src/app.ts
+* a1b2c3d Add dashboard filter
+* b1c2d3e Add dashboard shell
+```
+
+### Follow file history across renames
+
+Show commits for a file while following rename history.
+
+```bash
+$ git log --oneline --graph --follow -- src/app.ts
+* a1b2c3d Add dashboard filter
+* c7d8e9f Rename app entrypoint
+* b1c2d3e Add dashboard shell
+```
+
+### Show merge commits
+
+Show only merge commits for release or history audits.
+
+```bash
+$ git log --oneline --graph --merges
+* m1n2o3p Merge pull request #42 from user/feature-new-ui
+* q4r5s6t Merge branch 'release/2026-05'
+```
+
+### Show changed file names
+
+Show each commit followed by the files it changed.
+
+```bash
+$ git log --oneline --graph --name-only
+* a1b2c3d Add dashboard filter
+src/dashboard.ts
+src/config.ts
+
+* e4f5g6h Update dashboard loading state
+src/dashboard.ts
+```
+
+### Show commit stats
+
+Show each commit followed by a changed-file summary.
+
+```bash
+$ git log --oneline --graph --stat
+* a1b2c3d Add dashboard filter
+|  src/dashboard.ts | 12 ++++++++++++
+|  src/config.ts    |  1 +
+|  2 files changed, 13 insertions(+)
 ```
 
 ---
