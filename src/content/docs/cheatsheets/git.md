@@ -23,8 +23,8 @@ file:.git/config             local   core.repositoryformatversion=0
 Set name and email for all repos on the machine.
 
 ```bash
-$ git config --global user.name "Alice Example"
-$ git config --global user.email alice@example.com
+git config --global user.name "Alice Example"
+git config --global user.email alice@example.com
 ```
 
 ### Set local identity
@@ -32,8 +32,8 @@ $ git config --global user.email alice@example.com
 Set name and email for the current repo only.
 
 ```bash
-$ git config user.name "Alice Example"
-$ git config user.email alice@work.example.com
+git config user.name "Alice Example"
+git config user.email alice@work.example.com
 ```
 
 ### Sign commits with SSH
@@ -41,9 +41,9 @@ $ git config user.email alice@work.example.com
 Configure commit signing with an SSH key.
 
 ```bash
-$ git config --global gpg.format ssh
-$ git config --global user.signingkey ~/.ssh/id_ed25519.pub
-$ git config --global commit.gpgsign true
+git config --global gpg.format ssh
+git config --global user.signingkey ~/.ssh/id_ed25519.pub
+git config --global commit.gpgsign true
 ```
 
 ### Edit global config
@@ -51,7 +51,7 @@ $ git config --global commit.gpgsign true
 Open the global gitconfig in your default editor.
 
 ```bash
-$ git config --global --edit
+git config --global --edit
 ```
 
 ### Cache HTTPS credentials
@@ -59,7 +59,7 @@ $ git config --global --edit
 Cache HTTPS credentials so Git does not prompt for every operation.
 
 ```bash
-$ git config --global credential.helper 'cache --timeout=86400'
+git config --global credential.helper 'cache --timeout=86400'
 ```
 
 ---
@@ -192,7 +192,7 @@ $ git commit --amend --no-edit
 Open the latest commit message in your editor.
 
 ```bash
-$ git commit --amend
+git commit --amend
 ```
 
 ### Change latest commit author
@@ -436,17 +436,9 @@ $ git worktree list
 ~/workspace/repo-feature  h7i8j9k [feature/new-ui]
 ```
 
-### Add worktree with new branch
+### Add a new worktree
 
 Create a new branch and checkout in a separate directory.
-
-```bash
-$ git worktree add ../repo-feature -b feature/new-ui origin/main
-Preparing worktree (new branch 'feature/new-ui')
-HEAD is now at a1b2c3d Add dashboard shell
-```
-
-### Set upstream for a new worktree branch
 
 A new branch has no remote branch yet, so it has no upstream. Push with `-u` to create the remote branch and set it as the upstream.
 
@@ -455,6 +447,7 @@ $ git worktree add ../wt-login -b feature/login
 Preparing worktree (new branch 'feature/login')
 HEAD is now at a1b2c3d Add dashboard shell
 
+# from the worktree dir
 $ git push -u origin HEAD
 To github.com:user/repo.git
  * [new branch]      HEAD -> feature/login
@@ -466,7 +459,7 @@ branch 'feature/login' set up to track 'origin/feature/login'.
 Clean up a worktree that is no longer needed.
 
 ```bash
-$ git worktree remove ../repo-feature
+git worktree remove ../repo-feature
 ```
 
 ---
@@ -480,10 +473,10 @@ Restore files in the working tree from another source.
 Apply one file's state from another branch into the current branch without merging that branch.
 
 ```bash
-$ git restore --source main -- pnpm-lock.yaml
-$ git diff -- pnpm-lock.yaml
-$ git add pnpm-lock.yaml
-$ git commit -m "chore: reset pnpm lockfile from branch main"
+git restore --source main -- pnpm-lock.yaml
+git diff -- pnpm-lock.yaml
+git add pnpm-lock.yaml
+git commit -m "chore: reset pnpm lockfile from branch main"
 ```
 
 ---
@@ -506,7 +499,7 @@ $ git format-patch -1 HEAD
 Dry-run a patch before applying it.
 
 ```bash
-$ git apply --check 0001-Add-dashboard-filter.patch
+git apply --check 0001-Add-dashboard-filter.patch
 ```
 
 If there is no output, the patch applies cleanly.
@@ -516,7 +509,7 @@ If there is no output, the patch applies cleanly.
 Apply a patch to the working tree without committing it.
 
 ```bash
-$ git apply 0001-Add-dashboard-filter.patch
+git apply 0001-Add-dashboard-filter.patch
 ```
 
 ### Apply and commit a patch
@@ -756,7 +749,7 @@ $ git rebase --continue
 Abort and return to the pre-rebase state if needed.
 
 ```bash
-$ git rebase --abort
+git rebase --abort
 ```
 
 ### Clean up recent commits interactively
@@ -764,7 +757,7 @@ $ git rebase --abort
 Edit, reorder, squash, or reword recent local commits before sharing them.
 
 ```bash
-$ git rebase -i HEAD~3
+git rebase -i HEAD~3
 ```
 
 In the editor:
@@ -787,7 +780,7 @@ Successfully rebased and updated refs/heads/feature.
 The general form is:
 
 ```bash
-$ git rebase --onto <new-base> <old-base> <branch>
+git rebase --onto <new-base> <old-base> <branch>
 ```
 
 Git takes commits reachable from `<branch>` but not reachable from `<old-base>` and replays them onto `<new-base>`.
@@ -815,7 +808,7 @@ $ git branch --all
 Rename the branch you are currently on.
 
 ```bash
-$ git branch -m feature/dashboard-filter
+git branch -m feature/dashboard-filter
 ```
 
 ### Delete merged branches
@@ -971,8 +964,8 @@ feature/ui:                        F'---G'
 Push the rewritten branches safely if they exist on the remote:
 
 ```bash
-$ git switch feature/api
-$ git push --force-with-lease
-$ git switch feature/ui
-$ git push --force-with-lease
+git switch feature/api
+git push --force-with-lease
+git switch feature/ui
+git push --force-with-lease
 ```
