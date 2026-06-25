@@ -340,6 +340,16 @@ $ git log --oneline --graph -- src/app.ts
 * b1c2d3e Add dashboard shell
 ```
 
+### Show commits that changed a file on current branch
+
+Show commits on the current branch that changed a specific file and are not on `main`.
+
+```bash
+$ git log --oneline --graph main..HEAD -- pnpm-workspace.yaml
+* a1b2c3d Add workspace package
+* e4f5g6h Update workspace globs
+```
+
 ### Follow file history across renames
 
 Show commits for a file while following rename history.
@@ -564,6 +574,25 @@ index 2f3a8ad..8c4b03d 100644
  }
 ```
 
+### Compare latest commit with its parent
+
+Show the patch introduced by the latest commit.
+
+```bash
+$ git diff HEAD^..HEAD
+diff --git a/src/config.ts b/src/config.ts
+index 6b7c8d9..9a0b1c2 100644
+--- a/src/config.ts
++++ b/src/config.ts
+@@ -1 +1,2 @@
+ export const apiBaseUrl = "https://api.example.com";
++export const dashboardFilter = true;
+
+# To list only changed files with status:
+$ git diff --name-status HEAD^..HEAD
+M       src/config.ts
+```
+
 ### Summarize changed files
 
 Show changed files with line counts.
@@ -598,6 +627,42 @@ index 6b7c8d9..9a0b1c2 100644
 @@ -1 +1,2 @@
  export const apiBaseUrl = "https://api.example.com";
 +export const dashboardFilter = true;
+```
+
+### Compare main with current branch tip
+
+Show file differences between the exact `main` tip and current `HEAD` snapshot.
+
+```bash
+$ git diff main..HEAD
+diff --git a/src/dashboard.ts b/src/dashboard.ts
+new file mode 100644
+index 0000000..8c4b03d
+--- /dev/null
++++ b/src/dashboard.ts
+@@ -0,0 +1 @@
++export function renderDashboard() {}
+
+# To list only changed files with status:
+$ git diff --name-status main..HEAD
+A       src/dashboard.ts
+```
+
+### Compare one file with another branch
+
+Compare one file in the current branch or working tree against the same file on another branch.
+
+```bash
+$ git diff main -- pnpm-workspace.yaml
+diff --git a/pnpm-workspace.yaml b/pnpm-workspace.yaml
+index 2f3a8ad..8c4b03d 100644
+--- a/pnpm-workspace.yaml
++++ b/pnpm-workspace.yaml
+@@ -1,3 +1,4 @@
+ packages:
+   - apps/*
+   - packages/*
++  - tools/*
 ```
 
 ### Compare branch changes since merge base
