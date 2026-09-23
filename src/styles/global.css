@@ -3,62 +3,247 @@
 @import "@astrojs/starlight-tailwind";
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/jetbrains-mono/latin-400.css";
+@import "@fontsource/jetbrains-mono/latin-600.css";
 
 @theme {
-  /* Your preferred text font. Starlight uses a system font stack by default. */
-  --font-sans: "Fira Code", monospace;
-  /* Your preferred code font. Starlight uses system monospace fonts by default. */
-  --font-mono: "Fira Code", monospace;
-  /* Your preferred accent color. Indigo is closest to Starlight’s defaults. */
-  /* --color-accent-50: var(--color-indigo-50); */
-  /* --color-accent-100: var(--color-indigo-100); */
-  /* --color-accent-200: var(--color-indigo-200); */
-  /* --color-accent-300: var(--color-indigo-300); */
-  /* --color-accent-400: var(--color-indigo-400); */
-  /* --color-accent-500: var(--color-indigo-500); */
-  /* --color-accent-600: var(--color-indigo-600); */
-  /* --color-accent-700: var(--color-indigo-700); */
-  /* --color-accent-800: var(--color-indigo-800); */
-  /* --color-accent-900: var(--color-indigo-900); */
-  /* --color-accent-950: var(--color-indigo-950); */
-  /* Your preferred gray scale. Zinc is closest to Starlight’s defaults. */
-  /* --color-gray-50: var(--color-zinc-50); */
-  /* --color-gray-100: var(--color-zinc-100); */
-  /* --color-gray-200: var(--color-zinc-200); */
-  /* --color-gray-300: var(--color-zinc-300); */
-  /* --color-gray-400: var(--color-zinc-400); */
-  /* --color-gray-500: var(--color-zinc-500); */
-  /* --color-gray-600: var(--color-zinc-600); */
-  /* --color-gray-700: var(--color-zinc-700); */
-  /* --color-gray-800: var(--color-zinc-800); */
-  /* --color-gray-900: var(--color-zinc-900); */
-  /* --color-gray-950: var(--color-zinc-950); */
-
-  /* Generated accent color palettes. */
-  --color-accent-200: #95d0ff;
-  --color-accent-600: #0072af;
-  --color-accent-900: #003556;
-  --color-accent-950: #00263f;
-  /* Generated gray color palettes. */
-  --color-gray-100: #f6f6f6;
-  --color-gray-200: #eeeeee;
-  --color-gray-300: #c2c2c2;
-  --color-gray-400: #8b8b8b;
-  --color-gray-500: #585858;
-  --color-gray-700: #383838;
-  --color-gray-800: #272727;
-  --color-gray-900: #181818;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
-/* Mobile-first table sizing: keep shortcut/command columns readable. */
-.sl-markdown-content table th:first-child,
-.sl-markdown-content table td:first-child {
-  min-width: 6rem;
+:root {
+  --wiki-bg: #191720;
+  --wiki-surface: #211e2a;
+  --wiki-border: #40394e;
+  --wiki-soft: #2b2539;
+  --wiki-active: #3b2e55;
+  --wiki-action: #7052cf;
+  --wiki-action-hover: #5d3fba;
+  --wiki-teal: #85d9c3;
+  --wiki-coral: #f5a18d;
+  --sl-color-white: #f0ebfa;
+  --sl-color-gray-1: #e3dced;
+  --sl-color-gray-2: #c9c0d6;
+  --sl-color-gray-3: #afa3c0;
+  --sl-color-gray-4: #8f819f;
+  --sl-color-gray-5: #51465f;
+  --sl-color-gray-6: #2b2539;
+  --sl-color-black: #191720;
+  --sl-color-accent-low: #3b2e55;
+  --sl-color-accent: #c0a8ff;
+  --sl-color-accent-high: #ddcfff;
+  --sl-color-text: var(--sl-color-gray-2);
+  --sl-color-text-accent: var(--sl-color-accent);
+  --sl-color-text-invert: #191720;
+  --sl-color-bg: var(--wiki-bg);
+  --sl-color-bg-nav: var(--wiki-surface);
+  --sl-color-bg-sidebar: var(--wiki-bg);
+  --sl-color-bg-inline-code: var(--wiki-soft);
+  --sl-color-hairline: var(--wiki-border);
+  --sl-color-hairline-light: var(--wiki-border);
+  --sl-font: var(--font-sans);
+  --sl-font-mono: var(--font-mono);
+  --sl-text-body: 0.9375rem;
+  --sl-line-height: 1.65;
+  --sl-content-width: 48rem;
+  --sl-sidebar-width: 14rem;
+  --sl-nav-height: 3.5rem;
+  --sl-menu-button-size: 2.75rem;
+  --sl-text-h1: clamp(1.75rem, 3vw, 2.25rem);
+  --sl-text-h2: 1.25rem;
+  --sl-text-h3: 1rem;
+  accent-color: var(--sl-color-text-accent);
+  caret-color: var(--sl-color-text-accent);
+  scrollbar-color: var(--sl-color-gray-4) var(--wiki-bg);
 }
 
+:root[data-theme="light"] {
+  --wiki-bg: #fafaf6;
+  --wiki-surface: #ffffff;
+  --wiki-border: #d8e3dc;
+  --wiki-soft: #edf4ef;
+  --wiki-active: #dceee5;
+  --wiki-action: #146c60;
+  --wiki-action-hover: #0f564c;
+  --wiki-teal: #18786b;
+  --wiki-coral: #b64c39;
+  --sl-color-white: #24332e;
+  --sl-color-gray-1: #34463f;
+  --sl-color-gray-2: #4b5d55;
+  --sl-color-gray-3: #61736a;
+  --sl-color-gray-4: #7c8f84;
+  --sl-color-gray-5: #b8cabf;
+  --sl-color-gray-6: #edf4ef;
+  --sl-color-gray-7: #fafaf6;
+  --sl-color-black: #ffffff;
+  --sl-color-accent-low: #dceee5;
+  --sl-color-accent: #146c60;
+  --sl-color-accent-high: #0f564c;
+  --sl-color-text-invert: #ffffff;
+}
+
+::selection { color: var(--sl-color-white); background: var(--wiki-active); }
+:focus-visible { outline: 2px solid var(--sl-color-text-accent); outline-offset: 3px; }
+a { text-underline-offset: 0.2em; }
+h1, h2, h3 {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+header.header { border-bottom: 1px solid var(--wiki-border); }
+.site-title {
+  color: var(--sl-color-text-accent);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+site-search button[data-open-modal] { min-height: 2.25rem; border-radius: 6px; }
+site-search button[data-open-modal]:disabled { cursor: wait; opacity: 0.65; }
+site-search dialog {
+  border: 1px solid var(--wiki-border);
+  border-radius: 8px;
+  background: var(--wiki-bg);
+  box-shadow: none;
+}
+#starlight__search mark { color: var(--sl-color-text-accent); background: var(--wiki-active); }
+starlight-theme-select select { min-height: 2.25rem; }
+.sidebar-content summary { padding-block: 0.5rem; }
+.sidebar-content .group-label .large {
+  color: var(--wiki-coral);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.sidebar-content a {
+  padding-block: 0.2rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+.sidebar-content a:hover { background: var(--wiki-soft); }
+.sidebar-content a[aria-current="page"] {
+  color: var(--sl-color-text-accent);
+  background: var(--wiki-active);
+  font-weight: 600;
+}
+#starlight__on-this-page {
+  color: var(--wiki-coral);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  margin-bottom: 0.5rem;
+}
+starlight-toc a { font-size: 0.8125rem; }
+starlight-toc a[aria-current="true"] { font-weight: 600; text-decoration: underline; }
+[data-has-sidebar] .main-pane { background: var(--wiki-surface); }
+.content-panel { padding-block: 1.25rem; }
+.content-panel + .content-panel { border-top-color: var(--wiki-border); }
+.sl-markdown-content h2 { margin-top: 2rem; color: var(--wiki-teal); }
+.sl-markdown-content h3 { margin-top: 1.5rem; }
+.sl-markdown-content h2::before {
+  content: "#";
+  color: var(--wiki-coral);
+  margin-inline-end: 0.55em;
+}
+.sl-markdown-content :is(p, li) { max-width: 72ch; }
+.sl-markdown-content :not(pre) > code {
+  color: var(--wiki-teal);
+  border-radius: 3px;
+  font-size: 0.85em;
+  padding: 0.12em 0.3em;
+}
+.sl-markdown-content .expressive-code {
+  margin-block: 1rem 1.25rem;
+  --ec-brdCol: var(--wiki-border);
+  --ec-brdRad: 6px;
+  --ec-uiFontFml: var(--font-sans);
+  --ec-codeFontFml: var(--font-mono);
+  --ec-codeFontSize: 0.8125rem;
+  --ec-codeLineHt: 1.65;
+  --ec-frm-frameBoxShdCssVal: none;
+}
+.sl-markdown-content table { width: 100%; font-size: 0.875rem; font-variant-numeric: tabular-nums; }
+.sl-markdown-content table th {
+  color: var(--sl-color-white);
+  background: var(--wiki-soft);
+  font-weight: 600;
+}
+.sl-markdown-content :is(th, td) {
+  padding: 0.5rem 0.75rem;
+  border-bottom-color: var(--wiki-border);
+  vertical-align: top;
+}
+.sl-markdown-content table :is(th, td):first-child { min-width: 6rem; }
+.sl-markdown-content tbody tr:nth-child(even) { background: var(--wiki-bg); }
+.pagination-links a { padding: 0.75rem; border-color: var(--wiki-border); border-radius: 6px; box-shadow: none; }
+
+/* Keep native LinkCard semantics while presenting one compact reference index. */
+:root:not([data-has-sidebar]) .card-grid {
+  --stagger-height: 0rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  padding-bottom: 0;
+  border-top: 1px solid var(--wiki-border);
+}
+:root:not([data-has-sidebar]) .sl-link-card {
+  border: 0;
+  border-bottom: 1px solid var(--wiki-border);
+  border-radius: 0;
+  padding: 0.75rem 0.5rem;
+  box-shadow: none;
+  background: transparent;
+  align-items: center;
+  gap: 1rem;
+  transition: background-color 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+:root:not([data-has-sidebar]) .sl-link-card .stack {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 1rem;
+}
+:root:not([data-has-sidebar]) .sl-link-card .title {
+  color: var(--wiki-teal);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+:root:not([data-has-sidebar]) .sl-link-card .description {
+  color: var(--sl-color-gray-2);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+:root:not([data-has-sidebar]) .sl-link-card .icon {
+  color: var(--sl-color-text-accent);
+  width: 1rem;
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+:root:not([data-has-sidebar]) .sl-link-card:is(:hover, :focus-within) { background: var(--wiki-soft); }
+:root:not([data-has-sidebar]) .sl-link-card:is(:hover, :focus-within) .icon { transform: translateX(3px); }
+:root:not([data-has-sidebar]) .sl-markdown-content h2 { margin-block: 1.75rem 0.75rem; font-size: 1rem; }
+
+@media (max-width: 37.999rem) {
+  :root:not([data-has-sidebar]) .sl-link-card .stack { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
+  :root:not([data-has-sidebar]) .sl-link-card { align-items: start; }
+  :root:not([data-has-sidebar]) .sl-link-card .icon { margin-top: 0.2rem; }
+}
+@media (max-width: 49.999rem) {
+  .sl-markdown-content table :is(th, td):not(:first-child) { min-width: 14rem; }
+  .sidebar-content a { padding-block: 0.4rem; }
+  site-search button[data-open-modal], starlight-theme-select select { min-height: 2.75rem; }
+}
 @media (min-width: 50rem) {
-  .sl-markdown-content table th:first-child,
-  .sl-markdown-content table td:first-child {
-    min-width: 9rem;
-  }
+  .sl-markdown-content table :is(th, td):first-child { min-width: 8rem; }
+  site-search button[data-open-modal] { background: var(--wiki-bg); border: 1px solid var(--wiki-border); }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-has-sidebar]) .sl-link-card,
+  :root:not([data-has-sidebar]) .sl-link-card .icon { transition: none; }
 }

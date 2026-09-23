@@ -1,0 +1,317 @@
+{
+  "title": "A playful, compact tools wiki",
+  "question": "Choose the next direction. Both use JetBrains Mono and preserve Starlight.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Keycap Index",
+      "kicker": "THE ROLL",
+      "lineage": "Mechanical keyboard legends and modular key layouts",
+      "thesis": "A compact tool grid with mint, peach, and lilac accents.",
+      "palette": [
+        "#f6f5fb",
+        "#262736",
+        "#b8e9d0",
+        "#ffcaad",
+        "#d8cafa"
+      ],
+      "materials": [
+        "Crisp borders",
+        "Small consistent corners",
+        "JetBrains Mono + Inter"
+      ],
+      "viewport": "Short search-first header, small title, dense tool tiles; docs use compact headings and quiet content surfaces.",
+      "risk": "More modular and playful; repeated tiles can feel busy.",
+      "raised": [
+        {
+          "from": "Daylight Section",
+          "raise": "Use color to distinguish navigation from quiet reading."
+        },
+        {
+          "from": "Folded Sheet",
+          "raise": "Maintain a complete readable mobile view."
+        },
+        {
+          "from": "Catalog Sleeve",
+          "raise": "Make repeated entries consistent and scannable."
+        },
+        {
+          "from": "Terminal Signs",
+          "raise": "Keep current location unmistakable."
+        },
+        {
+          "from": "Emission Rail",
+          "raise": "Give selection a shape cue alongside color."
+        },
+        {
+          "from": "Destination Roll",
+          "raise": "Keep row rhythm compact and consistent."
+        }
+      ],
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          {
+            "label": "search · theme",
+            "x": 0,
+            "y": 0,
+            "w": 12,
+            "h": 1
+          },
+          {
+            "label": "tools wiki",
+            "x": 0,
+            "y": 1,
+            "w": 12,
+            "h": 2
+          },
+          {
+            "label": "compact tool grid",
+            "x": 0,
+            "y": 3,
+            "w": 12,
+            "h": 7,
+            "accent": true
+          }
+        ]
+      },
+      "comp": ".impeccable/decisions/playful/keycap.webp"
+    },
+    {
+      "id": "model-pick",
+      "label": "Syntax Studio",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Code editor syntax palettes",
+      "thesis": "Violet, teal, and coral give a compact reference index personality.",
+      "palette": [
+        "#faf9ff",
+        "#272535",
+        "#7052cf",
+        "#18786b",
+        "#c45743"
+      ],
+      "materials": [
+        "Tinted section accents",
+        "Thin row separators",
+        "JetBrains Mono + Inter"
+      ],
+      "viewport": "Compact search bar and title above tool rows; docs use mono headings, restrained colored markers, and tight code frames.",
+      "risk": "A familiar developer aesthetic; differentiation comes from color and spacing.",
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          {
+            "label": "search · theme",
+            "x": 0,
+            "y": 0,
+            "w": 12,
+            "h": 1
+          },
+          {
+            "label": "tools wiki",
+            "x": 0,
+            "y": 1,
+            "w": 12,
+            "h": 2
+          },
+          {
+            "label": "tool index",
+            "x": 0,
+            "y": 3,
+            "w": 4,
+            "h": 7,
+            "accent": true
+          },
+          {
+            "label": "command · purpose · example",
+            "x": 4,
+            "y": 3,
+            "w": 8,
+            "h": 7
+          }
+        ]
+      },
+      "comp": ".impeccable/decisions/playful/syntax.webp"
+    },
+    {
+      "id": "architecture-inhabitable-space-daylight-section",
+      "label": "Daylight Section",
+      "verdict": "declined",
+      "thesis": "Commands arranged as annotated rooms.",
+      "palette": [
+        "#faf8f1",
+        "#252a30",
+        "#f1c456"
+      ],
+      "materials": [
+        "Translated into labeled tool references"
+      ],
+      "viewport": "Commands arranged as annotated rooms.",
+      "risk": "Architectural sections are less familiar to developer lookup and spatial annotations slow scanning.",
+      "case": "Declined on developer identification and lookup clarity. Architectural sections are less familiar to developer lookup and spatial annotations slow scanning.",
+      "kept": "Use color to distinguish navigation from quiet reading.",
+      "hero": "https://impeccable.style/worlds/cards/architecture-inhabitable-space-daylight-section-hero.webp"
+    },
+    {
+      "id": "paper-folds-pleats-deployable-miura-orbit-sheet",
+      "label": "Folded Sheet",
+      "verdict": "declined",
+      "thesis": "Tool groups unfold from a compact packet.",
+      "palette": [
+        "#fafafa",
+        "#bc963c",
+        "#c7d6ea"
+      ],
+      "materials": [
+        "Translated into labeled tool references"
+      ],
+      "viewport": "Tool groups unfold from a compact packet.",
+      "risk": "Fold geometry has weaker developer identification and conceals useful commands.",
+      "case": "Declined on developer identification and lookup clarity. Fold geometry has weaker developer identification and conceals useful commands.",
+      "kept": "Maintain a complete readable mobile view.",
+      "hero": "https://impeccable.style/worlds/cards/paper-folds-pleats-deployable-miura-orbit-sheet-hero.webp"
+    },
+    {
+      "id": "brand-identity-canon-saville-catalog-sleeve",
+      "label": "Catalog Sleeve",
+      "verdict": "declined",
+      "thesis": "Tool entries indexed by colored catalog marks.",
+      "palette": [
+        "#111111",
+        "#ffffff",
+        "#ea7063"
+      ],
+      "materials": [
+        "Translated into labeled tool references"
+      ],
+      "viewport": "Tool entries indexed by colored catalog marks.",
+      "risk": "Coded identity is less developer-specific and slows recognition of tool names.",
+      "case": "Declined on developer identification and lookup clarity. Coded identity is less developer-specific and slows recognition of tool names.",
+      "kept": "Make repeated entries consistent and scannable.",
+      "hero": "https://impeccable.style/worlds/cards/brand-identity-canon-saville-catalog-sleeve-hero.webp"
+    },
+    {
+      "id": "wayfinding-cartography-signage-terminal-yellow-wayfinding",
+      "label": "Terminal Signs",
+      "verdict": "declined",
+      "thesis": "Tool destinations presented in directional bands.",
+      "palette": [
+        "#f7d829",
+        "#171717",
+        "#ffffff"
+      ],
+      "materials": [
+        "Translated into labeled tool references"
+      ],
+      "viewport": "Tool destinations presented in directional bands.",
+      "risk": "Airport signage has weaker developer identification and oversized bands reduce reference density.",
+      "case": "Declined on developer identification and lookup clarity. Airport signage has weaker developer identification and oversized bands reduce reference density.",
+      "kept": "Keep current location unmistakable.",
+      "hero": "https://impeccable.style/worlds/cards/wayfinding-cartography-signage-terminal-yellow-wayfinding-hero.webp"
+    },
+    {
+      "id": "operate-c-emission-line-rail",
+      "label": "Emission Rail",
+      "verdict": "declined",
+      "thesis": "Tool sections attach to a thin colored rail.",
+      "palette": [
+        "#24262a",
+        "#eae5d9",
+        "#81c6a5"
+      ],
+      "materials": [
+        "Translated into labeled tool references"
+      ],
+      "viewport": "Tool sections attach to a thin colored rail.",
+      "risk": "Spectral marks are less recognizable than tool labels and understate navigation.",
+      "case": "Declined on developer identification and lookup clarity. Spectral marks are less recognizable than tool labels and understate navigation.",
+      "kept": "Give selection a shape cue alongside color.",
+      "hero": "https://impeccable.style/worlds/cards/operate-c-emission-line-rail-hero.webp"
+    },
+    {
+      "id": "operate-c-depot-blind-courses",
+      "label": "Destination Roll",
+      "verdict": "declined",
+      "thesis": "Tools occupy compact stacked destination bands.",
+      "palette": [
+        "#163e32",
+        "#f4d662",
+        "#f0eee0"
+      ],
+      "materials": [
+        "Translated into labeled tool references"
+      ],
+      "viewport": "Tools occupy compact stacked destination bands.",
+      "risk": "Transport machinery is less developer-specific and clipped stepping impairs reading.",
+      "case": "Declined on developer identification and lookup clarity. Transport machinery is less developer-specific and clipped stepping impairs reading.",
+      "kept": "Keep row rhythm compact and consistent.",
+      "hero": "https://impeccable.style/worlds/cards/operate-c-depot-blind-courses-hero.webp"
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "buildPath": {
+    "value": "code",
+    "toggle": true
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "Clean docs, playful accents",
+    "thesis": "Conventional documentation with a brighter accent palette.",
+    "palette": [
+      "#ffffff",
+      "#252535",
+      "#7958d7",
+      "#2d907e"
+    ],
+    "materials": [
+      "Neutral panels",
+      "JetBrains Mono + Inter"
+    ],
+    "viewport": "Familiar Starlight layout with tighter spacing and colorful active states.",
+    "risk": "Closest to the existing layout; a smaller change in character.",
+    "wireframe": {
+      "cols": 12,
+      "rows": 10,
+      "regions": [
+        {
+          "label": "search · theme",
+          "x": 0,
+          "y": 0,
+          "w": 12,
+          "h": 1
+        },
+        {
+          "label": "tools wiki",
+          "x": 0,
+          "y": 1,
+          "w": 12,
+          "h": 2
+        },
+        {
+          "label": "tool index",
+          "x": 0,
+          "y": 3,
+          "w": 4,
+          "h": 7,
+          "accent": true
+        },
+        {
+          "label": "command · purpose · example",
+          "x": 4,
+          "y": 3,
+          "w": 8,
+          "h": 7
+        }
+      ]
+    },
+    "comp": ".impeccable/decisions/playful/canon.webp"
+  },
+  "steer": true
+}

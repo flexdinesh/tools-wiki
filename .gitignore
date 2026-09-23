@@ -3,3 +3,5 @@ node_modules/
 .astro/
 .sst
 src/md-paths.ts
+.playwright-mcp/
+.impeccable/review/
