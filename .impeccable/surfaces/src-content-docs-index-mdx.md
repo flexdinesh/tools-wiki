@@ -7,31 +7,34 @@ related_targets: ["src/styles/global.css", "src/components/Hero.astro"]
 
 # Homepage and shared docs
 
-Mode: Read. User selected Syntax Studio, code-first. Preserve Starlight features,
-tool content, URLs, light/dark themes. Supersedes the rejected handbook and zine.
+Mode: Read. Reference Atlas is the confirmed replacement direction.
+Keep the existing tool content, URLs, native Starlight search, sidebars,
+table of contents, theme control, code copy, and Markdown endpoints.
 
 ## Direction contract
 
-THESIS: An approachable developer reference with the color vocabulary of a code
-editor and the density of a useful index. Commands and tools lead immediately.
+THESIS: A developer reference that feels like a carefully typeset atlas.
+The tool index and examples remain fast to scan during active work.
 
-OWN-WORLD: Light mode uses deep teal actions, teal command names, coral markers,
-and warm-white surfaces. Dark mode retains violet actions and deep ink surfaces.
-Self-hosted JetBrains Mono headings/code and Inter prose.
-Thin dividers, compact controls, flat rows instead of spacious chapter cards.
+OWN-WORLD: Warm paper across content and catalog rails, ink headings, and cobalt
+wayfinding in light mode; deep blue-green paper and a softer cobalt in dark
+mode. Fraunces carries large titles and section headings; IBM Plex Sans
+carries prose; IBM Plex Mono carries tool names, section names, keys, and code.
+Thin rules and square highlights organize dense material.
 
-STORY: Search through native Starlight or scan the tool directory, open a tool,
-locate a workflow, copy its command. Preserve navigation, TOC, theme and copy.
+STORY: Search or scan the tool index, open a tool, find a workflow in the
+contents, and copy the example. The home page is a compact directory, not a
+marketing splash.
 
-FIRST VIEWPORT: Compact header, short title/description and actions without a
-large example panel. Tool rows start high on the page: mono tool name, concise
-existing description, arrow; narrow screens stack name and description within
-each row. Hover/focus tints the whole row and shifts its arrow slightly. No
-entrance delays. Reduced motion removes transitions. Reading pages use smaller
-mono headings, tight code frames and colorful but legible section markers.
+FIRST VIEWPORT: The docs title opens with a breadcrumb and existing page
+description, then immediate reference content. A labeled terminal frame
+replaces generic window dots. Desktop keeps the catalog and contents rails;
+mobile keeps Starlight's native menu and compact contents control. The
+homepage shows its directory above the fold on desktop and mobile.
 
-FORM: Explicitly approved Syntax Studio, grounded pick, seed 6cbb14a6 reroll 1.
-Both themes support developers consulting docs beside their editor in varied
-ambient light. Color accents supplement text and shape; body copy stays quiet.
+FORM: Code-led build. The Reference Atlas mockup chosen in conversation is
+the visual reference. Match its type, palette, page opening, and code frame
+while showing each tool's actual content and preserving useful controls.
 
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+FINISH: Check desktop and mobile in both themes, preserve keyboard focus and
+local scrolling for wide code and tables, and document the shipped system.

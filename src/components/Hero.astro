@@ -82,37 +82,37 @@ if (image) {
 </div>
 
 <style>
-  .hero { display: grid; gap: 1.5rem; padding-block: 0.5rem; }
+  .hero { display: grid; gap: 1.5rem; padding-block: 1rem 0.5rem; }
   .hero > img, .hero > .hero-html {
     object-fit: contain; width: min(70%, 20rem); height: auto; margin-inline: auto;
   }
-  .stack { flex-direction: column; gap: 1.25rem; }
-  .copy { flex-direction: column; align-items: flex-start; gap: 0.65rem; }
+  .stack { flex-direction: column; gap: 1.5rem; }
+  .copy { flex-direction: column; align-items: flex-start; gap: 0.45rem; }
   h1 {
-    color: var(--sl-color-white); font-family: var(--font-mono);
-    font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 600;
-    letter-spacing: -0.04em; line-height: 1.2; text-wrap: balance;
+    color: var(--atlas-ink); font-family: var(--font-display);
+    font-size: clamp(3.5rem, 7vw, 5.5rem); font-weight: 600;
+    letter-spacing: -0.035em; line-height: 1.03; text-wrap: balance;
   }
-  .tagline { color: var(--sl-color-gray-2); font-size: 1rem; line-height: 1.6; }
-  .search-tip { color: var(--sl-color-gray-3); font-size: 0.75rem; line-height: 1.8; }
+  .tagline { color: var(--atlas-text); font-size: 1.1rem; line-height: 1.6; }
+  .search-tip { color: var(--atlas-muted); font-size: 0.75rem; line-height: 1.8; }
   .search-tip kbd {
-    padding: 0.12em 0.35em; border: 1px solid var(--wiki-border); border-radius: 3px;
-    color: var(--sl-color-text-accent); background: var(--wiki-soft);
+    padding: 0.12em 0.35em; border: 1px solid var(--atlas-line); border-radius: 2px;
+    color: var(--atlas-blue); background: var(--atlas-ground);
     font-family: var(--font-mono); font-size: 0.6875rem;
   }
   .actions { gap: 0.5rem; flex-wrap: wrap; justify-content: flex-start; }
   .hero :global(.sl-link-button) {
-    min-height: 2.5rem; padding: 0.5rem 0.75rem; border-radius: 6px;
+    min-height: 2.6rem; padding: 0.5rem 0.85rem; border-radius: 2px;
     font-size: 0.8125rem; font-weight: 600;
   }
   .hero :global(.sl-link-button.primary) {
-    color: #ffffff; background: var(--wiki-action); border-color: var(--wiki-action);
+    color: var(--sl-color-text-invert); background: var(--atlas-blue); border-color: var(--atlas-blue);
   }
   .hero :global(.sl-link-button.primary:hover) {
-    background: var(--wiki-action-hover); border-color: var(--wiki-action-hover);
+    background: var(--atlas-blue-hover); border-color: var(--atlas-blue-hover);
   }
   @media (min-width: 50rem) {
-    .wiki-hero > .stack { flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem; }
+    .wiki-hero > .stack { flex-direction: row; align-items: end; justify-content: space-between; gap: 2rem; }
     .hero:has(> img, > .hero-html) { grid-template-columns: 1fr 1fr; }
     .hero > img, .hero > .hero-html { order: 2; width: min(100%, 25rem); }
   }

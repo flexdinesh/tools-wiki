@@ -1,0 +1,48 @@
+---
+const { entry } = Astro.locals.starlightRoute;
+const section = entry.id.startsWith("neovim/") ? "Neovim Plugins" : "Cheatsheets";
+const sectionHref = section === "Neovim Plugins" ? "/#neovim-plugins" : "/#cheatsheets";
+const showBreadcrumb = entry.id.includes("/");
+---
+
+{showBreadcrumb && (
+  <nav class="atlas-breadcrumb" aria-label="Breadcrumb">
+    <a href={sectionHref}>{section}</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{entry.data.title}</span>
+  </nav>
+)}
+<h1 id="_top">{entry.data.title}</h1>
+{showBreadcrumb && entry.data.description && (
+  <p class="atlas-summary">{entry.data.description}</p>
+)}
+
+<style>
+  .atlas-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    color: var(--atlas-blue);
+    font: 600 0.7rem/1.5 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .atlas-breadcrumb a { color: inherit; text-decoration: none; }
+  .atlas-breadcrumb a:hover { text-decoration: underline; }
+  h1 {
+    margin-top: 1.45rem;
+    color: var(--atlas-ink);
+    font: 600 clamp(3.5rem, 5.5vw, 5rem)/1.05 var(--font-display);
+    letter-spacing: -0.035em;
+  }
+  .atlas-summary {
+    max-width: 65ch;
+    margin-top: 0.9rem;
+    color: var(--atlas-text);
+    font-size: 1.04rem;
+    line-height: 1.6;
+  }
+  @media (max-width: 49.999rem) {
+    h1 { font-size: clamp(3.25rem, 10vw, 4.25rem); }
+  }
+</style>

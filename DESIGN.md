@@ -1,204 +1,222 @@
 ---
 name: tools wiki
-description: Syntax Studio, a compact developer reference with code-editor color.
+description: Reference Atlas, a carefully typeset developer reference.
 colors:
-  action: "#7052cf"
-  action-hover: "#5d3fba"
-  action-text: "#ffffff"
-  action-light: "#146c60"
-  action-hover-light: "#0f564c"
-  accent-light: "#146c60"
-  accent-dark: "#c0a8ff"
-  teal-light: "#18786b"
-  teal-dark: "#85d9c3"
-  coral-light: "#b64c39"
-  coral-dark: "#f5a18d"
-  ground-light: "#fafaf6"
-  surface-light: "#ffffff"
-  border-light: "#d8e3dc"
-  soft-light: "#edf4ef"
-  active-light: "#dceee5"
-  heading-light: "#24332e"
-  text-light: "#4b5d55"
-  muted-light: "#61736a"
-  ground-dark: "#191720"
-  surface-dark: "#211e2a"
-  border-dark: "#40394e"
-  soft-dark: "#2b2539"
-  active-dark: "#3b2e55"
-  heading-dark: "#f0ebfa"
-  text-dark: "#c9c0d6"
-  muted-dark: "#afa3c0"
+  ground-dark: "#171f22"
+  paper-dark: "#1e282a"
+  sidebar-dark: "#1e282a"
+  line-dark: "#3b4b4d"
+  soft-dark: "#273439"
+  active-dark: "#2a3d5b"
+  ink-dark: "#eef2ee"
+  text-dark: "#c5d0cd"
+  muted-dark: "#aabbb9"
+  cobalt-dark: "#b6c8ff"
+  cobalt-hover-dark: "#d0dbff"
+  ground-light: "#f8f6ee"
+  paper-light: "#fffefa"
+  sidebar-light: "#fffefa"
+  line-light: "#d4d9d3"
+  soft-light: "#eef1ed"
+  active-light: "#e4ebfa"
+  ink-light: "#203036"
+  text-light: "#4d6064"
+  muted-light: "#5c6e72"
+  cobalt-light: "#3159b6"
+  cobalt-hover-light: "#254696"
 typography:
   display:
-    fontFamily: "JetBrains Mono, monospace"
-    fontSize: "clamp(1.75rem, 4vw, 2.5rem)"
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "clamp(3.5rem, 7vw, 5.5rem)"
+    fontWeight: 600
+    lineHeight: 1.03
+    letterSpacing: "-0.035em"
+  page-title:
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "clamp(3.5rem, 5.5vw, 5rem)"
+    fontWeight: 600
+    lineHeight: 1.05
+    letterSpacing: "-0.035em"
+  section:
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "1.7rem"
     fontWeight: 600
     lineHeight: 1.2
-    letterSpacing: "-0.04em"
-  page-title:
-    fontFamily: "JetBrains Mono, monospace"
-    fontSize: "clamp(1.75rem, 3vw, 2.25rem)"
-    fontWeight: 600
     letterSpacing: "-0.035em"
-  headline:
-    fontFamily: "JetBrains Mono, monospace"
-    fontSize: "1.25rem"
+  command-heading:
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "1.35rem"
     fontWeight: 600
-    letterSpacing: "-0.035em"
-  title:
-    fontFamily: "JetBrains Mono, monospace"
-    fontSize: "1rem"
-    fontWeight: 600
-    letterSpacing: "-0.035em"
+    lineHeight: 1.25
+    letterSpacing: "-0.025em"
   body:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.9375rem"
+    fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.65
-  tool-name:
-    fontFamily: "JetBrains Mono, monospace"
-    fontSize: "0.875rem"
+  summary:
+    fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.04rem"
+    lineHeight: 1.6
+  breadcrumb:
+    fontFamily: "IBM Plex Mono, ui-monospace, monospace"
+    fontSize: "0.7rem"
     fontWeight: 600
-    letterSpacing: "-0.025em"
-  description:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.8125rem"
+    lineHeight: 1.5
+    letterSpacing: "0.08em"
+  tool-name:
+    fontFamily: "IBM Plex Mono, ui-monospace, monospace"
+    fontSize: "0.9rem"
+    fontWeight: 600
+    lineHeight: 1.4
+  navigation:
+    fontFamily: "IBM Plex Mono, ui-monospace, monospace"
+    fontSize: "0.81rem"
     fontWeight: 400
     lineHeight: 1.6
-  action:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.8125rem"
+  label:
+    fontFamily: "IBM Plex Mono, ui-monospace, monospace"
+    fontSize: "0.68rem"
     fontWeight: 600
+    lineHeight: 1.5
+    letterSpacing: "0.11em"
   code:
-    fontFamily: "JetBrains Mono, monospace"
-    fontSize: "0.8125rem"
+    fontFamily: "IBM Plex Mono, ui-monospace, monospace"
+    fontSize: "0.82rem"
     lineHeight: 1.65
-  navigation:
-    fontFamily: "JetBrains Mono, monospace"
-    fontSize: "0.75rem"
-    lineHeight: 1.7
+  terminal-label:
+    fontFamily: "IBM Plex Mono, ui-monospace, monospace"
+    fontSize: "0.65rem"
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: "0.04em"
 rounded:
-  row: "0"
-  inline: "3px"
-  navigation: "4px"
-  control: "6px"
-  dialog: "8px"
+  square: "0"
+  small: "2px"
+  dialog: "4px"
 spacing:
-  tight: "0.25rem"
   compact: "0.5rem"
-  small: "0.75rem"
+  row-block: "0.85rem"
   regular: "1rem"
-  inset: "1.25rem"
-  roomy: "1.5rem"
-  section: "2rem"
+  row-gap: "1.25rem"
+  panel: "1.65rem"
+  section: "2.5rem"
 components:
-  button-primary:
-    backgroundColor: "{colors.action-light}"
-    textColor: "{colors.action-text}"
-    typography: "{typography.action}"
-    rounded: "{rounded.control}"
-    padding: "0.5rem 0.75rem"
-  button-primary-hover:
-    backgroundColor: "{colors.action-hover-light}"
+  button-primary-light:
+    backgroundColor: "{colors.cobalt-light}"
+    textColor: "#ffffff"
+    rounded: "{rounded.small}"
+    padding: "0.5rem 0.85rem"
+  button-primary-dark:
+    backgroundColor: "{colors.cobalt-dark}"
+    textColor: "{colors.ground-dark}"
+    rounded: "{rounded.small}"
+    padding: "0.5rem 0.85rem"
   button-minimal:
-    typography: "{typography.action}"
-    rounded: "{rounded.control}"
-    padding: "0.5rem 0.75rem"
+    rounded: "{rounded.small}"
+    padding: "0.5rem 0.85rem"
   tool-row:
-    rounded: "{rounded.row}"
-    padding: "0.75rem 0.5rem"
+    rounded: "{rounded.square}"
+    padding: "0.85rem 0.5rem"
   navigation-active:
-    typography: "{typography.navigation}"
-    rounded: "{rounded.navigation}"
+    rounded: "{rounded.square}"
   search-trigger:
-    rounded: "{rounded.control}"
+    rounded: "{rounded.square}"
+  breadcrumb:
+    typography: "{typography.breadcrumb}"
+  page-opening:
+    typography: "{typography.page-title}"
   code-frame:
     typography: "{typography.code}"
-    rounded: "{rounded.control}"
+    rounded: "{rounded.square}"
   table-cell:
-    padding: "0.5rem 0.75rem"
+    padding: "0.55rem 0.75rem"
 ---
 
 # Design System: tools wiki
 
 ## Overview
 
-**Creative North Star: "Syntax Studio"**
+**Creative North Star: "Reference Atlas"**
 
-A compact developer reference with the color vocabulary of a code editor. Mono headings and tool names support quick scanning; quiet prose explains commands and results.
+A carefully typeset reference for developers working in the middle of a task. The reading pane and navigation share one paper surface; thin rules define the catalog rails, while cobalt shows the path through them. The same structure turns deep blue-green in dark mode.
 
-Both themes use flat surfaces, thin dividers and small controls. Native Starlight search, navigation, themes and code controls remain familiar.
+Fraunces gives page titles, sections, and command headings an editorial voice. IBM Plex Sans keeps explanations readable; IBM Plex Mono marks commands, tool names, section labels, and keys. Thin rules and square highlights organize dense information without adding visual weight.
 
 **Key Characteristics:**
 
-- Deep teal actions in light mode, violet actions in dark mode; teal names and coral markers in both.
-- JetBrains Mono headings/code with Inter prose.
-- Continuous tool rows and compact controls.
-- Paired light and dark themes with visible keyboard focus.
+- Paired warm-paper and blue-green themes with cobalt wayfinding.
+- Serif titles and command headings, sans prose, and mono labels and syntax.
+- Flat directory rows, compact controls, and visible keyboard focus.
 
 ## Colors
 
 ### Primary
 
-Deep teal identifies light-mode actions, links, focus and active navigation. Dark mode retains violet. Filled primary actions retain white text in both themes. The root action/action-hover tokens are dark defaults; action-light/action-hover-light override them in light mode.
-
-### Secondary
-
-Teal identifies tool names, section headings and inline code.
-
-### Tertiary
-
-Coral marks section punctuation and navigation group labels.
+**Catalog Cobalt** is the link, action, focus, and active-navigation accent. The light theme uses a deeper cobalt; the dark theme uses a softer one. Each has a distinct hover color. Active backgrounds tint the surrounding paper instead of adding elevation.
 
 ### Neutral
 
-Warm-white ground, white reading surfaces and soft mint states pair with the existing deep ink dark theme. Theme-specific borders and quiet text preserve the same hierarchy.
+**Paper and catalog rails** share one surface color in each theme; thin lines separate the navigation from the reading pane. **Ink** carries titles, **text** carries prose, and **muted** carries supporting labels. **Soft** fills code and table headers.
 
-**The Theme Pair Rule.** Use paired theme roles for surfaces, text, accents and filled controls; scope palette overrides to their theme.
+**The Paired Theme Rule.** Apply the matching light or dark roles together. Keep link and focus treatment cobalt in both.
 
 ## Typography
 
-Self-hosted JetBrains Mono carries headings, names, navigation and code. Self-hosted Inter carries prose, descriptions and actions. Both use regular and semibold weights.
+**Display Font:** Fraunces (Georgia fallback). **Body Font:** IBM Plex Sans (system sans fallback). **Reference Font:** IBM Plex Mono (system mono fallback).
 
-The token hierarchy separates the compact hero and page title from section headings, row names and code. Home section headings use the title scale. Reading prose stays within (72ch).
+### Hierarchy
 
-**The Syntax Voice Rule.** Use mono for reference structure and syntax; use Inter for explanations.
+- **Display:** large homepage title; semibold with tight tracking.
+- **Page title:** large Fraunces heading; tool pages use a smaller mobile clamp.
+- **Section and command heading:** Fraunces organizes workflows and individual examples.
+- **Body:** IBM Plex Sans with generous leading for commands and explanations.
+- **Summary:** slightly larger sans text under each tool title.
+- **Breadcrumb:** small uppercase mono links to the home directory section.
+- **Tool name, navigation, and label:** IBM Plex Mono; small uppercase labels have extra tracking.
+- **Code:** IBM Plex Mono in inline syntax and framed examples.
+- **Terminal label:** small mono header text above terminal examples.
+
+**The Three Voice Rule.** Use serif for major headings, sans for explanation and controls, mono for reference structure and syntax.
 
 ## Layout
 
-Reading width is (48rem), sidebar width (14rem), header height (3.5rem). The homepage directory is always one column. Each desktop row pairs an (8.5rem) name column with a flexible description and trailing arrow. Below (38rem), name and description stack within each row.
+The reading column is capped at (49rem), with a (15rem) left sidebar and a (3.75rem) header. The home directory is one column. Each row pairs a (9rem) tool-name column with a flexible description and arrow; below (38rem), name and description stack.
 
-At (50rem), hero copy and actions share a horizontal row. Narrower screens wrap actions, enlarge search/theme controls to (2.75rem), and increase sidebar link padding. Tables and code scroll locally when necessary; narrow table descriptions retain (14rem) minimum width.
+At (50rem), the homepage hero can place copy and actions side by side; the header places search between the site title and theme controls. Below that width, controls gain a (2.75rem) minimum height and sidebar links gain room to tap. Wide code and tables scroll locally; narrow table descriptions keep a (14rem) minimum width.
+
+From (40rem) through widths below (50rem), content and header navigation use a (2.75rem) horizontal inset. At a (390px) phone width, both retain the compact (1rem) inset.
 
 ## Elevation & Depth
 
-**The Flat Reference Rule.** Separate surfaces with tonal contrast and thin borders; rows, code frames, pagination and search dialogs have no shadows.
+**The Flat Reference Rule.** Use tonal surfaces and thin (1px) borders. Directory rows and pagination have no shadow. Terminal examples alone use a hard, unblurred (4px) offset in the active tint.
 
 ## Shapes
 
-Tool rows are square and continuous. Inline code and shortcut keys use the smallest radius; navigation, controls and dialogs follow the compact rounded scale. Borders are fine (1px).
+Directory rows, navigation highlights, search triggers, the mobile menu and table-of-contents triggers, code frames, and pagination are square. Inline code, keycaps, and hero actions use the small (2px) radius; the search dialog uses (4px).
 
 ## Components
 
-- **Actions:** small semibold controls; violet primary and minimal secondary. Primary hover deepens violet. Hero controls have (2.5rem) minimum height, increasing to (2.75rem) below (50rem).
-- **Tool rows:** native LinkCard links presented as flat directory rows. Hover or focus tints the whole row and shifts the arrow (3px). Background and arrow transitions use (160ms) with cubic-bezier(0.16, 1, 0.3, 1); reduced motion disables transitions.
-- **Navigation:** compact mono labels; coral groups, soft hover backgrounds, violet active text and tinted active backgrounds. Native mobile menu behavior remains.
-- **Search:** native Starlight trigger and dialog; compact rounded boundaries, theme-aware surfaces, and tinted search highlights. Disabled triggers use a wait cursor and (0.65) opacity.
-- **References:** teal inline code, quiet bordered code frames and compact tables with alternating ground rows. Native copy and table scrolling remain available.
-- **Focus:** visible accent outline (2px) with an offset (3px).
+- **Hero actions:** compact, semibold controls with a cobalt primary action and quiet minimal action. Primary hover changes to the theme's hover cobalt; focus keeps the global visible outline.
+- **Header:** serif site title with a small REFERENCE ATLAS mono label; desktop search is right-aligned in the central header slot. On narrow phones, search and menu use matching (2.75rem) square tap targets and (1rem) icons; search expands to a labeled control at tablet widths.
+- **Page opening:** tool pages start with a collection breadcrumb, large Fraunces title, and the page's existing frontmatter description. The breadcrumb links back to the matching home directory section.
+- **Tool directory:** native LinkCard links read as continuous rows. Hover or focus tints the row and shifts the arrow (3px). Both changes transition for (160ms) with cubic-bezier(0.16, 1, 0.3, 1); reduced motion removes the transitions.
+- **Navigation:** left index and right contents rail match the reading surface; thin rules define the columns. Compact mono links and square cobalt active highlights provide wayfinding. Mobile sidebar links are at least (2.75rem) tall. The outlined mobile menu trigger matches search; two strokes form an X when open.
+- **Search:** native Starlight trigger and dialog with theme-aware surfaces and tinted highlights. A disabled trigger uses a wait cursor and (0.65) opacity.
+- **References:** cobalt inline code, square bordered code frames, compact tables with alternating ground rows, native code copy, and local scrolling. Terminal frames use a labeled header with a visible COPY control; code text is neutral ink except the first command token in cobalt.
+- **Focus:** cobalt outline (2px) with (3px) offset.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- **Do** preserve teal/coral light mode and violet/teal/coral dark mode.
-- **Do** keep mono hierarchy and quiet Inter prose.
-- **Do** retain native controls, visible focus and reduced-motion support.
-- **Do** stack row content on narrow screens and scroll wide references locally.
+- **Do** pair each theme's paper, ink, line, and cobalt tokens.
+- **Do** keep Fraunces headings, sans reading text, and mono reference labels.
+- **Do** preserve native controls, visible focus, and reduced-motion support.
+- **Do** stack directory content on narrow screens and scroll wide references locally.
 
 ### Don't:
 
-- **Don't** restore spacious chapter cards or the removed homepage Git example panel.
-- **Don't** add shadows to flat reference surfaces.
+- **Don't** add diffuse shadows to reference surfaces or window dots to terminal headers.
+- **Don't** turn the compact directory into spacious promotional cards.
 - **Don't** hide table columns or shrink prose to avoid scrolling.

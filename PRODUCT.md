@@ -20,6 +20,7 @@ and returning to work quickly.
 
 - Search commands with Ctrl+K or Cmd+K, browse tools, or follow a direct page URL.
 - Read CLI examples with representative output, or scan shortcut tables.
+- Tool pages open with a collection breadcrumb and their existing description.
 - General cheatsheets and Neovim plugins have separate collections.
 - Tool pages also have Markdown endpoints; the deployment worker serves Markdown
   to requests that explicitly prefer it or match supported agent user agents.
@@ -38,18 +39,18 @@ and returning to work quickly.
 
 - Product name: tools wiki.
 - Voice: concise, practical, developer-facing.
-- Requested direction: a more modern, visually pleasing website with better
-  colors. Substantial design changes are welcome within Starlight's constraints.
-- Approved visual direction: Syntax Studio. Light mode uses warm-white surfaces,
-  deep teal actions, and coral markers; dark mode keeps violet, teal, and coral.
-  JetBrains Mono headings/code, Inter prose, compact tool rows and controls.
-  Preserve both light and dark themes. DESIGN.md records the system.
+- Approved visual direction: Reference Atlas. A shared paper surface across
+  reading and navigation, ink headings, and cobalt wayfinding in light mode;
+  blue-green paper and softer cobalt in dark mode. Fraunces titles, IBM
+  Plex Sans prose, IBM Plex Mono reference labels and code. Keep the tool
+  index dense and scannable.
+  Preserve both themes. DESIGN.md records the system.
 
 ## Evidence on Hand
 
 - `src/content/docs/`: existing tool references and home page directory.
 - `astro.config.mjs`: site identity, navigation, and Starlight integration.
-- `src/components/` and `src/styles/global.css`: incumbent interface.
+- `src/components/` and `src/styles/global.css`: shipped interface.
 - `src/pages/[...path].md.ts` and `src/worker.ts`: Markdown delivery.
 
 ## Product Principles
