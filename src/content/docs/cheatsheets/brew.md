@@ -5,7 +5,7 @@ description: Install Homebrew, install packages, update, search, inspect, remove
 
 `brew` can be used on macOS, Linux, and WSL, but it is mostly used on macOS.
 
-## Install Homebrew
+## Setup
 
 ### Install Homebrew
 
@@ -17,6 +17,8 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 ==> This script will install:
 /opt/homebrew/bin/brew
 ```
+
+Follow the installer's printed **Next steps** to add `brew` to your shell's path.
 
 ### Check Homebrew version
 
