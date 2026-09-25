@@ -18,8 +18,8 @@ The tool index and examples remain fast to scan during active work.
 
 OWN-WORLD: Warm paper across content and catalog rails, ink headings, and cobalt
 wayfinding in light mode; deep blue-green paper and a softer cobalt in dark
-mode. Fraunces carries large titles and section headings; IBM Plex Sans
-carries prose; IBM Plex Mono carries tool names, section names, keys, and code.
+mode. Fraunces carries large titles; IBM Plex Sans carries workflow headings
+and prose; IBM Plex Mono carries tool names, section names, keys, and code.
 Thin rules and square highlights organize dense material.
 
 STORY: Search or scan the tool index, open a tool, find a workflow in the

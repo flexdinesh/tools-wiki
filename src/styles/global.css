@@ -306,11 +306,12 @@ starlight-toc a[aria-current="true"] {
 [data-has-sidebar] main > .content-panel + .content-panel { padding-block-start: 1rem; border-top: 0; }
 .content-panel h1 { color: var(--atlas-ink); line-height: 1.06; }
 .sl-markdown-content h2 { margin-top: 2.5rem; color: var(--atlas-ink); line-height: 1.2; }
-.sl-markdown-content h3 {
+[data-has-sidebar] .sl-markdown-content h2 { font-family: var(--font-sans); letter-spacing: -0.015em; }
+[data-has-sidebar] .sl-markdown-content h3 {
   margin-top: 1.85rem;
   color: var(--atlas-ink);
-  font: 600 1.35rem/1.25 var(--font-display);
-  letter-spacing: -0.025em;
+  font: 600 1.35rem/1.25 var(--font-sans);
+  letter-spacing: -0.01em;
 }
 .sl-markdown-content :is(p, li) { max-width: 72ch; }
 .sl-markdown-content :not(pre) > code { color: var(--atlas-blue); border-radius: 2px; font-size: 0.85em; padding: 0.12em 0.3em; }

@@ -38,17 +38,17 @@ typography:
     lineHeight: 1.05
     letterSpacing: "-0.035em"
   section:
-    fontFamily: "Fraunces, Georgia, serif"
+    fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.7rem"
     fontWeight: 600
     lineHeight: 1.2
-    letterSpacing: "-0.035em"
+    letterSpacing: "-0.015em"
   command-heading:
-    fontFamily: "Fraunces, Georgia, serif"
+    fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.35rem"
     fontWeight: 600
     lineHeight: 1.25
-    letterSpacing: "-0.025em"
+    letterSpacing: "-0.01em"
   body:
     fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1rem"
@@ -141,12 +141,12 @@ components:
 
 A carefully typeset reference for developers working in the middle of a task. The reading pane and navigation share one paper surface; thin rules define the catalog rails, while cobalt shows the path through them. The same structure turns deep blue-green in dark mode.
 
-Fraunces gives page titles, sections, and command headings an editorial voice. IBM Plex Sans keeps explanations readable; IBM Plex Mono marks commands, tool names, section labels, and keys. Thin rules and square highlights organize dense information without adding visual weight.
+Fraunces gives page titles an editorial voice. IBM Plex Sans keeps workflow headings and explanations readable; IBM Plex Mono marks commands, tool names, section labels, and keys. Thin rules and square highlights organize dense information without adding visual weight.
 
 **Key Characteristics:**
 
 - Paired warm-paper and blue-green themes with cobalt wayfinding.
-- Serif titles and command headings, sans prose, and mono labels and syntax.
+- Serif titles, sans workflow headings and prose, and mono labels and syntax.
 - Flat directory rows, compact controls, and visible keyboard focus.
 
 ## Colors
@@ -169,7 +169,7 @@ Fraunces gives page titles, sections, and command headings an editorial voice. I
 
 - **Display:** large homepage title; semibold with tight tracking.
 - **Page title:** large Fraunces heading; tool pages use a smaller mobile clamp.
-- **Section and command heading:** Fraunces organizes workflows and individual examples.
+- **Section and command heading:** semibold IBM Plex Sans organizes workflows and individual examples.
 - **Body:** IBM Plex Sans with generous leading for commands and explanations.
 - **Summary:** slightly larger sans text under each tool title.
 - **Breadcrumb:** small uppercase mono links to the home directory section.
@@ -177,7 +177,7 @@ Fraunces gives page titles, sections, and command headings an editorial voice. I
 - **Code:** IBM Plex Mono in inline syntax and framed examples.
 - **Terminal label:** small mono header text above terminal examples.
 
-**The Three Voice Rule.** Use serif for major headings, sans for explanation and controls, mono for reference structure and syntax.
+**The Three Voice Rule.** Use serif for page titles, sans for workflow headings and explanation, mono for reference structure and syntax.
 
 ## Layout
 
@@ -211,7 +211,7 @@ Directory rows, navigation highlights, search triggers, the mobile menu and tabl
 ### Do:
 
 - **Do** pair each theme's paper, ink, line, and cobalt tokens.
-- **Do** keep Fraunces headings, sans reading text, and mono reference labels.
+- **Do** keep Fraunces page titles, sans workflow headings and reading text, and mono reference labels.
 - **Do** preserve native controls, visible focus, and reduced-motion support.
 - **Do** stack directory content on narrow screens and scroll wide references locally.
 
