@@ -12,6 +12,7 @@ export default defineConfig({
       components: {
         Head: "./src/components/Head.astro",
         Hero: "./src/components/Hero.astro",
+        PageTitle: "./src/components/PageTitle.astro",
       },
       customCss: ["./src/styles/global.css"],
       social: [
@@ -24,12 +25,12 @@ export default defineConfig({
       sidebar: [
         {
           label: "cheatsheets",
-          collapsed: false,
+          collapsed: true,
           autogenerate: { directory: "cheatsheets" },
         },
         {
           label: "neovim plugins",
-          collapsed: false,
+          collapsed: true,
           autogenerate: { directory: "neovim" },
         },
       ],
