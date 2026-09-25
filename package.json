@@ -1,14 +1,13 @@
 {
   "name": "tools-wiki",
-  "type": "module",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@11.5.0",
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro build && node scripts/generate-md-manifest.mjs",
-    "preview": "astro preview",
+    "preview": "astro preview --host",
     "deploy": "sst deploy",
     "diff": "sst diff"
   },
@@ -24,5 +23,6 @@
     "sharp": "^0.34.5",
     "sst": "4.12.11",
     "tailwindcss": "^4.2.4"
-  }
+  },
+  "packageManager": "pnpm@11.5.0"
 }
