@@ -112,8 +112,104 @@ site-search button[data-open-modal] {
   background: var(--atlas-paper);
 }
 site-search button[data-open-modal]:disabled { cursor: wait; opacity: 0.65; }
-site-search dialog { border: 1px solid var(--atlas-line); border-radius: 4px; background: var(--atlas-paper); }
+site-search dialog {
+  border: 1px solid var(--atlas-line);
+  border-radius: 4px;
+  background: var(--atlas-paper);
+  box-shadow: none;
+}
+site-search dialog::backdrop { background: rgb(23 31 34 / 64%); backdrop-filter: none; }
+site-search .dialog-frame { gap: 0; overflow: hidden; padding: 0.75rem; }
+#starlight__search {
+  --pagefind-ui-primary: var(--atlas-blue);
+  --pagefind-ui-text: var(--atlas-text);
+  --pagefind-ui-background: var(--atlas-paper);
+  --pagefind-ui-border: var(--atlas-line);
+  --sl-search-result-spacing: 0;
+  --sl-search-result-pad-inline-start: 1rem;
+  --sl-search-result-pad-inline-end: 1rem;
+  --sl-search-result-pad-block: 0.75rem;
+  --sl-search-result-nested-pad-block: 0.5rem;
+}
+#starlight__search .pagefind-ui__search-input {
+  height: 3.5rem;
+  border: 0;
+  border-bottom: 1px solid var(--atlas-line);
+  border-radius: 0;
+  background: var(--atlas-paper);
+  color: var(--atlas-ink);
+  font-size: 1rem;
+}
+#starlight__search .pagefind-ui__search-input:focus {
+  outline: 2px solid var(--atlas-blue);
+  outline-offset: -2px;
+}
+#starlight__search .pagefind-ui__form::before {
+  top: 1.75rem;
+  transform: translateY(-50%);
+}
+#starlight__search .pagefind-ui__search-clear {
+  top: 0;
+  height: 3.5rem;
+}
+#starlight__search .pagefind-ui__drawer {
+  max-height: min(62vh, 38rem);
+  overflow-y: auto;
+  scrollbar-color: var(--atlas-line) var(--atlas-paper);
+}
+#starlight__search .pagefind-ui__results-area { margin-top: 0; }
+#starlight__search .pagefind-ui__message {
+  height: auto;
+  margin: 0.65rem 1rem;
+  padding: 0;
+  color: var(--atlas-muted);
+  font: 600 0.7rem/1.5 var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+#starlight__search .pagefind-ui__results > * + * { margin-top: 0; }
+#starlight__search .pagefind-ui__result { border-top: 1px solid var(--atlas-line); }
+#starlight__search .pagefind-ui__result-inner { gap: 0; }
+#starlight__search .pagefind-ui__result-inner > .pagefind-ui__result-title {
+  padding: 0.7rem 1rem;
+  background: var(--atlas-paper);
+  font: 600 0.86rem/1.5 var(--font-mono);
+}
+#starlight__search .pagefind-ui__result-inner > .pagefind-ui__result-title .pagefind-ui__result-link {
+  color: var(--atlas-blue);
+}
+#starlight__search .pagefind-ui__result-title::before,
+#starlight__search .pagefind-ui__result-nested::before { display: none; }
+#starlight__search .pagefind-ui__result-nested {
+  padding: 0.45rem 1rem 0.55rem 1.75rem;
+  background: var(--atlas-paper);
+}
+#starlight__search .pagefind-ui__result-nested .pagefind-ui__result-title {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+#starlight__search .pagefind-ui__result-excerpt {
+  color: var(--atlas-muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+#starlight__search .pagefind-ui__result-title:hover,
+#starlight__search .pagefind-ui__result-nested:hover { background: var(--atlas-active); }
+#starlight__search .pagefind-ui__result-title:focus-within,
+#starlight__search .pagefind-ui__result-nested:focus-within {
+  background: var(--atlas-active);
+  outline: 2px solid var(--atlas-blue);
+  outline-offset: -2px;
+}
 #starlight__search mark { color: var(--atlas-blue); background: var(--atlas-active); }
+@media (min-width: 50rem) {
+  site-search dialog { margin-top: 10vh; max-width: 42rem; max-height: 76vh; }
+  site-search .dialog-frame { padding: 0.85rem; }
+}
+@media (max-width: 49.999rem) {
+  site-search dialog { height: 100dvh; }
+  #starlight__search .pagefind-ui__drawer { max-height: calc(100dvh - 5.5rem); }
+}
 starlight-theme-select select { min-height: 2.3rem; }
 starlight-menu-button button {
   align-items: center;
