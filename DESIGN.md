@@ -203,7 +203,7 @@ Directory rows, navigation highlights, search triggers, the mobile menu and tabl
 - **Tool directory:** native LinkCard links read as continuous rows. Hover or focus tints the row and shifts the arrow (3px). Both changes transition for (160ms) with cubic-bezier(0.16, 1, 0.3, 1); reduced motion removes the transitions.
 - **Navigation:** left index and right contents rail match the reading surface; thin rules define the columns. Compact mono links and square cobalt active highlights provide wayfinding. Mobile sidebar links are at least (2.75rem) tall. The outlined mobile menu trigger matches search; two strokes form an X when open.
 - **Search:** native Starlight trigger and dialog with theme-aware surfaces and tinted highlights. A disabled trigger uses a wait cursor and (0.65) opacity.
-- **References:** cobalt inline code, square bordered code frames, compact tables with alternating ground rows, native code copy, and local scrolling. Terminal frames use a labeled header with a visible COPY control; code text is neutral ink except the first command token in cobalt.
+- **References:** cobalt inline code, square bordered code frames, compact tables with alternating ground rows, native code copy, and local scrolling. Terminal frames use a labeled header with a visible COPY control. Syntax tokens use Starlight's built-in light and dark colors; plain text uses neutral ink.
 - **Focus:** cobalt outline (2px) with (3px) offset.
 
 ## Do's and Don'ts

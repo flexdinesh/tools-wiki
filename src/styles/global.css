@@ -371,8 +371,6 @@ starlight-toc a[aria-current="true"] {
   margin: 0;
 }
 .sl-markdown-content .expressive-code .frame.is-terminal .copy button:hover { color: var(--atlas-blue); }
-.sl-markdown-content .expressive-code .frame.is-terminal .ec-line .code > span[style] { color: var(--atlas-ink); }
-.sl-markdown-content .expressive-code .frame.is-terminal .ec-line:first-child .code > span:first-child { color: var(--atlas-blue); }
 .sl-markdown-content table { width: 100%; font-size: 0.875rem; font-variant-numeric: tabular-nums; }
 .sl-markdown-content table th { color: var(--atlas-ink); background: var(--atlas-soft); font-weight: 600; }
 .sl-markdown-content :is(th, td) { padding: 0.55rem 0.75rem; border-bottom-color: var(--atlas-line); vertical-align: top; }
