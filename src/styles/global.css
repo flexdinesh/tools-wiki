@@ -97,14 +97,6 @@ h3, h4 { font-family: var(--font-sans); font-weight: 600; letter-spacing: -0.02e
 
 header.header { border-bottom: 1px solid var(--atlas-line); background: var(--atlas-paper); }
 .site-title { color: var(--atlas-ink); font: 600 1.45rem/1 var(--font-display); letter-spacing: -0.035em; }
-.site-title::after {
-  content: "REFERENCE ATLAS";
-  margin-inline-start: 0.7rem;
-  color: var(--atlas-blue);
-  font: 600 0.59rem/1 var(--font-mono);
-  letter-spacing: 0.12em;
-  vertical-align: middle;
-}
 site-search button[data-open-modal] {
   min-height: 2.3rem;
   border: 1px solid var(--atlas-line);
@@ -416,7 +408,6 @@ starlight-toc a[aria-current="true"] {
   starlight-theme-select select { min-height: 2.75rem; }
 }
 @media (max-width: 37.999rem) {
-  .site-title::after { display: none; }
   :root:not([data-has-sidebar]) .sl-link-card .stack { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
   :root:not([data-has-sidebar]) .sl-link-card { align-items: start; }
   :root:not([data-has-sidebar]) .sl-link-card .icon { margin-top: 0.2rem; }

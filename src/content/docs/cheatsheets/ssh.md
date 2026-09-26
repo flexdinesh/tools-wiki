@@ -28,6 +28,23 @@ Hi alice! You've successfully authenticated, but GitHub does not provide shell a
 Connection to github.com closed.
 ```
 
+### Connect using an alias
+
+Save the host, username, and private key in `~/.ssh/config` to connect using a short alias.
+
+```text
+Host server
+    HostName server.example.com
+    User alice
+    IdentityFile ~/.ssh/server-access
+```
+
+Connect using the alias:
+
+```bash
+$ ssh server
+```
+
 ### Start a program after connecting
 
 Force pseudo-terminal allocation and start an interactive program on the remote host.
@@ -184,6 +201,27 @@ Use `-f` to run the tunnel in the background:
 ```bash
 $ ssh -f -N -L 8080:localhost:3000 alice@192.168.1.100
 ```
+
+### Forward a local port using an alias
+
+Add a `LocalForward` entry for each port mapping in the alias's `~/.ssh/config` block.
+
+```text
+Host server
+    HostName server.example.com
+    User alice
+    IdentityFile ~/.ssh/server-access
+    LocalForward 4317 localhost:4317
+    LocalForward 8080 localhost:3000
+```
+
+Start both tunnels without running a remote command:
+
+```bash
+$ ssh -N server
+```
+
+Local port `4317` forwards to remote `localhost:4317`; local port `8080` forwards to remote `localhost:3000`. Here, `localhost` refers to the remote host. Add more `LocalForward` entries to forward more ports through the same connection. Keep the command running; press Ctrl+C to stop both tunnels.
 
 ---
 

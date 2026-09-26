@@ -198,7 +198,7 @@ Directory rows, navigation highlights, search triggers, the mobile menu and tabl
 ## Components
 
 - **Hero actions:** compact, semibold controls with a cobalt primary action and quiet minimal action. Primary hover changes to the theme's hover cobalt; focus keeps the global visible outline.
-- **Header:** serif site title with a small REFERENCE ATLAS mono label; desktop search is right-aligned in the central header slot. On narrow phones, search and menu use matching (2.75rem) square tap targets and (1rem) icons; search expands to a labeled control at tablet widths.
+- **Header:** serif site title; desktop search is right-aligned in the central header slot. On narrow phones, search and menu use matching (2.75rem) square tap targets and (1rem) icons; search expands to a labeled control at tablet widths.
 - **Page opening:** tool pages start with a collection breadcrumb, large Fraunces title, and the page's existing frontmatter description. The breadcrumb links back to the matching home directory section.
 - **Tool directory:** native LinkCard links read as continuous rows. Hover or focus tints the row and shifts the arrow (3px). Both changes transition for (160ms) with cubic-bezier(0.16, 1, 0.3, 1); reduced motion removes the transitions.
 - **Navigation:** left index and right contents rail match the reading surface; thin rules define the columns. Compact mono links and square cobalt active highlights provide wayfinding. Mobile sidebar links are at least (2.75rem) tall. The outlined mobile menu trigger matches search; two strokes form an X when open.
