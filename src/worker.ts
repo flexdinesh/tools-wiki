@@ -1,20 +1,43 @@
 /// <reference types="@cloudflare/workers-types" />
 
-import { MD_PATHS } from "./md-paths";
+import { MD_PATHS } from "./md-paths.ts";
 
 interface Env {
-  ASSETS: { fetch: typeof fetch };
+  ASSETS: { fetch(request: Request): Promise<Response> };
 }
 
 const AGENT_UA_PATTERN =
   /bot|crawler|claude|gptbot|chatgpt|curl|wget|python-requests|go-http-client|node-fetch|aiohttp|axios|opencode|pi/i;
 
-function isAgentRequest(request: Request): boolean {
-  // B: Accept header explicitly requests markdown
-  const accept = request.headers.get("Accept") ?? "";
-  if (accept.includes("text/markdown")) return true;
+function acceptedQuality(mediaType: string, accept: string): number {
+  let quality = 0;
+  let specificity = -1;
 
-  // A: User-Agent matches known agent patterns
+  for (const range of accept.toLowerCase().split(",")) {
+    const [type, ...parameters] = range.split(";").map(part => part.trim());
+    const rank = type === mediaType ? 2 : type === "text/*" ? 1 : type === "*/*" ? 0 : -1;
+    if (rank < 0 || rank < specificity) continue;
+
+    const weight = parameters.find(parameter => /^q\s*=/.test(parameter));
+    const value = weight === undefined ? 1 : Number(weight.split("=")[1]);
+    const candidate = Number.isFinite(value) && value >= 0 && value <= 1 ? value : 0;
+    quality = rank === specificity ? Math.max(quality, candidate) : candidate;
+    specificity = rank;
+  }
+
+  return quality;
+}
+
+function prefersMarkdown(request: Request): boolean {
+  const accept = request.headers.get("Accept")?.trim();
+  if (accept) {
+    const markdown = acceptedQuality("text/markdown", accept);
+    const html = acceptedQuality("text/html", accept);
+    if (markdown !== html) return markdown > html;
+    if (markdown === 0) return false;
+  }
+
+  // Use agent detection when Accept leaves the representation preference open.
   const ua = request.headers.get("User-Agent") ?? "";
   return AGENT_UA_PATTERN.test(ua);
 }
@@ -24,13 +47,19 @@ function toMdPath(pathname: string): string | null {
   return MD_PATHS.has(normalized) ? normalized + ".md" : null;
 }
 
-function addAgentHeaders(response: Response): Response {
+function addResponseHeaders(response: Response, markdown = false): Response {
   const headers = new Headers(response.headers);
-  headers.set("Content-Type", "text/markdown; charset=utf-8");
-  headers.set(
-    "Cache-Control",
-    "public, max-age=3600, stale-while-revalidate=86400",
-  );
+  const vary = (headers.get("Vary") ?? "").split(",").map(field => field.trim()).filter(Boolean);
+  if (!vary.includes("*")) {
+    for (const field of ["Accept", "User-Agent"]) {
+      if (!vary.some(existing => existing.toLowerCase() === field.toLowerCase())) vary.push(field);
+    }
+    headers.set("Vary", vary.join(", "));
+  }
+  if (markdown) {
+    headers.set("Content-Type", "text/markdown; charset=utf-8");
+    headers.set("Cache-Control", "public, max-age=3600, stale-while-revalidate=86400");
+  }
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
@@ -40,7 +69,7 @@ function addAgentHeaders(response: Response): Response {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    if (isAgentRequest(request)) {
+    if (prefersMarkdown(request)) {
       const url = new URL(request.url);
       const mdPath = toMdPath(url.pathname);
       if (mdPath) {
@@ -49,17 +78,9 @@ export default {
           request,
         );
         const response = await env.ASSETS.fetch(mdRequest);
-        if (response.ok) return addAgentHeaders(response);
+        if (response.ok) return addResponseHeaders(response, true);
       }
     }
-    const response = await env.ASSETS.fetch(request);
-    const headers = new Headers(response.headers);
-    headers.set("Vary", "Accept, User-Agent");
-    return new Response(response.body, {
-      status: response.status,
-      statusText: response.statusText,
-      headers,
-    });
+    return addResponseHeaders(await env.ASSETS.fetch(request));
   },
 };
-

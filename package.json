@@ -7,6 +7,9 @@
     "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro build && node scripts/generate-md-manifest.mjs",
+    "typecheck": "astro check",
+    "test": "node --test tests/*.test.ts",
+    "check": "pnpm run build && pnpm run typecheck && pnpm run test",
     "preview": "astro preview --host",
     "deploy": "sst deploy",
     "diff": "sst diff"
@@ -24,5 +27,10 @@
     "sst": "4.12.11",
     "tailwindcss": "^4.2.4"
   },
-  "packageManager": "pnpm@11.5.0"
+  "packageManager": "pnpm@11.5.0",
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@types/node": "^24.12.2",
+    "typescript": "^5.9.3"
+  }
 }
