@@ -1,5 +1,6 @@
 {
   "extends": "astro/tsconfigs/base",
+  "exclude": ["dist", ".sst", "sst.config.ts", "sst-env.d.ts"],
   "compilerOptions": {
     "strict": true,
     "skipLibCheck": true

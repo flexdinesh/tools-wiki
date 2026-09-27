@@ -5,8 +5,12 @@ import Default from '@astrojs/starlight/components/Head.astro';
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.deebox.xyz/js/pa-udA0PJ0Wycc1FPqtx8ycv.js"></script>
 <script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  const plausible: Plausible = window.plausible ?? function (...args: unknown[]) {
+    (plausible.q ??= []).push(args);
+  };
+  plausible.init ??= (options = {}) => { plausible.o = options; };
+  window.plausible = plausible;
+  plausible.init();
 </script>
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
