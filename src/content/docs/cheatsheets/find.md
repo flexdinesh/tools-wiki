@@ -74,6 +74,16 @@ $ find . -type d
 ./src/components
 ```
 
+### Find directories by name pattern
+
+Combine `-type d` with `-name` to match directory names only.
+
+```bash
+$ find . -type d -name "*target*"
+./target
+./crates/core/target
+```
+
 ### Limit search depth
 
 Use `-maxdepth` to avoid searching too deeply.
