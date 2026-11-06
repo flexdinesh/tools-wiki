@@ -4,7 +4,7 @@ import starlight from "@astrojs/starlight";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://toolswiki.deebox.dev",
+  site: "https://toolswiki.hoplabs.dev",
 
   integrations: [
     starlight({

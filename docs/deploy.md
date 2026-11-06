@@ -1,6 +1,6 @@
 # Deploy
 
-Deployed to Cloudflare Workers with Workers Builds. `wrangler.jsonc` defines the Worker, its static assets, and the custom domain `toolswiki.deebox.dev`.
+Deployed to Cloudflare Workers with Workers Builds. `wrangler.jsonc` defines the Worker, its static assets, and the custom domain `toolswiki.hoplabs.dev`.
 
 ## Workers Builds
 
@@ -9,11 +9,12 @@ Pushes to `main` build and deploy automatically. Non-production branch builds ar
 Configured in the Cloudflare dashboard under Worker `tools-wiki` > Settings > Builds:
 
 - Branch: `main`
-- Build command: `pnpm run check`
+- Build command: `pnpm run build`
 - Deploy command: `pnpm exec wrangler deploy`
-- Build variable: `NODE_VERSION=24`
 
-The build command generates `src/md-paths.ts`, which the Worker imports, and stops the deploy if checks fail.
+The build command generates `src/md-paths.ts`, which the Worker imports. It does not run typecheck or tests.
+
+`NODE_VERSION` is unset, so builds use Cloudflare's default Node version, which can differ from the Node version used for local development and the `Check` workflow.
 
 ## Manual deploy
 

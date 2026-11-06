@@ -33,7 +33,7 @@ src/content/docs/
 
 ## Development
 
-Use Node.js 24 and pnpm 11.5.0, from the repository root.
+Use Node.js 26 and pnpm 11.5.0, from the repository root.
 
 ```bash
 pnpm install
