@@ -13,6 +13,7 @@ export default defineConfig({
         Head: "./src/components/Head.astro",
         Hero: "./src/components/Hero.astro",
         PageTitle: "./src/components/PageTitle.astro",
+        SkipLink: "./src/components/SkipLink.astro",
       },
       customCss: ["./src/styles/global.css"],
       social: [

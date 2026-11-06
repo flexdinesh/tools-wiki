@@ -2,16 +2,8 @@
 import Default from '@astrojs/starlight/components/Head.astro';
 ---
 
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.deebox.xyz/js/pa-udA0PJ0Wycc1FPqtx8ycv.js"></script>
-<script>
-  const plausible: Plausible = window.plausible ?? function (...args: unknown[]) {
-    (plausible.q ??= []).push(args);
-  };
-  plausible.init ??= (options = {}) => { plausible.o = options; };
-  window.plausible = plausible;
-  plausible.init();
-</script>
+<!-- Privacy-friendly analytics by Shynet; noscript pixel lives in SkipLink.astro -->
+<script defer src="https://shynet.deebox.xyz/ingress/ea13e654-be7f-4048-9e35-2e722d6505a9/script.js"></script>
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
 
