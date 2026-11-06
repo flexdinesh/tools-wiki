@@ -1,7 +1,7 @@
 dist/
 node_modules/
 .astro/
-.sst
+.wrangler
 src/md-paths.ts
 .playwright-mcp/
 .impeccable/review/

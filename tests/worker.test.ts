@@ -89,7 +89,7 @@ for (const accept of ["text/html", "text/markdown"]) {
 test("Markdown has its content type and cache policy", async () => {
   const { response } = await requestPage({ accept: "text/markdown" });
   assert.equal(response.headers.get("Content-Type"), "text/markdown; charset=utf-8");
-  assert.equal(response.headers.get("Cache-Control"), "public, max-age=3600, stale-while-revalidate=86400");
+  assert.equal(response.headers.get("Cache-Control"), "public, max-age=0, must-revalidate");
 });
 
 test("unavailable Markdown falls back to original HTML request", async () => {
