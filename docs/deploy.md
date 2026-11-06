@@ -1,48 +1,34 @@
 # Deploy
 
-Deployed to Cloudflare Workers with SST.
+Deployed to Cloudflare Workers with Workers Builds. `wrangler.jsonc` defines the Worker, its static assets, and the custom domain `toolswiki.deebox.dev`.
 
-## Prerequisites
+## Workers Builds
 
-- Cloudflare account
-- Cloudflare API token with Workers access
-- For custom domain deploys: Cloudflare DNS edit access for the target zone
-- Optional: `CLOUDFLARE_DEFAULT_ACCOUNT_ID`
+Pushes to `main` build and deploy automatically. Non-production branch builds are off; the `Check` workflow validates pull requests.
 
-## Local commands
+Configured in the Cloudflare dashboard under Worker `tools-wiki` > Settings > Builds:
 
-Set Cloudflare creds in your shell:
+- Branch: `main`
+- Build command: `pnpm run check`
+- Deploy command: `pnpm exec wrangler deploy`
+- Build variable: `NODE_VERSION=24`
+
+The build command generates `src/md-paths.ts`, which the Worker imports, and stops the deploy if checks fail.
+
+## Manual deploy
+
+Requires a Cloudflare API token with Workers access and DNS edit access for the target zone.
 
 ```bash
 export CLOUDFLARE_API_TOKEN="..."
-export CLOUDFLARE_DEFAULT_ACCOUNT_ID="..."
+export CLOUDFLARE_ACCOUNT_ID="..."
+pnpm run build
+pnpm exec wrangler deploy
 ```
 
-See planned infra changes:
+Validate without deploying:
 
 ```bash
-pnpm run diff -- --stage=production
+pnpm run build
+pnpm exec wrangler deploy --dry-run
 ```
-
-> If this is the first deploy for the stage, `sst diff` can fail with `stage not found`. Run deploy once, then diff will work on later changes.
-
-Deploy:
-
-```bash
-pnpm run deploy -- --stage=production
-```
-
-SST builds the Astro site, uploads `dist/`, and deploys a Cloudflare Worker that serves static assets.
-
-Production also binds the custom domain `toolswiki.deebox.dev`.
-
-## GitHub Actions
-
-Auto-deploy runs on pushes to `main`.
-
-Repo secrets required:
-
-- `CLOUDFLARE_API_TOKEN`
-- `CLOUDFLARE_DEFAULT_ACCOUNT_ID`
-
-Manual trigger is also available in GitHub Actions.

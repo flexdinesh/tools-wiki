@@ -44,8 +44,7 @@ pnpm run check      # build, typecheck, worker tests, directory validation
 
 `check` builds first to generate the worker's Markdown path manifest. After a build,
 `pnpm run typecheck` and `pnpm run test` can run independently. Typechecking covers
-the site, worker, and tests; SST configuration depends on generated platform types
-and is validated by `sst diff` during deployment.
+the site, worker, and tests.
 
 Stop the development server with Ctrl+C. Astro dev and preview serve static pages;
 Markdown negotiation runs in the Cloudflare Worker. See [deployment](docs/deploy.md)

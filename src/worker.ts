@@ -58,7 +58,7 @@ function addResponseHeaders(response: Response, markdown = false): Response {
   }
   if (markdown) {
     headers.set("Content-Type", "text/markdown; charset=utf-8");
-    headers.set("Cache-Control", "public, max-age=3600, stale-while-revalidate=86400");
+    headers.set("Cache-Control", "public, max-age=0, must-revalidate");
   }
   return new Response(response.body, {
     status: response.status,
