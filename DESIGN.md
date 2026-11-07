@@ -278,7 +278,7 @@ The reading gutter is 1.5rem from 50rem and 1rem below. Section and entry rules,
 
 Tool pages open with crumb, title, and summary, then ruled entries or tables. On wide screens the home page fills the viewport: a title strip with the action at right, a 2.5rem collection key, then a directory of 2.5rem rows under a 2rem column head, in five columns (9rem name, fluid description, 5rem sections, 5rem entries, 2.5rem arrow).
 
-Below 50rem the sheet is one column and the left index moves behind the menu. Header search and menu, the theme select, index rows and group heads, the home action, and the collection key all hold a 2.75rem minimum. Directory rows stack with 0.75rem block padding and a 0.25rem gap: name, entry count, and arrow, then the description beneath. The sections count and column head drop out.
+Below 50rem the sheet is one column and the left index moves behind the menu. Header search and menu, the theme select, index rows and group heads, the search dialog's input and Cancel, the home action, and the collection key all hold a 2.75rem minimum. Directory rows stack with 0.75rem block padding and a 0.25rem gap: name, entry count, and arrow, then the description beneath. The sections count and column head drop out.
 
 **The One Sheet Rule.** Rules run edge to edge and sections sit flush. No gaps, gutters, or margins separate entries into floating blocks.
 
@@ -306,7 +306,11 @@ Compact and cellular. Each region is divided by a Mild Rule, and the bottom edge
 
 ### Search
 
-Native Starlight search and dialog. The trigger is transparent and fills with Ground on hover, with a Ground key cap. In the dialog, the 3rem input sits on a bottom rule and results are ruled rows, with tool names in Tool Name and excerpts in Muted. Hover and focus use Route Tint.
+Native Starlight search and dialog. The trigger is transparent and fills with Ground on hover, with a Ground key cap. The dialog has no inner gutter, so its input, rules, and rows reach its edges, and it holds only the input until results arrive. It is 40rem wide from 50rem, and full screen with no border below that.
+
+The 2.5rem input (2.75rem below 50rem) sits on a Mild Rule, with a Muted clear icon and placeholder. A flush 1.75rem Muted strip states the result count. Each result is a 2.125rem Ground head with the tool in Tool Name, with a Strong Rule between results. Sub-results follow as flush rows of about 2.75rem, divided by Mild Rules: Rail Row title at 600, then a one-line Muted excerpt clipped with an ellipsis. A row matching the page intro drops its repeated title and shows only the excerpt. Load more is a flush row in Route Blue under a Strong Rule. Hover and focus use Route Tint.
+
+**The Search Focus Exception.** The input always holds focus while the dialog is open, so a ring would stay on permanently. Its focus is a 2px Route Blue bottom rule instead.
 
 ### Left index
 
@@ -358,7 +362,7 @@ Previous and next links sit in one ruled box split by a Mild Rule, flat with a R
 
 ### Focus
 
-A 2px Route Blue outline with 2px offset, drawn inset (-2px) on flush rows and cells so rules never clip it.
+A 2px Route Blue outline with 2px offset, drawn inset (-2px) on flush rows and cells so rules never clip it. The search input is the one exception: see The Search Focus Exception.
 
 ## Do's and Don'ts
 
