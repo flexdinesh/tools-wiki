@@ -154,7 +154,7 @@ components:
   tool-row:
     typography: "{typography.compact}"
     rounded: "{rounded.square}"
-    height: "2rem"
+    height: "2.5rem"
   table-cell:
     typography: "{typography.compact}"
     padding: "0.4375rem 0.875rem"
@@ -276,9 +276,9 @@ A fixed frame of ruled columns under a 3rem header. From 50rem the header splits
 
 The reading gutter is 1.5rem from 50rem and 1rem below. Section and entry rules, and tables, cancel that gutter to reach the column edges. Rhythm is measured: 1.125rem above a section title, 1rem above an entry title, and 0.4375rem by 0.875rem in table cells. An entry title directly above a table keeps 0.625rem below it.
 
-Tool pages open with crumb, title, and summary, then ruled entries or tables. On wide screens the home page fills the viewport: a title strip with the action at right, a 2.5rem collection key, then a directory of 2rem rows in five columns (9rem name, fluid description, 5rem sections, 5rem entries, 2.5rem arrow).
+Tool pages open with crumb, title, and summary, then ruled entries or tables. On wide screens the home page fills the viewport: a title strip with the action at right, a 2.5rem collection key, then a directory of 2.5rem rows under a 2rem column head, in five columns (9rem name, fluid description, 5rem sections, 5rem entries, 2.5rem arrow).
 
-Below 50rem the sheet is one column and the left index moves behind the menu. Header search and menu, the theme select, index rows and group heads, the home action, and the collection key all hold a 2.75rem minimum. Directory rows stack: name, entry count, and arrow, then the description beneath. The sections count and column head drop out.
+Below 50rem the sheet is one column and the left index moves behind the menu. Header search and menu, the theme select, index rows and group heads, the home action, and the collection key all hold a 2.75rem minimum. Directory rows stack with 0.75rem block padding and a 0.25rem gap: name, entry count, and arrow, then the description beneath. The sections count and column head drop out.
 
 **The One Sheet Rule.** Rules run edge to edge and sections sit flush. No gaps, gutters, or margins separate entries into floating blocks.
 

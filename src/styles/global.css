@@ -52,7 +52,8 @@
   --wiki-size-rail-head: 2.125rem;
   --wiki-size-index-row: 1.75rem;
   --wiki-size-contents-row: 1.875rem;
-  --wiki-size-directory-row: 2rem;
+  --wiki-size-directory-row: 2.5rem;
+  --wiki-size-directory-head: 2rem;
   --wiki-size-key-strip: 2.5rem;
   --wiki-size-action: 2.125rem;
   --sl-color-white: var(--wiki-ink);
