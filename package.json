@@ -13,15 +13,16 @@
     "preview": "astro preview --host"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.38.4",
-    "@cloudflare/workers-types": "^4.20260503.1",
-    "astro": "^6.2.1"
+    "@astrojs/markdown-remark": "^7.3.6",
+    "@astrojs/starlight": "^0.42.9",
+    "@cloudflare/workers-types": "^5.20261106.1",
+    "astro": "^7.4.7"
   },
   "packageManager": "pnpm@11.5.0",
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
+    "@astrojs/check": "^0.9.12",
     "@types/node": "^26.6.6",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "wrangler": "^4.158.0"
   }
 }
