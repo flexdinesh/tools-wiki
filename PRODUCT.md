@@ -39,11 +39,10 @@ and returning to work quickly.
 
 - Product name: tools wiki.
 - Voice: concise, practical, developer-facing.
-- Approved visual direction: Reference Atlas. A shared paper surface across
-  reading and navigation, ink headings, and cobalt wayfinding in light mode;
-  blue-green paper and softer cobalt in dark mode. Fraunces titles, IBM
-  Plex Sans prose, IBM Plex Mono reference labels and code. Keep the tool
-  index dense and scannable.
+- Approved visual direction: Timetable, inspired by px0 and Zed. One ruled
+  sheet of cool grey and white (blue-black in dark mode) with mild 1px borders,
+  sharp corners, and route blue wayfinding. Geist prose and titles, Geist Mono
+  reference labels and code. Keep the tool index dense and scannable.
   Preserve both themes. DESIGN.md records the system.
 
 ## Evidence on Hand

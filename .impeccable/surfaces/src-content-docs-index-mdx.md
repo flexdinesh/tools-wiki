@@ -2,39 +2,39 @@
 version: 1
 slug: "src-content-docs-index-mdx"
 primary_target: "src/content/docs/index.mdx"
-related_targets: ["src/styles/global.css", "src/components/Hero.astro"]
+related_targets: ["src/styles/global.css","src/components/Hero.astro","src/components/PageTitle.astro","src/components/LinkCard.astro","src/components/ToolIndex.astro"]
 ---
 
 # Homepage and shared docs
 
-Mode: Read. Reference Atlas is the confirmed replacement direction.
-Keep the existing tool content, URLs, native Starlight search, sidebars,
-table of contents, theme control, code copy, and Markdown endpoints.
+Mode: Read. Keep the existing tool content, URLs, native Starlight search,
+sidebars, table of contents, theme control, code copy, and Markdown endpoints.
+
+Visitor: a developer mid-task looking up a command or shortcut, then returning
+to work. Inspiration named by the user: px0.ai and zed.dev; dense layout, mild
+border colors, sharp borders.
 
 ## Direction contract
 
-THESIS: A developer reference that feels like a carefully typeset atlas.
-The tool index and examples remain fast to scan during active work.
+THESIS: A developer reference ruled like a railway timetable: everything sits on
+one ruled sheet, so more entries fit per screen. It refuses the airy docs page of
+floating cards and large display titles.
 
-OWN-WORLD: Warm paper across content and catalog rails, ink headings, and cobalt
-wayfinding in light mode; deep blue-green paper and a softer cobalt in dark
-mode. Fraunces carries large titles; IBM Plex Sans carries workflow headings
-and prose; IBM Plex Mono carries tool names, section names, keys, and code.
-Thin rules and square highlights organize dense material.
+OWN-WORLD: Cool grey ground and white paper; dark mode is blue-black. Mild 1px
+rules in two weights, no radius, no shadows. One route blue for wayfinding, with
+green marking the Neovim line. Geist for prose and titles, Geist Mono for tool
+names, section names, keys, counts, and code.
 
-STORY: Search or scan the tool index, open a tool, find a workflow in the
-contents, and copy the example. The home page is a compact directory, not a
-marketing splash.
+STORY: Search or scan the ruled index, open a tool, find a section in the contents
+rail by name and size, read each entry top to bottom, copy the command.
 
-FIRST VIEWPORT: The docs title opens with a breadcrumb and existing page
-description, then immediate reference content. A labeled terminal frame
-replaces generic window dots. Desktop keeps the catalog and contents rails;
-mobile keeps Starlight's native menu and compact contents control. The
-homepage shows its directory above the fold on desktop and mobile.
+FIRST VIEWPORT: 44px header split into brand, full-width search, and control
+cells. Tool page: 13rem index, crumb, 30px title, summary, ruled entries in the
+column, 13.5rem contents rail with counts and a tinted current row. Home: compact
+title strip with the git action at right, collection key, then a table-ruled
+directory filling the viewport. Signature: section and entry counts drawn from
+the content, with shell output muted against ink commands and a blue prompt.
 
-FORM: Code-led build. The Reference Atlas mockup chosen in conversation is
-the visual reference. Match its type, palette, page opening, and code frame
-while showing each tool's actual content and preserving useful controls.
+FORM: Timetable, position 4 on the ordered list, code-led build, seed:6a8649b0ee8d5293. User changes: entries flow vertically (existing tables stay tables); current contents row is a plain tint.
 
-FINISH: Check desktop and mobile in both themes, preserve keyboard focus and
-local scrolling for wide code and tables, and document the shipped system.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

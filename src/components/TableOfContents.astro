@@ -1,0 +1,19 @@
+---
+import Default from "@astrojs/starlight/components/TableOfContents.astro";
+import { countPage } from "../lib/page-counts";
+
+const { entry, toc } = Astro.locals.starlightRoute;
+const { sections, entries } = countPage(entry.body ?? "");
+const links = (toc?.items ?? []).filter(item => item.slug !== "_top");
+// Counts are drawn with CSS because Starlight doesn't export its contents list.
+const rules = [
+  `#starlight__on-this-page::after{content:"${entries}"}`,
+  ...links.map((item, index) => {
+    const count = sections[index]?.entries;
+    return count ? `starlight-toc a[href="#${item.slug}"]::after{content:"${count}"}` : "";
+  }),
+].join("");
+---
+
+<Default />
+<style is:inline set:html={rules}></style>

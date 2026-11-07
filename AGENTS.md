@@ -8,7 +8,7 @@ This repo contains concise cheatsheets and wiki pages for developer tools. Conte
 - `src/content.config.ts` defines the collection with `docsLoader()` and `docsSchema()`.
 - All docs content must satisfy Starlight's docs schema.
 - Use Markdown (`.md`) for normal tool pages.
-- Use MDX (`.mdx`) only when a page needs Starlight components, such as the home page CardGrid.
+- Use MDX (`.mdx`) only when a page needs components, such as the home page ToolIndex.
 
 ## File Structure
 
@@ -47,8 +47,8 @@ Rules:
 
 - `src/content/docs/index.mdx` is the Starlight splash page served at `/`.
 - It uses Starlight frontmatter with `template: splash`, `hero`, and actions.
-- It imports `CardGrid` and `LinkCard` from `@astrojs/starlight/components`.
-- The home page cards are maintained manually; when adding a new public tool page, update the relevant CardGrid entry if the tool should appear on the home page.
+- It imports `ToolIndex` and `LinkCard` from `src/components/`; `LinkCard` reads section and entry counts from the linked page.
+- The home page rows are maintained manually; when adding a new public tool page, update the relevant ToolIndex entry if the tool should appear on the home page.
 - The home page Neovim section is for Neovim plugins only; keep the main `neovim` page under Cheatsheets.
 
 ## Document Structure
@@ -130,6 +130,6 @@ Before writing or porting any documentation, the agent must:
 3. Propose the Starlight frontmatter: `title` and `description`.
 4. Propose high-level sections, organized as usage workflows.
 5. Propose which commands go into each section.
-6. State whether `src/content/docs/index.mdx` should be updated with a CardGrid entry.
+6. State whether `src/content/docs/index.mdx` should be updated with a ToolIndex entry.
 7. Wait for explicit user approval.
-8. Only then create or update the tool doc and any approved home page CardGrid entry.
+8. Only then create or update the tool doc and any approved home page ToolIndex entry.

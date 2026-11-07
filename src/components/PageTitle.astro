@@ -6,7 +6,7 @@ const showBreadcrumb = entry.id.includes("/");
 ---
 
 {showBreadcrumb && (
-  <nav class="atlas-breadcrumb" aria-label="Breadcrumb">
+  <nav class="wiki-breadcrumb" aria-label="Breadcrumb">
     <a href={sectionHref}>{section}</a>
     <span aria-hidden="true">/</span>
     <span aria-current="page">{entry.data.title}</span>
@@ -14,35 +14,31 @@ const showBreadcrumb = entry.id.includes("/");
 )}
 <h1 id="_top">{entry.data.title}</h1>
 {showBreadcrumb && entry.data.description && (
-  <p class="atlas-summary">{entry.data.description}</p>
+  <p class="wiki-summary">{entry.data.description}</p>
 )}
 
 <style>
-  .atlas-breadcrumb {
+  .wiki-breadcrumb {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.65rem;
-    color: var(--atlas-blue);
-    font: 600 0.7rem/1.5 var(--font-mono);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    gap: 0.3125rem;
+    color: var(--wiki-muted);
+    font-size: 0.75rem;
+    line-height: 1.5;
   }
-  .atlas-breadcrumb a { color: inherit; text-decoration: none; }
-  .atlas-breadcrumb a:hover { text-decoration: underline; }
+  .wiki-breadcrumb a { color: var(--wiki-accent); font-weight: 500; text-decoration: none; }
+  .wiki-breadcrumb a:hover { text-decoration: underline; }
   h1 {
-    margin-top: 1.45rem;
-    color: var(--atlas-ink);
-    font: 600 clamp(3.5rem, 5.5vw, 5rem)/1.05 var(--font-display);
-    letter-spacing: -0.035em;
+    margin-top: 0.25rem;
+    color: var(--wiki-ink);
+    font: 600 1.875rem/1.1 var(--font-sans);
+    letter-spacing: -0.025em;
   }
-  .atlas-summary {
-    max-width: 65ch;
-    margin-top: 0.9rem;
-    color: var(--atlas-text);
-    font-size: 1.04rem;
-    line-height: 1.6;
-  }
-  @media (max-width: 49.999rem) {
-    h1 { font-size: clamp(3.25rem, 10vw, 4.25rem); }
+  .wiki-summary {
+    max-width: 72ch;
+    margin-top: 0.125rem;
+    color: var(--wiki-text);
+    font-size: 0.84375rem;
+    line-height: 1.5;
   }
 </style>

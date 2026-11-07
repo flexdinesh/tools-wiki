@@ -10,11 +10,12 @@ hero:
       icon: right-arrow
 ---
 
-import { CardGrid, LinkCard } from "@astrojs/starlight/components";
+import LinkCard from "../../components/LinkCard.astro";
+import ToolIndex from "../../components/ToolIndex.astro";
 
 ## Cheatsheets
 
-<CardGrid stagger>
+<ToolIndex>
   <LinkCard
     title="apt"
     href="/cheatsheets/apt/"
@@ -190,14 +191,14 @@ import { CardGrid, LinkCard } from "@astrojs/starlight/components";
     href="/cheatsheets/neovim/"
     description="Modes, navigation, editing, search, explorer, buffers, and LSP shortcuts."
   />
-</CardGrid>
+</ToolIndex>
 
 ## Neovim Plugins
 
-<CardGrid stagger>
+<ToolIndex>
   <LinkCard
     title="grug-far"
     href="/neovim/grug-far/"
     description="Multi-file search and replace with one-by-one apply, sync-all, and import path replacement."
   />
-</CardGrid>
+</ToolIndex>

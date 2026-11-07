@@ -1,0 +1,33 @@
+<div class="tool-index not-content">
+  <div class="tool-index-head" aria-hidden="true">
+    <span>Tool</span>
+    <span>Covers</span>
+    <span>Sections</span>
+    <span>Entries</span>
+  </div>
+  <ul><slot /></ul>
+</div>
+
+<style>
+  .tool-index {
+    --tool-columns: 8rem minmax(0, 1fr) 4.5rem 4.5rem 2.25rem;
+  }
+  ul { margin: 0; padding: 0; list-style: none; }
+  ul :global(li) { margin: 0; }
+  .tool-index-head {
+    display: grid;
+    grid-template-columns: var(--tool-columns);
+    align-items: center;
+    min-height: 1.625rem;
+    padding-inline-start: var(--sl-content-pad-x);
+    border-bottom: 1px solid var(--wiki-line);
+    background: var(--wiki-ground);
+    color: var(--wiki-muted);
+    font-size: 0.71875rem;
+    font-weight: 500;
+  }
+  .tool-index-head span:nth-child(n + 3) { padding-inline-end: 0.875rem; text-align: end; }
+  @media (max-width: 49.999rem) {
+    .tool-index-head { display: none; }
+  }
+</style>
