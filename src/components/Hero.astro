@@ -48,28 +48,28 @@ const lines = [
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: end;
     gap: 1.125rem;
-    padding: 1rem var(--sl-content-pad-x);
+    padding: var(--wiki-space-page-block) var(--sl-content-pad-x);
     border-bottom: 1px solid var(--wiki-line-strong);
   }
   h1 {
-    margin: 0 0 0.125rem;
+    margin: 0 0 0.25rem;
     color: var(--wiki-ink);
-    font: 600 2.125rem/1.1 var(--font-sans);
+    font: 600 var(--wiki-type-display)/1.1 var(--font-sans);
     letter-spacing: -0.025em;
   }
-  p { margin: 0; color: var(--wiki-text); font-size: 0.90625rem; line-height: 1.5; }
+  p { margin: 0; color: var(--wiki-text); font-size: var(--wiki-type-body); line-height: 1.5; }
   kbd {
     padding: 0 0.25rem;
     border: 1px solid var(--wiki-line);
     background: var(--wiki-ground);
-    font: 500 0.75rem/1.125rem var(--font-mono);
+    font: 500 var(--wiki-type-key-large)/1.25rem var(--font-mono);
   }
   .actions :global(.sl-link-button) {
-    min-height: 2rem;
+    min-height: var(--wiki-size-action);
     margin: 0;
-    padding: 0 0.75rem;
+    padding: 0 var(--wiki-space-cell-inline);
     border-radius: 0;
-    font-size: 0.84375rem;
+    font-size: var(--wiki-type-compact);
     font-weight: 500;
     white-space: nowrap;
   }
@@ -84,7 +84,7 @@ const lines = [
   }
   .line-key {
     display: flex;
-    min-height: 2.25rem;
+    min-height: var(--wiki-size-key-strip);
     border-bottom: 1px solid var(--wiki-line);
   }
   .line-key a {
@@ -94,7 +94,7 @@ const lines = [
     padding-inline: var(--sl-content-pad-x);
     border-inline-end: 1px solid var(--wiki-line);
     color: var(--wiki-ink);
-    font-size: 0.84375rem;
+    font-size: var(--wiki-type-compact);
     font-weight: 600;
     text-decoration: none;
   }
@@ -102,7 +102,7 @@ const lines = [
   .line-key a:focus-visible { outline-offset: -2px; }
   .line-mark { width: 0.5rem; height: 0.5rem; background: var(--wiki-accent); }
   [data-line="neovim"] .line-mark { background: var(--wiki-line-neovim); }
-  .line-count { color: var(--wiki-muted); font: 400 0.75rem var(--font-mono); }
+  .line-count { color: var(--wiki-muted); font: 400 var(--wiki-type-count) var(--font-mono); }
   @media (max-width: 49.999rem) {
     .wiki-hero { grid-template-columns: minmax(0, 1fr); }
     .actions :global(.sl-link-button) { min-height: 2.75rem; }

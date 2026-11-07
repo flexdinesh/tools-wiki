@@ -28,9 +28,9 @@ names, section names, keys, counts, and code.
 STORY: Search or scan the ruled index, open a tool, find a section in the contents
 rail by name and size, read each entry top to bottom, copy the command.
 
-FIRST VIEWPORT: 44px header split into brand, full-width search, and control
-cells. Tool page: 13rem index, crumb, 30px title, summary, ruled entries in the
-column, 14.5rem contents rail with counts and a tinted current row. Home: compact
+FIRST VIEWPORT: 48px header split into brand, full-width search, and control
+cells. Tool page: 14.5rem index, crumb, 34px title, summary, ruled entries in the
+column, 16rem contents rail with counts and a tinted current row. Home: compact
 title strip with the git action at right, collection key, then a table-ruled
 directory filling the viewport. Signature: section and entry counts drawn from
 the content, with shell output muted against ink commands and a blue prompt.
