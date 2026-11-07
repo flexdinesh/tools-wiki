@@ -26,90 +26,90 @@ colors:
   muted-dark: "#8d95a3"
 typography:
   display:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Geist, sans-serif"
     fontSize: "2.125rem"
     fontWeight: 600
     lineHeight: 1.1
     letterSpacing: "-0.025em"
   page-title:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Geist, sans-serif"
     fontSize: "1.875rem"
     fontWeight: 600
     lineHeight: 1.1
     letterSpacing: "-0.025em"
   section-title:
-    fontFamily: "Geist Mono Variable, ui-monospace, monospace"
-    fontSize: "0.9375rem"
+    fontFamily: "Geist Mono, monospace"
+    fontSize: "1rem"
     fontWeight: 600
     lineHeight: 1.3
     letterSpacing: "0em"
   entry-title:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.8125rem"
+    fontFamily: "Geist, sans-serif"
+    fontSize: "0.875rem"
     fontWeight: 600
     lineHeight: 1.35
     letterSpacing: "0em"
   directory-title:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.8125rem"
+    fontFamily: "Geist, sans-serif"
+    fontSize: "0.875rem"
     fontWeight: 600
     lineHeight: 1.3
   body:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.84375rem"
+    fontFamily: "Geist, sans-serif"
+    fontSize: "0.90625rem"
     fontWeight: 400
     lineHeight: 1.5
   compact:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.78125rem"
+    fontFamily: "Geist, sans-serif"
+    fontSize: "0.84375rem"
     fontWeight: 400
     lineHeight: 1.45
   table-head:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.71875rem"
+    fontFamily: "Geist, sans-serif"
+    fontSize: "0.78125rem"
     fontWeight: 500
     lineHeight: 1.45
   rail-head:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.75rem"
+    fontFamily: "Geist, sans-serif"
+    fontSize: "0.8125rem"
     fontWeight: 600
     lineHeight: 1
   rail-row:
-    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.75rem"
+    fontFamily: "Geist, sans-serif"
+    fontSize: "0.8125rem"
     fontWeight: 400
     lineHeight: 1.3
   index-row:
-    fontFamily: "Geist Mono Variable, ui-monospace, monospace"
-    fontSize: "0.75rem"
+    fontFamily: "Geist Mono, monospace"
+    fontSize: "0.8125rem"
     fontWeight: 400
-    lineHeight: "1.5rem"
+    lineHeight: "1.625rem"
   tool-name:
-    fontFamily: "Geist Mono Variable, ui-monospace, monospace"
-    fontSize: "0.78125rem"
+    fontFamily: "Geist Mono, monospace"
+    fontSize: "0.84375rem"
     fontWeight: 600
     lineHeight: 1.4
   count:
-    fontFamily: "Geist Mono Variable, ui-monospace, monospace"
-    fontSize: "0.6875rem"
+    fontFamily: "Geist Mono, monospace"
+    fontSize: "0.75rem"
     fontWeight: 400
     lineHeight: 1
   key:
-    fontFamily: "Geist Mono Variable, ui-monospace, monospace"
-    fontSize: "0.6875rem"
-    fontWeight: 500
-    lineHeight: "1.0625rem"
-  code:
-    fontFamily: "Geist Mono Variable, ui-monospace, monospace"
+    fontFamily: "Geist Mono, monospace"
     fontSize: "0.75rem"
+    fontWeight: 500
+    lineHeight: "1.125rem"
+  code:
+    fontFamily: "Geist Mono, monospace"
+    fontSize: "0.8125rem"
     fontWeight: 500
     lineHeight: 1.55
 rounded:
   square: "0"
 spacing:
-  cell-block: "0.3125rem"
-  section-top: "0.75rem"
-  entry-top: "0.625rem"
+  cell-block: "0.375rem"
+  section-top: "0.875rem"
+  entry-top: "0.75rem"
   cell-inline: "0.75rem"
   rail-inline: "0.875rem"
   gutter-mobile: "1rem"
@@ -120,16 +120,16 @@ components:
     backgroundColor: "{colors.route-blue-light}"
     textColor: "{colors.paper-light}"
     rounded: "{rounded.square}"
-    padding: "0 0.6875rem"
-    height: "1.875rem"
+    padding: "0 0.75rem"
+    height: "2rem"
   button-primary-light-hover:
     backgroundColor: "{colors.route-blue-hover-light}"
   button-primary-dark:
     backgroundColor: "{colors.route-blue-dark}"
     textColor: "{colors.ground-dark}"
     rounded: "{rounded.square}"
-    padding: "0 0.6875rem"
-    height: "1.875rem"
+    padding: "0 0.75rem"
+    height: "2rem"
   button-primary-dark-hover:
     backgroundColor: "{colors.route-blue-hover-dark}"
   header:
@@ -143,7 +143,7 @@ components:
     typography: "{typography.rail-row}"
     rounded: "{rounded.square}"
     padding: "0.125rem 0.875rem"
-    height: "1.5625rem"
+    height: "1.75rem"
   current-row-light:
     backgroundColor: "{colors.active-light}"
     textColor: "{colors.route-blue-light}"
@@ -153,32 +153,32 @@ components:
   tool-row:
     typography: "{typography.compact}"
     rounded: "{rounded.square}"
-    height: "1.625rem"
+    height: "1.75rem"
   table-cell:
     typography: "{typography.compact}"
-    padding: "0.3125rem 0.75rem"
+    padding: "0.375rem 0.75rem"
   table-head-light:
     backgroundColor: "{colors.ground-light}"
     textColor: "{colors.muted-light}"
     typography: "{typography.table-head}"
-    padding: "0.3125rem 0.75rem"
+    padding: "0.375rem 0.75rem"
   table-head-dark:
     backgroundColor: "{colors.ground-dark}"
     textColor: "{colors.muted-dark}"
     typography: "{typography.table-head}"
-    padding: "0.3125rem 0.75rem"
+    padding: "0.375rem 0.75rem"
   code-frame-light:
     backgroundColor: "{colors.ground-light}"
     textColor: "{colors.ink-light}"
     typography: "{typography.code}"
     rounded: "{rounded.square}"
-    padding: "0.5rem 0.75rem"
+    padding: "0.625rem 0.875rem"
   code-frame-dark:
     backgroundColor: "{colors.ground-dark}"
     textColor: "{colors.ink-dark}"
     typography: "{typography.code}"
     rounded: "{rounded.square}"
-    padding: "0.5rem 0.75rem"
+    padding: "0.625rem 0.875rem"
   key-cap:
     typography: "{typography.key}"
     rounded: "{rounded.square}"
@@ -237,29 +237,31 @@ Cool neutrals carry the sheet; color appears only as wayfinding. Theme roles liv
 
 ## Typography
 
-**Display Font:** Geist, from `@fontsource-variable/geist` (with ui-sans-serif, system-ui fallback)
+**Display Font:** Geist, self-hosted through Astro's Fonts API (with a metric-matched Arial fallback, then sans-serif)
 **Body Font:** Geist (same stack)
-**Label/Mono Font:** Geist Mono, from `@fontsource-variable/geist-mono` (with ui-monospace fallback)
+**Label/Mono Font:** Geist Mono, self-hosted the same way (with a metric-matched Courier New fallback, then monospace)
 
 **Character:** A plain sans for reading and a matching mono for anything a reader would look up or type. Sizes stay small and close together, so weight and face carry the hierarchy. Numerals are tabular across the site so counts align.
+
+**Loading:** Fonts use `font-display: optional` and preload the latin subset, so text never swaps after first paint. A slow first visit may keep the fallback for that page view.
 
 ### Hierarchy
 
 - **Display** (600, 2.125rem, 1.1, -0.025em): the home title only.
 - **Page Title** (600, 1.875rem, 1.1, -0.025em): tool page titles.
-- **Section Title** (Geist Mono, 600, 0.9375rem, 1.3): `##` section names on tool pages.
-- **Entry Title** (600, 0.8125rem, 1.35): `###` entry names on tool pages.
-- **Directory Title** (600, 0.8125rem, 1.3): collection headings on the home page, in Geist.
-- **Body** (400, 0.84375rem, 1.5; 0.875rem below 50rem): prose and tool summaries, capped at 72ch.
-- **Compact** (400, 0.78125rem, 1.45): entry purpose lines, section purpose lines, table cells, and directory rows.
-- **Table Head** (500, 0.71875rem): table and directory column heads.
-- **Rail Head** (600, 0.75rem, 1): collection group labels and the contents heading.
-- **Rail Row** (400, 0.75rem, 1.3): contents rail rows, in Geist.
-- **Index Row** (Geist Mono, 400, 0.75rem, 1.5rem): tool names in the left index.
-- **Tool Name** (Geist Mono, 600, 0.78125rem, 1.4): tool names in the home directory and search results.
-- **Count** (Geist Mono, 400, 0.6875rem to 0.75rem): rail counts at the small end, section entry counts at 0.71875rem, directory counts at 0.75rem.
-- **Key** (Geist Mono, 500, 0.6875rem): keyboard hints.
-- **Code** (Geist Mono, 0.75rem, 1.55): commands at 500, output at 400. Inline code is 0.92em, and 0.75rem at 500 inside tables.
+- **Section Title** (Geist Mono, 600, 1rem, 1.3): `##` section names on tool pages.
+- **Entry Title** (600, 0.875rem, 1.35): `###` entry names on tool pages.
+- **Directory Title** (600, 0.875rem, 1.3): collection headings on the home page, in Geist.
+- **Body** (400, 0.90625rem, 1.5; 0.9375rem below 50rem): prose and tool summaries, capped at 72ch.
+- **Compact** (400, 0.84375rem, 1.45): entry purpose lines, section purpose lines, table cells, and directory rows.
+- **Table Head** (500, 0.78125rem): table and directory column heads.
+- **Rail Head** (600, 0.8125rem, 1): collection group labels and the contents heading.
+- **Rail Row** (400, 0.8125rem, 1.3): contents rail rows, in Geist.
+- **Index Row** (Geist Mono, 400, 0.8125rem, 1.625rem): tool names in the left index.
+- **Tool Name** (Geist Mono, 600, 0.84375rem, 1.4): tool names in the home directory and search results.
+- **Count** (Geist Mono, 400, 0.75rem to 0.8125rem): rail counts at the small end, section entry counts at 0.78125rem, directory counts at 0.8125rem.
+- **Key** (Geist Mono, 500, 0.75rem): keyboard hints on the home page.
+- **Code** (Geist Mono, 0.8125rem, 1.55): commands at 500, output at 400. Inline code is 0.92em, and 0.8125rem at 500 inside tables.
 
 **The Reference Mono Rule.** Geist Mono sets tool names, section names on tool pages, keys, counts, and code. It never sets running text: prose, purpose lines, summaries, and table prose stay in Geist.
 
@@ -267,11 +269,11 @@ Cool neutrals carry the sheet; color appears only as wayfinding. Theme roles liv
 
 ## Layout
 
-A fixed frame of ruled columns under a 2.75rem header. From 50rem the header splits into cells: brand over the 13rem index, full-width search, then icon and theme control cells. Tool pages run the 13rem left index, a fluid reading column capped at 80rem, and from 72rem a 13.5rem contents rail. Below 72rem the rail folds into Starlight's contents toggle above the column.
+A fixed frame of ruled columns under a 2.75rem header. From 50rem the header splits into cells: brand over the 13rem index, full-width search, then icon and theme control cells. Tool pages run the 13rem left index, a fluid reading column capped at 80rem, and from 72rem a 14.5rem contents rail. Below 72rem the rail folds into Starlight's contents toggle above the column.
 
-The reading gutter is 1.125rem from 50rem and 1rem below. Section and entry rules, and tables, cancel that gutter to reach the column edges. Rhythm is tight: 0.75rem above a section title, 0.625rem above an entry title, and 0.3125rem by 0.75rem in table cells.
+The reading gutter is 1.125rem from 50rem and 1rem below. Section and entry rules, and tables, cancel that gutter to reach the column edges. Rhythm is tight: 0.875rem above a section title, 0.75rem above an entry title, and 0.375rem by 0.75rem in table cells. An entry title directly above a table keeps 0.5rem below it.
 
-Tool pages open with crumb, title, and summary, then ruled entries or tables. On wide screens the home page fills the viewport: a title strip with the action at right, a 2rem collection key, then a directory of 1.625rem rows in five columns (8rem name, fluid description, 4.5rem sections, 4.5rem entries, 2.25rem arrow).
+Tool pages open with crumb, title, and summary, then ruled entries or tables. On wide screens the home page fills the viewport: a title strip with the action at right, a 2.25rem collection key, then a directory of 1.75rem rows in five columns (8rem name, fluid description, 4.5rem sections, 4.5rem entries, 2.25rem arrow).
 
 Below 50rem the sheet is one column and the left index moves behind the menu. Header search and menu, the theme select, index rows and group heads, the home action, and the collection key all hold a 2.75rem minimum. Directory rows stack: name, entry count, and arrow, then the description beneath. The sections count and column head drop out.
 
@@ -305,11 +307,11 @@ Native Starlight search and dialog. The trigger is transparent and fills with Gr
 
 ### Left index
 
-Collections have a 1.75rem Ground head with route mark, Rail Head label, and a page count at right. Rows are flush mono names at 1.5rem. Hover and current rows use Route Tint with Route Blue text; current is also semibold.
+Collections have a 1.875rem Ground head with route mark, Rail Head label, and a page count at right. Rows are flush mono names at 1.625rem. Hover and current rows use Route Tint with Route Blue text; current is also semibold.
 
 ### Contents rail
 
-Lists `##` sections only, each with its entry count at right, under a Ground head carrying the page total. Rows are at least 1.5625rem. The current row is a plain tint: Route Tint with Route Blue semibold text, and nothing else.
+Lists `##` sections only, each with its entry count at right, under a Ground head carrying the page total. Rows are at least 1.75rem. The current row is a plain tint: Route Tint with Route Blue semibold text, and nothing else.
 
 **The Plain Tint Rule.** Current state is a tint and a text color. No bar, border, dot, or marker.
 
@@ -317,7 +319,7 @@ Lists `##` sections only, each with its entry count at right, under a Ground hea
 
 ### Page opening
 
-Breadcrumb (0.75rem, Muted, with a medium Route Blue collection link), title, then the page's own frontmatter description in Body. A Strong Rule starts the first section.
+Breadcrumb (0.8125rem, Muted, with a medium Route Blue collection link), title, then the page's own frontmatter description in Body. A Strong Rule starts the first section.
 
 ### Entries
 
@@ -327,7 +329,7 @@ Each `##` section has a Strong Rule above, a mono title, the entry count at righ
 
 ### Code
 
-Ground frame with a 1px Mild Rule, padded 0.5rem by 0.75rem, no window frame or title bar. The native copy control is always visible, borderless on Ground, tinting to Mild Rule with Ink on hover. Inline code is Route Blue on Ground; in table cells it drops the fill.
+Ground frame with a 1px Mild Rule, padded 0.625rem by 0.875rem, no window frame or title bar. The native copy control is always visible, borderless on Ground, tinting to Mild Rule with Ink on hover. Inline code is Route Blue on Ground; in table cells it drops the fill.
 
 **The Terminal Voices Rule.** Code is monochrome. In shell blocks the `$` is Route Blue, commands are Ink at 500, and output is Muted at 400. No syntax hues, in any language.
 
@@ -345,7 +347,7 @@ A ruled strip of cells linking to each collection: square route mark, semibold n
 
 ### Primary action
 
-Square Route Blue fill with a 1.875rem height (2.75rem below 50rem), medium 0.78125rem label, and a trailing arrow. Hover moves to Route Blue Hover. The home page uses one action, at the right of the title strip.
+Square Route Blue fill with a 2rem height (2.75rem below 50rem), medium 0.84375rem label, and a trailing arrow. Hover moves to Route Blue Hover. The home page uses one action, at the right of the title strip.
 
 ### Pagination
 

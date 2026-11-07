@@ -1,10 +1,25 @@
 ---
+import { Font } from 'astro:assets';
 import Default from '@astrojs/starlight/components/Head.astro';
----
 
-<!-- Privacy-friendly analytics by Shynet; noscript pixel lives in SkipLink.astro -->
-<script defer src="https://shynet.deebox.xyz/ingress/ea13e654-be7f-4048-9e35-2e722d6505a9/script.js"></script>
+const speculationRules = JSON.stringify({
+  prefetch: [
+    {
+      where: { and: [{ href_matches: "/*" }, { not: { href_matches: "/*.md" } }] },
+      eagerness: "moderate",
+    },
+  ],
+});
+---
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
 
 <Default />
+
+<Font cssVariable="--font-geist" preload={[{ subset: "latin" }]} />
+<Font cssVariable="--font-geist-mono" preload={[{ subset: "latin" }]} />
+
+<script is:inline type="speculationrules" set:html={speculationRules}></script>
+
+<!-- Privacy-friendly analytics by Shynet; noscript pixel lives in SkipLink.astro -->
+<script defer src="https://shynet.deebox.xyz/ingress/ea13e654-be7f-4048-9e35-2e722d6505a9/script.js"></script>

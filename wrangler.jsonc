@@ -3,7 +3,7 @@
   "main": "./src/worker.ts",
   "compatibility_date": "2025-05-05",
   "compatibility_flags": ["nodejs_compat"],
-  "assets": { "directory": "./dist", "binding": "ASSETS", "run_worker_first": true },
+  "assets": { "directory": "./dist", "binding": "ASSETS", "run_worker_first": ["/*", "!/_astro/*"] },
   "routes": [{ "pattern": "toolswiki.hoplabs.dev", "custom_domain": true }],
   "workers_dev": false,
   "preview_urls": false,

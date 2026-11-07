@@ -30,19 +30,19 @@ const { sections, entries } = countPage(entry.body ?? "");
     display: grid;
     grid-template-columns: var(--tool-columns);
     align-items: center;
-    min-height: 1.625rem;
+    min-height: 1.75rem;
     padding-inline-start: var(--sl-content-pad-x);
     border-bottom: 1px solid var(--wiki-line);
     color: var(--wiki-text);
-    font-size: 0.78125rem;
+    font-size: 0.84375rem;
     line-height: 1.4;
     text-decoration: none;
   }
   .tool-row:is(:hover, :focus-visible) { background: var(--wiki-active); }
   .tool-row:focus-visible { outline-offset: -2px; }
-  .tool-name { color: var(--wiki-accent); font: 600 0.78125rem/1.4 var(--font-mono); }
+  .tool-name { color: var(--wiki-accent); font: 600 0.84375rem/1.4 var(--font-mono); }
   .tool-covers { overflow: hidden; padding-inline-end: 1.125rem; text-overflow: ellipsis; white-space: nowrap; }
-  .tool-count { padding-inline-end: 0.875rem; color: var(--wiki-text); font: 400 0.75rem/1.4 var(--font-mono); text-align: end; }
+  .tool-count { padding-inline-end: 0.875rem; color: var(--wiki-text); font: 400 0.8125rem/1.4 var(--font-mono); text-align: end; }
   .tool-unit {
     position: absolute;
     width: 1px;

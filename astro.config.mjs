@@ -1,5 +1,5 @@
 import { readdirSync } from "node:fs";
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import starlight from "@astrojs/starlight";
 
 import tailwindcss from "@tailwindcss/vite";
@@ -9,6 +9,29 @@ const pageCount = directory => String(readdirSync(`src/content/docs/${directory}
 
 export default defineConfig({
   site: "https://toolswiki.hoplabs.dev",
+
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: "Geist",
+      cssVariable: "--font-geist",
+      weights: ["100 900"],
+      styles: ["normal"],
+      subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext", "vietnamese"],
+      display: "optional",
+      fallbacks: ["sans-serif"],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: "Geist Mono",
+      cssVariable: "--font-geist-mono",
+      weights: ["100 900"],
+      styles: ["normal"],
+      subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext", "vietnamese", "symbols2"],
+      display: "optional",
+      fallbacks: ["monospace"],
+    },
+  ],
 
   markdown: {
     remarkPlugins: [remarkEntryCounts],
