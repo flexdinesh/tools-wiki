@@ -29,7 +29,7 @@ src/content/docs/
    ```
 
 4. Organize commands under `##` sections; use tables for simple shortcuts.
-5. Add an approved home page CardGrid entry in `src/content/docs/index.mdx`.
+5. Add an approved home page ToolIndex entry in `src/content/docs/index.mdx`.
 
 ## Development
 

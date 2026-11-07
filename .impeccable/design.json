@@ -1,408 +1,405 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-24T05:20:58.387592+00:00",
+  "generatedAt": "2026-11-07T02:52:43+00:00",
   "title": "Design System: tools wiki",
   "extensions": {
     "colorMeta": {
-      "ground-dark": {
-        "role": "neutral",
-        "displayName": "ground dark",
-        "tonalRamp": [
-          "oklch(15.00% 0.0130 222.68)",
-          "oklch(26.43% 0.0130 222.68)",
-          "oklch(37.86% 0.0130 222.68)",
-          "oklch(49.29% 0.0130 222.68)",
-          "oklch(60.71% 0.0130 222.68)",
-          "oklch(72.14% 0.0130 222.68)",
-          "oklch(83.57% 0.0130 222.68)",
-          "oklch(95.00% 0.0130 222.68)"
-        ]
-      },
-      "paper-dark": {
-        "role": "neutral",
-        "displayName": "paper dark",
-        "tonalRamp": [
-          "oklch(15.00% 0.0144 211.17)",
-          "oklch(26.43% 0.0144 211.17)",
-          "oklch(37.86% 0.0144 211.17)",
-          "oklch(49.29% 0.0144 211.17)",
-          "oklch(60.71% 0.0144 211.17)",
-          "oklch(72.14% 0.0144 211.17)",
-          "oklch(83.57% 0.0144 211.17)",
-          "oklch(95.00% 0.0144 211.17)"
-        ]
-      },
-      "sidebar-dark": {
-        "role": "neutral",
-        "displayName": "sidebar dark",
-        "tonalRamp": [
-          "oklch(15.00% 0.0144 211.17)",
-          "oklch(26.43% 0.0144 211.17)",
-          "oklch(37.86% 0.0144 211.17)",
-          "oklch(49.29% 0.0144 211.17)",
-          "oklch(60.71% 0.0144 211.17)",
-          "oklch(72.14% 0.0144 211.17)",
-          "oklch(83.57% 0.0144 211.17)",
-          "oklch(95.00% 0.0144 211.17)"
-        ]
-      },
-      "line-dark": {
-        "role": "neutral",
-        "displayName": "line dark",
-        "tonalRamp": [
-          "oklch(15.00% 0.0205 205.74)",
-          "oklch(26.43% 0.0205 205.74)",
-          "oklch(37.86% 0.0205 205.74)",
-          "oklch(49.29% 0.0205 205.74)",
-          "oklch(60.71% 0.0205 205.74)",
-          "oklch(72.14% 0.0205 205.74)",
-          "oklch(83.57% 0.0205 205.74)",
-          "oklch(95.00% 0.0205 205.74)"
-        ]
-      },
-      "soft-dark": {
-        "role": "neutral",
-        "displayName": "soft dark",
-        "tonalRamp": [
-          "oklch(15.00% 0.0195 223.37)",
-          "oklch(26.43% 0.0195 223.37)",
-          "oklch(37.86% 0.0195 223.37)",
-          "oklch(49.29% 0.0195 223.37)",
-          "oklch(60.71% 0.0195 223.37)",
-          "oklch(72.14% 0.0195 223.37)",
-          "oklch(83.57% 0.0195 223.37)",
-          "oklch(95.00% 0.0195 223.37)"
-        ]
-      },
-      "active-dark": {
+      "route-blue-light": {
         "role": "primary",
-        "displayName": "active dark",
+        "displayName": "Route Blue (light)",
         "tonalRamp": [
-          "oklch(15.00% 0.0579 259.26)",
-          "oklch(26.43% 0.0579 259.26)",
-          "oklch(37.86% 0.0579 259.26)",
-          "oklch(49.29% 0.0579 259.26)",
-          "oklch(60.71% 0.0579 259.26)",
-          "oklch(72.14% 0.0579 259.26)",
-          "oklch(83.57% 0.0579 259.26)",
-          "oklch(95.00% 0.0579 259.26)"
+          "oklch(15.00% 0.0835 261.92)",
+          "oklch(26.43% 0.1789 261.92)",
+          "oklch(37.86% 0.2087 261.92)",
+          "oklch(49.29% 0.2087 261.92)",
+          "oklch(60.71% 0.2087 261.92)",
+          "oklch(72.14% 0.2087 261.92)",
+          "oklch(83.57% 0.1372 261.92)",
+          "oklch(95.00% 0.0417 261.92)"
         ]
       },
-      "ink-dark": {
-        "role": "neutral",
-        "displayName": "ink dark",
-        "tonalRamp": [
-          "oklch(15.00% 0.0068 145.52)",
-          "oklch(26.43% 0.0068 145.52)",
-          "oklch(37.86% 0.0068 145.52)",
-          "oklch(49.29% 0.0068 145.52)",
-          "oklch(60.71% 0.0068 145.52)",
-          "oklch(72.14% 0.0068 145.52)",
-          "oklch(83.57% 0.0068 145.52)",
-          "oklch(95.00% 0.0068 145.52)"
-        ]
-      },
-      "text-dark": {
-        "role": "neutral",
-        "displayName": "text dark",
-        "tonalRamp": [
-          "oklch(15.00% 0.0127 177.96)",
-          "oklch(26.43% 0.0127 177.96)",
-          "oklch(37.86% 0.0127 177.96)",
-          "oklch(49.29% 0.0127 177.96)",
-          "oklch(60.71% 0.0127 177.96)",
-          "oklch(72.14% 0.0127 177.96)",
-          "oklch(83.57% 0.0127 177.96)",
-          "oklch(95.00% 0.0127 177.96)"
-        ]
-      },
-      "muted-dark": {
-        "role": "neutral",
-        "displayName": "muted dark",
-        "tonalRamp": [
-          "oklch(15.00% 0.0190 188.26)",
-          "oklch(26.43% 0.0190 188.26)",
-          "oklch(37.86% 0.0190 188.26)",
-          "oklch(49.29% 0.0190 188.26)",
-          "oklch(60.71% 0.0190 188.26)",
-          "oklch(72.14% 0.0190 188.26)",
-          "oklch(83.57% 0.0190 188.26)",
-          "oklch(95.00% 0.0190 188.26)"
-        ]
-      },
-      "cobalt-dark": {
+      "route-blue-hover-light": {
         "role": "primary",
-        "displayName": "cobalt dark",
+        "displayName": "Route Blue Hover (light)",
         "tonalRamp": [
-          "oklch(15.00% 0.0798 270.53)",
-          "oklch(26.43% 0.0798 270.53)",
-          "oklch(37.86% 0.0798 270.53)",
-          "oklch(49.29% 0.0798 270.53)",
-          "oklch(60.71% 0.0798 270.53)",
-          "oklch(72.14% 0.0798 270.53)",
-          "oklch(83.57% 0.0798 270.53)",
-          "oklch(95.00% 0.0798 270.53)"
+          "oklch(15.00% 0.0697 261.82)",
+          "oklch(26.43% 0.1494 261.82)",
+          "oklch(37.86% 0.1743 261.82)",
+          "oklch(49.29% 0.1743 261.82)",
+          "oklch(60.71% 0.1743 261.82)",
+          "oklch(72.14% 0.1743 261.82)",
+          "oklch(83.57% 0.1145 261.82)",
+          "oklch(95.00% 0.0349 261.82)"
         ]
       },
-      "cobalt-hover-dark": {
+      "route-blue-dark": {
         "role": "primary",
-        "displayName": "cobalt hover dark",
+        "displayName": "Route Blue (dark)",
         "tonalRamp": [
-          "oklch(15.00% 0.0510 271.93)",
-          "oklch(26.43% 0.0510 271.93)",
-          "oklch(37.86% 0.0510 271.93)",
-          "oklch(49.29% 0.0510 271.93)",
-          "oklch(60.71% 0.0510 271.93)",
-          "oklch(72.14% 0.0510 271.93)",
-          "oklch(83.57% 0.0510 271.93)",
-          "oklch(95.00% 0.0510 271.93)"
+          "oklch(15.00% 0.0514 265.34)",
+          "oklch(26.43% 0.1102 265.34)",
+          "oklch(37.86% 0.1285 265.34)",
+          "oklch(49.29% 0.1285 265.34)",
+          "oklch(60.71% 0.1285 265.34)",
+          "oklch(72.14% 0.1285 265.34)",
+          "oklch(83.57% 0.0845 265.34)",
+          "oklch(95.00% 0.0257 265.34)"
+        ]
+      },
+      "route-blue-hover-dark": {
+        "role": "primary",
+        "displayName": "Route Blue Hover (dark)",
+        "tonalRamp": [
+          "oklch(15.00% 0.0340 266.17)",
+          "oklch(26.43% 0.0729 266.17)",
+          "oklch(37.86% 0.0851 266.17)",
+          "oklch(49.29% 0.0851 266.17)",
+          "oklch(60.71% 0.0851 266.17)",
+          "oklch(72.14% 0.0851 266.17)",
+          "oklch(83.57% 0.0559 266.17)",
+          "oklch(95.00% 0.0170 266.17)"
+        ]
+      },
+      "neovim-line-light": {
+        "role": "secondary",
+        "displayName": "Neovim Green (light)",
+        "tonalRamp": [
+          "oklch(15.00% 0.0402 169.18)",
+          "oklch(26.43% 0.0862 169.18)",
+          "oklch(37.86% 0.1005 169.18)",
+          "oklch(49.29% 0.1005 169.18)",
+          "oklch(60.71% 0.1005 169.18)",
+          "oklch(72.14% 0.1005 169.18)",
+          "oklch(83.57% 0.0661 169.18)",
+          "oklch(95.00% 0.0201 169.18)"
+        ]
+      },
+      "neovim-line-dark": {
+        "role": "secondary",
+        "displayName": "Neovim Green (dark)",
+        "tonalRamp": [
+          "oklch(15.00% 0.0484 170.93)",
+          "oklch(26.43% 0.1037 170.93)",
+          "oklch(37.86% 0.1210 170.93)",
+          "oklch(49.29% 0.1210 170.93)",
+          "oklch(60.71% 0.1210 170.93)",
+          "oklch(72.14% 0.1210 170.93)",
+          "oklch(83.57% 0.0795 170.93)",
+          "oklch(95.00% 0.0242 170.93)"
         ]
       },
       "ground-light": {
         "role": "neutral",
-        "displayName": "ground light",
+        "displayName": "Ground (light)",
         "tonalRamp": [
-          "oklch(15.00% 0.0108 95.16)",
-          "oklch(26.43% 0.0108 95.16)",
-          "oklch(37.86% 0.0108 95.16)",
-          "oklch(49.29% 0.0108 95.16)",
-          "oklch(60.71% 0.0108 95.16)",
-          "oklch(72.14% 0.0108 95.16)",
-          "oklch(83.57% 0.0108 95.16)",
-          "oklch(95.00% 0.0108 95.16)"
+          "oklch(15.00% 0.0012 264.54)",
+          "oklch(26.43% 0.0025 264.54)",
+          "oklch(37.86% 0.0029 264.54)",
+          "oklch(49.29% 0.0029 264.54)",
+          "oklch(60.71% 0.0029 264.54)",
+          "oklch(72.14% 0.0029 264.54)",
+          "oklch(83.57% 0.0019 264.54)",
+          "oklch(95.00% 0.0006 264.54)"
         ]
       },
       "paper-light": {
         "role": "neutral",
-        "displayName": "paper light",
+        "displayName": "Paper (light)",
         "tonalRamp": [
-          "oklch(15.00% 0.0054 95.10)",
-          "oklch(26.43% 0.0054 95.10)",
-          "oklch(37.86% 0.0054 95.10)",
-          "oklch(49.29% 0.0054 95.10)",
-          "oklch(60.71% 0.0054 95.10)",
-          "oklch(72.14% 0.0054 95.10)",
-          "oklch(83.57% 0.0054 95.10)",
-          "oklch(95.00% 0.0054 95.10)"
-        ]
-      },
-      "sidebar-light": {
-        "role": "neutral",
-        "displayName": "sidebar light",
-        "tonalRamp": [
-          "oklch(15.00% 0.0054 95.10)",
-          "oklch(26.43% 0.0054 95.10)",
-          "oklch(37.86% 0.0054 95.10)",
-          "oklch(49.29% 0.0054 95.10)",
-          "oklch(60.71% 0.0054 95.10)",
-          "oklch(72.14% 0.0054 95.10)",
-          "oklch(83.57% 0.0054 95.10)",
-          "oklch(95.00% 0.0054 95.10)"
+          "oklch(15.00% 0.0000 89.88)",
+          "oklch(26.43% 0.0000 89.88)",
+          "oklch(37.86% 0.0000 89.88)",
+          "oklch(49.29% 0.0000 89.88)",
+          "oklch(60.71% 0.0000 89.88)",
+          "oklch(72.14% 0.0000 89.88)",
+          "oklch(83.57% 0.0000 89.88)",
+          "oklch(95.00% 0.0000 89.88)"
         ]
       },
       "line-light": {
         "role": "neutral",
-        "displayName": "line light",
+        "displayName": "Mild Rule (light)",
         "tonalRamp": [
-          "oklch(15.00% 0.0097 140.51)",
-          "oklch(26.43% 0.0097 140.51)",
-          "oklch(37.86% 0.0097 140.51)",
-          "oklch(49.29% 0.0097 140.51)",
-          "oklch(60.71% 0.0097 140.51)",
-          "oklch(72.14% 0.0097 140.51)",
-          "oklch(83.57% 0.0097 140.51)",
-          "oklch(95.00% 0.0097 140.51)"
+          "oklch(15.00% 0.0035 264.52)",
+          "oklch(26.43% 0.0075 264.52)",
+          "oklch(37.86% 0.0088 264.52)",
+          "oklch(49.29% 0.0088 264.52)",
+          "oklch(60.71% 0.0088 264.52)",
+          "oklch(72.14% 0.0088 264.52)",
+          "oklch(83.57% 0.0058 264.52)",
+          "oklch(95.00% 0.0018 264.52)"
         ]
       },
-      "soft-light": {
+      "line-strong-light": {
         "role": "neutral",
-        "displayName": "soft light",
+        "displayName": "Strong Rule (light)",
         "tonalRamp": [
-          "oklch(15.00% 0.0062 137.77)",
-          "oklch(26.43% 0.0062 137.77)",
-          "oklch(37.86% 0.0062 137.77)",
-          "oklch(49.29% 0.0062 137.77)",
-          "oklch(60.71% 0.0062 137.77)",
-          "oklch(72.14% 0.0062 137.77)",
-          "oklch(83.57% 0.0062 137.77)",
-          "oklch(95.00% 0.0062 137.77)"
+          "oklch(15.00% 0.0067 262.74)",
+          "oklch(26.43% 0.0144 262.74)",
+          "oklch(37.86% 0.0169 262.74)",
+          "oklch(49.29% 0.0169 262.74)",
+          "oklch(60.71% 0.0169 262.74)",
+          "oklch(72.14% 0.0169 262.74)",
+          "oklch(83.57% 0.0111 262.74)",
+          "oklch(95.00% 0.0034 262.74)"
         ]
       },
       "active-light": {
-        "role": "primary",
-        "displayName": "active light",
+        "role": "neutral",
+        "displayName": "Route Tint (light)",
         "tonalRamp": [
-          "oklch(15.00% 0.0216 265.76)",
-          "oklch(26.43% 0.0216 265.76)",
-          "oklch(37.86% 0.0216 265.76)",
-          "oklch(49.29% 0.0216 265.76)",
-          "oklch(60.71% 0.0216 265.76)",
-          "oklch(72.14% 0.0216 265.76)",
-          "oklch(83.57% 0.0216 265.76)",
-          "oklch(95.00% 0.0216 265.76)"
+          "oklch(15.00% 0.0081 264.47)",
+          "oklch(26.43% 0.0174 264.47)",
+          "oklch(37.86% 0.0203 264.47)",
+          "oklch(49.29% 0.0203 264.47)",
+          "oklch(60.71% 0.0203 264.47)",
+          "oklch(72.14% 0.0203 264.47)",
+          "oklch(83.57% 0.0133 264.47)",
+          "oklch(95.00% 0.0041 264.47)"
         ]
       },
       "ink-light": {
         "role": "neutral",
-        "displayName": "ink light",
+        "displayName": "Ink (light)",
         "tonalRamp": [
-          "oklch(15.00% 0.0238 223.18)",
-          "oklch(26.43% 0.0238 223.18)",
-          "oklch(37.86% 0.0238 223.18)",
-          "oklch(49.29% 0.0238 223.18)",
-          "oklch(60.71% 0.0238 223.18)",
-          "oklch(72.14% 0.0238 223.18)",
-          "oklch(83.57% 0.0238 223.18)",
-          "oklch(95.00% 0.0238 223.18)"
+          "oklch(15.00% 0.0052 264.21)",
+          "oklch(26.43% 0.0112 264.21)",
+          "oklch(37.86% 0.0130 264.21)",
+          "oklch(49.29% 0.0130 264.21)",
+          "oklch(60.71% 0.0130 264.21)",
+          "oklch(72.14% 0.0130 264.21)",
+          "oklch(83.57% 0.0086 264.21)",
+          "oklch(95.00% 0.0026 264.21)"
         ]
       },
       "text-light": {
         "role": "neutral",
-        "displayName": "text light",
+        "displayName": "Text (light)",
         "tonalRamp": [
-          "oklch(15.00% 0.0240 211.89)",
-          "oklch(26.43% 0.0240 211.89)",
-          "oklch(37.86% 0.0240 211.89)",
-          "oklch(49.29% 0.0240 211.89)",
-          "oklch(60.71% 0.0240 211.89)",
-          "oklch(72.14% 0.0240 211.89)",
-          "oklch(83.57% 0.0240 211.89)",
-          "oklch(95.00% 0.0240 211.89)"
+          "oklch(15.00% 0.0094 262.86)",
+          "oklch(26.43% 0.0202 262.86)",
+          "oklch(37.86% 0.0236 262.86)",
+          "oklch(49.29% 0.0236 262.86)",
+          "oklch(60.71% 0.0236 262.86)",
+          "oklch(72.14% 0.0236 262.86)",
+          "oklch(83.57% 0.0155 262.86)",
+          "oklch(95.00% 0.0047 262.86)"
         ]
       },
       "muted-light": {
         "role": "neutral",
-        "displayName": "muted light",
+        "displayName": "Muted (light)",
         "tonalRamp": [
-          "oklch(15.00% 0.0224 212.64)",
-          "oklch(26.43% 0.0224 212.64)",
-          "oklch(37.86% 0.0224 212.64)",
-          "oklch(49.29% 0.0224 212.64)",
-          "oklch(60.71% 0.0224 212.64)",
-          "oklch(72.14% 0.0224 212.64)",
-          "oklch(83.57% 0.0224 212.64)",
-          "oklch(95.00% 0.0224 212.64)"
+          "oklch(15.00% 0.0096 261.71)",
+          "oklch(26.43% 0.0206 261.71)",
+          "oklch(37.86% 0.0241 261.71)",
+          "oklch(49.29% 0.0241 261.71)",
+          "oklch(60.71% 0.0241 261.71)",
+          "oklch(72.14% 0.0241 261.71)",
+          "oklch(83.57% 0.0158 261.71)",
+          "oklch(95.00% 0.0048 261.71)"
         ]
       },
-      "cobalt-light": {
-        "role": "primary",
-        "displayName": "cobalt light",
+      "ground-dark": {
+        "role": "neutral",
+        "displayName": "Ground (dark)",
         "tonalRamp": [
-          "oklch(15.00% 0.1544 264.02)",
-          "oklch(26.43% 0.1544 264.02)",
-          "oklch(37.86% 0.1544 264.02)",
-          "oklch(49.29% 0.1544 264.02)",
-          "oklch(60.71% 0.1544 264.02)",
-          "oklch(72.14% 0.1544 264.02)",
-          "oklch(83.57% 0.1544 264.02)",
-          "oklch(95.00% 0.1544 264.02)"
+          "oklch(15.00% 0.0038 255.65)",
+          "oklch(26.43% 0.0082 255.65)",
+          "oklch(37.86% 0.0096 255.65)",
+          "oklch(49.29% 0.0096 255.65)",
+          "oklch(60.71% 0.0096 255.65)",
+          "oklch(72.14% 0.0096 255.65)",
+          "oklch(83.57% 0.0063 255.65)",
+          "oklch(95.00% 0.0019 255.65)"
         ]
       },
-      "cobalt-hover-light": {
-        "role": "primary",
-        "displayName": "cobalt hover light",
+      "paper-dark": {
+        "role": "neutral",
+        "displayName": "Paper (dark)",
         "tonalRamp": [
-          "oklch(15.00% 0.1372 264.35)",
-          "oklch(26.43% 0.1372 264.35)",
-          "oklch(37.86% 0.1372 264.35)",
-          "oklch(49.29% 0.1372 264.35)",
-          "oklch(60.71% 0.1372 264.35)",
-          "oklch(72.14% 0.1372 264.35)",
-          "oklch(83.57% 0.1372 264.35)",
-          "oklch(95.00% 0.1372 264.35)"
+          "oklch(15.00% 0.0047 254.10)",
+          "oklch(26.43% 0.0101 254.10)",
+          "oklch(37.86% 0.0118 254.10)",
+          "oklch(49.29% 0.0118 254.10)",
+          "oklch(60.71% 0.0118 254.10)",
+          "oklch(72.14% 0.0118 254.10)",
+          "oklch(83.57% 0.0077 254.10)",
+          "oklch(95.00% 0.0024 254.10)"
+        ]
+      },
+      "line-dark": {
+        "role": "neutral",
+        "displayName": "Mild Rule (dark)",
+        "tonalRamp": [
+          "oklch(15.00% 0.0065 259.79)",
+          "oklch(26.43% 0.0140 259.79)",
+          "oklch(37.86% 0.0163 259.79)",
+          "oklch(49.29% 0.0163 259.79)",
+          "oklch(60.71% 0.0163 259.79)",
+          "oklch(72.14% 0.0163 259.79)",
+          "oklch(83.57% 0.0107 259.79)",
+          "oklch(95.00% 0.0033 259.79)"
+        ]
+      },
+      "line-strong-dark": {
+        "role": "neutral",
+        "displayName": "Strong Rule (dark)",
+        "tonalRamp": [
+          "oklch(15.00% 0.0090 261.23)",
+          "oklch(26.43% 0.0194 261.23)",
+          "oklch(37.86% 0.0226 261.23)",
+          "oklch(49.29% 0.0226 261.23)",
+          "oklch(60.71% 0.0226 261.23)",
+          "oklch(72.14% 0.0226 261.23)",
+          "oklch(83.57% 0.0148 261.23)",
+          "oklch(95.00% 0.0045 261.23)"
+        ]
+      },
+      "active-dark": {
+        "role": "neutral",
+        "displayName": "Route Tint (dark)",
+        "tonalRamp": [
+          "oklch(15.00% 0.0213 263.78)",
+          "oklch(26.43% 0.0457 263.78)",
+          "oklch(37.86% 0.0533 263.78)",
+          "oklch(49.29% 0.0533 263.78)",
+          "oklch(60.71% 0.0533 263.78)",
+          "oklch(72.14% 0.0533 263.78)",
+          "oklch(83.57% 0.0350 263.78)",
+          "oklch(95.00% 0.0107 263.78)"
+        ]
+      },
+      "ink-dark": {
+        "role": "neutral",
+        "displayName": "Ink (dark)",
+        "tonalRamp": [
+          "oklch(15.00% 0.0018 258.32)",
+          "oklch(26.43% 0.0039 258.32)",
+          "oklch(37.86% 0.0046 258.32)",
+          "oklch(49.29% 0.0046 258.32)",
+          "oklch(60.71% 0.0046 258.32)",
+          "oklch(72.14% 0.0046 258.32)",
+          "oklch(83.57% 0.0030 258.32)",
+          "oklch(95.00% 0.0009 258.32)"
+        ]
+      },
+      "text-dark": {
+        "role": "neutral",
+        "displayName": "Text (dark)",
+        "tonalRamp": [
+          "oklch(15.00% 0.0062 260.73)",
+          "oklch(26.43% 0.0134 260.73)",
+          "oklch(37.86% 0.0156 260.73)",
+          "oklch(49.29% 0.0156 260.73)",
+          "oklch(60.71% 0.0156 260.73)",
+          "oklch(72.14% 0.0156 260.73)",
+          "oklch(83.57% 0.0103 260.73)",
+          "oklch(95.00% 0.0031 260.73)"
+        ]
+      },
+      "muted-dark": {
+        "role": "neutral",
+        "displayName": "Muted (dark)",
+        "tonalRamp": [
+          "oklch(15.00% 0.0091 261.74)",
+          "oklch(26.43% 0.0194 261.74)",
+          "oklch(37.86% 0.0227 261.74)",
+          "oklch(49.29% 0.0227 261.74)",
+          "oklch(60.71% 0.0227 261.74)",
+          "oklch(72.14% 0.0227 261.74)",
+          "oklch(83.57% 0.0149 261.74)",
+          "oklch(95.00% 0.0045 261.74)"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Homepage title."
+        "purpose": "Home title only."
       },
       "page-title": {
         "displayName": "Page Title",
-        "purpose": "Tool page title."
+        "purpose": "Tool page titles."
       },
-      "section": {
-        "displayName": "Section",
-        "purpose": "Section headings."
+      "section-title": {
+        "displayName": "Section Title",
+        "purpose": "## section names on tool pages."
       },
-      "command-heading": {
-        "displayName": "Command Heading",
-        "purpose": "Example headings."
+      "entry-title": {
+        "displayName": "Entry Title",
+        "purpose": "### entry names on tool pages."
+      },
+      "directory-title": {
+        "displayName": "Directory Title",
+        "purpose": "Collection headings on the home page."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Reading text."
+        "purpose": "Prose and tool summaries; 0.875rem below 50rem."
       },
-      "summary": {
-        "displayName": "Summary",
-        "purpose": "Tool page description."
+      "compact": {
+        "displayName": "Compact",
+        "purpose": "Purpose lines, table cells, and directory rows."
       },
-      "breadcrumb": {
-        "displayName": "Breadcrumb",
-        "purpose": "Tool page collection path."
+      "table-head": {
+        "displayName": "Table Head",
+        "purpose": "Table and directory column heads."
+      },
+      "rail-head": {
+        "displayName": "Rail Head",
+        "purpose": "Collection group labels and the contents heading."
+      },
+      "rail-row": {
+        "displayName": "Rail Row",
+        "purpose": "Contents rail rows."
+      },
+      "index-row": {
+        "displayName": "Index Row",
+        "purpose": "Tool names in the left index."
       },
       "tool-name": {
         "displayName": "Tool Name",
-        "purpose": "Directory tool names."
+        "purpose": "Tool names in the home directory and search results."
       },
-      "navigation": {
-        "displayName": "Navigation",
-        "purpose": "Sidebar links."
+      "count": {
+        "displayName": "Count",
+        "purpose": "Section and entry counts; rail size shown, 0.71875rem on section titles, 0.75rem in the directory."
       },
-      "label": {
-        "displayName": "Label",
-        "purpose": "Catalog and contents labels."
+      "key": {
+        "displayName": "Key",
+        "purpose": "Keyboard hints."
       },
       "code": {
         "displayName": "Code",
-        "purpose": "Command syntax and framed examples."
-      },
-      "terminal-label": {
-        "displayName": "Terminal Label",
-        "purpose": "Terminal header and copy control."
+        "purpose": "Commands at 500, output at 400."
       }
     },
-    "shadows": [
-      {
-        "name": "flat-reference",
-        "value": "none",
-        "purpose": "Directory rows and pagination."
-      },
-      {
-        "name": "terminal-offset",
-        "value": "4px 4px 0 var(--atlas-active)",
-        "purpose": "Hard accent behind terminal examples."
-      }
-    ],
+    "shadows": [],
     "motion": [
       {
-        "name": "row-feedback",
+        "name": "row-arrow",
         "value": "160ms cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Row tint and arrow; disabled for reduced motion."
+        "purpose": "Directory row arrow moves 3px on hover and focus; no transition under reduced motion."
       },
       {
-        "name": "row-arrow",
-        "value": "translateX(3px)",
-        "purpose": "Directory row hover and focus."
+        "name": "menu-state",
+        "value": "160ms ease",
+        "purpose": "Mobile menu background and color; its strokes rotate with row-arrow easing. No transition under reduced motion."
       }
     ],
     "breakpoints": [
       {
-        "name": "stack-directory-row",
-        "value": "38rem"
-      },
-      {
-        "name": "show-search-label",
-        "value": "40rem"
-      },
-      {
-        "name": "tablet-content-nav-inset",
-        "value": "40rem"
-      },
-      {
-        "name": "desktop-hero-and-header",
+        "name": "header-cells",
         "value": "50rem"
+      },
+      {
+        "name": "shared-table-columns",
+        "value": "60rem"
+      },
+      {
+        "name": "contents-rail",
+        "value": "72rem"
       }
     ]
   },
@@ -410,103 +407,172 @@
     {
       "name": "Primary action",
       "kind": "button",
-      "refersTo": "button-primary-dark",
-      "description": "Theme-aware cobalt hero action.",
-      "html": "<a class=\"ds-primary\" href=\"/cheatsheets/git/\">Browse cheatsheets</a>",
-      "css": ".ds-primary{display:inline-flex;align-items:center;min-height:2.6rem;padding:.5rem .85rem;border:1px solid var(--atlas-blue);border-radius:2px;background:var(--atlas-blue);color:var(--sl-color-text-invert);font:600 .8125rem/1.4 var(--font-sans);text-decoration:none}.ds-primary:hover{background:var(--atlas-blue-hover);border-color:var(--atlas-blue-hover)}.ds-primary:focus-visible{outline:2px solid var(--atlas-blue);outline-offset:3px}@media(max-width:49.999rem){.ds-primary{min-height:2.75rem}}"
-    },
-    {
-      "name": "Minimal action",
-      "kind": "button",
-      "refersTo": "button-minimal",
-      "description": "Quiet secondary hero action.",
-      "html": "<a class=\"ds-minimal\" href=\"https://github.com/flexdinesh/tools-wiki\">GitHub</a>",
-      "css": ".ds-minimal{display:inline-flex;align-items:center;min-height:2.6rem;padding:.5rem .85rem;border:1px solid transparent;border-radius:2px;background:transparent;color:var(--atlas-ink);font:600 .8125rem/1.4 var(--font-sans);text-decoration:none}.ds-minimal:hover{text-decoration:underline}.ds-minimal:focus-visible{outline:2px solid var(--atlas-blue);outline-offset:3px}@media(max-width:49.999rem){.ds-minimal{min-height:2.75rem}}"
-    },
-    {
-      "name": "Tool directory row",
-      "kind": "custom",
-      "refersTo": "tool-row",
-      "description": "Continuous catalog row; contents stack below 38rem.",
-      "html": "<a class=\"ds-row\" href=\"/cheatsheets/git/\"><span class=\"ds-row-stack\"><span class=\"ds-row-name\">git</span><span class=\"ds-row-description\">Config, commit, log, push, worktree, patch, diff, show, pipelines, and stacked rebase.</span></span><svg class=\"ds-row-arrow\" aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"m17.92 11.62-.01-.03a1 1 0 0 0-.2-.3l-5-5a1 1 0 0 0-1.42 1.42L14.59 11H5a1 1 0 0 0 0 2h9.59l-3.3 3.3a1 1 0 0 0 1.42 1.4l5-5a1 1 0 0 0 .21-1.08Z\"/></svg></a>",
-      "css": ".ds-row{display:flex;align-items:center;gap:1rem;padding:.85rem .5rem;border-bottom:1px solid var(--atlas-line);color:inherit;text-decoration:none;transition:background-color 160ms cubic-bezier(.16,1,.3,1)}.ds-row-stack{display:grid;grid-template-columns:9rem minmax(0,1fr);align-items:baseline;gap:1.25rem;flex:1}.ds-row-name{color:var(--atlas-blue);font:600 .9rem/1.4 var(--font-mono)}.ds-row-description{color:var(--atlas-text);font:400 .875rem/1.5 var(--font-sans)}.ds-row-arrow{color:var(--atlas-blue);transition:transform 160ms cubic-bezier(.16,1,.3,1)}.ds-row:is(:hover,:focus-visible){background:var(--atlas-active)}.ds-row:is(:hover,:focus-visible) .ds-row-arrow{transform:translateX(3px)}.ds-row:focus-visible{outline:2px solid var(--atlas-blue);outline-offset:3px}@media(max-width:37.999rem){.ds-row{align-items:start}.ds-row-stack{grid-template-columns:minmax(0,1fr);gap:.25rem}.ds-row-arrow{margin-top:.2rem}}@media(prefers-reduced-motion:reduce){.ds-row,.ds-row-arrow{transition:none}}"
-    },
-    {
-      "name": "Current navigation",
-      "kind": "nav",
-      "refersTo": "navigation-active",
-      "description": "Square cobalt sidebar highlight.",
-      "html": "<nav class=\"ds-nav\"><a href=\"/cheatsheets/git/\" aria-current=\"page\">git</a><a href=\"/cheatsheets/docker/\">docker</a></nav>",
-      "css": ".ds-nav{background:var(--atlas-side);padding:.5rem}.ds-nav a{display:block;padding:.27rem .5rem;border-radius:0;color:var(--atlas-text);font:400 .81rem/1.6 var(--font-mono);text-decoration:none}.ds-nav a:hover{color:var(--atlas-blue);background:var(--atlas-active)}.ds-nav a[aria-current=page]{color:var(--atlas-blue);background:var(--atlas-active);box-shadow:inset 1px 0 0 var(--atlas-blue);font-weight:600}.ds-nav a:focus-visible{outline:2px solid var(--atlas-blue);outline-offset:3px}@media(max-width:49.999rem){.ds-nav a{min-height:2.75rem;padding-block:.4rem}}"
+      "refersTo": "button-primary-light",
+      "description": "Square route blue action; one per home page, at the right of the title strip.",
+      "html": "<a class=\"ds-action\" href=\"/cheatsheets/git/\">Read git cheatsheet <svg class=\"ds-action-arrow\" aria-hidden=\"true\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z\"/></svg></a>",
+      "css": ".ds-action{display:inline-flex;align-items:center;gap:.5rem;min-height:1.875rem;padding:0 .6875rem;border:1px solid var(--wiki-accent);border-radius:0;background:var(--wiki-accent);color:var(--sl-color-text-invert);font:500 .78125rem/1.5 var(--font-sans);text-decoration:none;white-space:nowrap}.ds-action:hover{border-color:var(--wiki-accent-hover);background:var(--wiki-accent-hover)}.ds-action:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:2px}"
     },
     {
       "name": "Search trigger",
-      "kind": "button",
-      "refersTo": "search-trigger",
-      "description": "Flat native search entry.",
-      "html": "<button class=\"ds-search\" type=\"button\">Search <kbd>Ctrl K</kbd></button>",
-      "css": ".ds-search{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:2.3rem;padding:.35rem .65rem;border:1px solid var(--atlas-line);border-radius:0;color:var(--atlas-text);background:var(--atlas-paper);font:400 .8125rem/1.4 var(--font-sans);cursor:pointer}.ds-search kbd{color:var(--atlas-muted);font:400 .6875rem/1.4 var(--font-mono)}.ds-search:hover{color:var(--atlas-blue);border-color:var(--atlas-blue)}.ds-search:focus-visible{outline:2px solid var(--atlas-blue);outline-offset:3px}.ds-search:disabled{cursor:wait;opacity:.65}@media(max-width:49.999rem){.ds-search{min-height:2.75rem}}"
+      "kind": "input",
+      "description": "Full-width header search cell with a square key cap.",
+      "html": "<button class=\"ds-search\" type=\"button\"><span>Search</span><kbd class=\"ds-search-key\">Ctrl K</kbd></button>",
+      "css": ".ds-search{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:2.75rem;padding-inline:.875rem;border:0;border-radius:0;background:transparent;color:var(--wiki-muted);font:400 .78125rem/1.5 var(--font-sans);cursor:pointer}.ds-search:hover{color:var(--wiki-ink);background:var(--wiki-ground)}.ds-search:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-search-key{padding-inline:.3125rem;border:1px solid var(--wiki-line);background:var(--wiki-ground);color:var(--wiki-text);font:500 .6875rem/1.125rem var(--font-mono)}"
     },
     {
-      "name": "Reference table",
-      "kind": "custom",
-      "refersTo": "table-cell",
-      "description": "Compact table with local scrolling.",
-      "html": "<div class=\"ds-scroll\"><table class=\"ds-table\"><thead><tr><th>Key</th><th>Purpose</th><th>Result</th></tr></thead><tbody><tr><td>dd</td><td>Delete current line.</td><td>Current line is cut.</td></tr><tr><td>yy</td><td>Yank current line.</td><td>Current line is copied.</td></tr></tbody></table></div>",
-      "css": ".ds-scroll{overflow-x:auto}.ds-table{width:100%;border-collapse:collapse;color:var(--atlas-text);font:400 .875rem/1.65 var(--font-sans);font-variant-numeric:tabular-nums}.ds-table th{color:var(--atlas-ink);background:var(--atlas-soft);font-weight:600;text-align:start}.ds-table :is(th,td){padding:.55rem .75rem;border-bottom:1px solid var(--atlas-line);vertical-align:top}.ds-table :is(th,td):first-child{min-width:6rem}.ds-table tbody tr:nth-child(even){background:var(--atlas-ground)}@media(max-width:49.999rem){.ds-table :is(th,td):not(:first-child){min-width:14rem}}@media(min-width:50rem){.ds-table :is(th,td):first-child{min-width:8rem}}"
+      "name": "Left index",
+      "kind": "nav",
+      "refersTo": "index-row",
+      "description": "Collection head with route mark and count, then flush mono rows; current row is a tint.",
+      "html": "<nav class=\"ds-index\"><div class=\"ds-index-head\"><span class=\"ds-mark\"></span><span class=\"ds-index-label\">Cheatsheets</span><span class=\"ds-index-count\">35</span></div><a href=\"#\">fd</a><a href=\"#\" aria-current=\"page\">git</a><a href=\"#\">grep</a></nav>",
+      "css": ".ds-index{width:13rem;background:var(--wiki-paper)}.ds-index-head{display:flex;align-items:center;gap:.4375rem;min-height:1.75rem;padding:0 .875rem;border-bottom:1px solid var(--wiki-line);background:var(--wiki-ground)}.ds-mark{flex:none;width:.5rem;height:.5rem;background:var(--wiki-accent)}.ds-index-label{color:var(--wiki-ink);font:600 .75rem/1 var(--font-sans)}.ds-index-count{margin-inline-start:auto;color:var(--wiki-muted);font:400 .6875rem/1 var(--font-mono)}.ds-index a{display:block;padding:0 .875rem;color:var(--wiki-text);font:400 .75rem/1.5rem var(--font-mono);text-decoration:none}.ds-index a:hover{color:var(--wiki-accent);background:var(--wiki-active)}.ds-index a:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-index a[aria-current]{color:var(--wiki-accent);background:var(--wiki-active);font-weight:600}"
     },
     {
-      "name": "Page opening",
+      "name": "Contents rail",
+      "kind": "nav",
+      "refersTo": "contents-row",
+      "description": "## sections only, each with its entry count; current row is a plain tint.",
+      "html": "<nav class=\"ds-toc\"><div class=\"ds-toc-head\"><span>On this page</span><span class=\"ds-toc-n\">72</span></div><a href=\"#\" aria-current=\"true\"><span>git config</span><span class=\"ds-toc-n\">6</span></a><a href=\"#\"><span>git log</span><span class=\"ds-toc-n\">17</span></a><a href=\"#\"><span>git diff</span><span class=\"ds-toc-n\">11</span></a></nav>",
+      "css": ".ds-toc{width:13.5rem;border-inline-start:1px solid var(--wiki-line);background:var(--wiki-paper)}.ds-toc-head{display:flex;align-items:center;justify-content:space-between;min-height:1.75rem;padding:0 .875rem;border-bottom:1px solid var(--wiki-line);background:var(--wiki-ground);color:var(--wiki-ink);font:600 .75rem/1 var(--font-sans)}.ds-toc-n{flex:none;color:var(--wiki-muted);font:400 .6875rem/1 var(--font-mono)}.ds-toc a{display:flex;align-items:center;justify-content:space-between;gap:.5rem;min-height:1.5625rem;padding:.125rem .875rem;color:var(--wiki-text);font:400 .75rem/1.3 var(--font-sans);text-decoration:none}.ds-toc a:hover{color:var(--wiki-accent);background:var(--wiki-active)}.ds-toc a:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-toc a[aria-current]{color:var(--wiki-accent);background:var(--wiki-active);font-weight:600}.ds-toc a[aria-current] .ds-toc-n{color:inherit}"
+    },
+    {
+      "name": "Section and entry",
       "kind": "custom",
-      "refersTo": "page-opening",
-      "description": "Collection path, existing tool title, and frontmatter description.",
-      "html": "<div class=\"ds-page-opening\"><nav class=\"ds-breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/#cheatsheets\">Cheatsheets</a><span aria-hidden=\"true\">/</span><span aria-current=\"page\">git</span></nav><h1>git</h1><p>Config, commit, log, push, worktree, patch, diff, show, pipelines, and stacked rebase.</p></div>",
-      "css": ".ds-page-opening{padding:2rem 0 .6rem}.ds-breadcrumb{display:flex;flex-wrap:wrap;gap:.65rem;color:var(--atlas-blue);font:600 .7rem/1.5 var(--font-mono);letter-spacing:.08em;text-transform:uppercase}.ds-breadcrumb a{color:inherit;text-decoration:none}.ds-breadcrumb a:hover{text-decoration:underline}.ds-breadcrumb a:focus-visible{outline:2px solid var(--atlas-blue);outline-offset:3px}.ds-page-opening h1{margin:1.45rem 0 0;color:var(--atlas-ink);font:600 clamp(3.5rem,5.5vw,5rem)/1.05 var(--font-display);letter-spacing:-.035em}.ds-page-opening p{max-width:65ch;margin:.9rem 0 0;color:var(--atlas-text);font:400 1.04rem/1.6 var(--font-sans)}@media(max-width:49.999rem){.ds-page-opening h1{font-size:clamp(3.25rem,10vw,4.25rem)}}"
+      "description": "Strong-ruled mono section with count, then entries stacked vertically; the first entry takes the strong rule, later ones the mild rule.",
+      "html": "<section class=\"ds-sheet\"><div class=\"ds-section\"><h2>git config</h2><span class=\"ds-section-n\">6 entries</span><p>Set identity, signing, editor, and credential behavior.</p></div><div class=\"ds-entry\"><h3>Check config</h3><p>Show all config settings with their source file and scope.</p></div></section>",
+      "css": ".ds-sheet{background:var(--wiki-paper)}.ds-section{position:relative;padding:.75rem 1.125rem .5625rem;border-top:1px solid var(--wiki-line-strong)}.ds-section h2{margin:0;color:var(--wiki-ink);font:600 .9375rem/1.3 var(--font-mono)}.ds-section-n{position:absolute;top:.8125rem;right:1.125rem;color:var(--wiki-muted);font:400 .71875rem/1.3 var(--font-mono)}.ds-section p{margin:.125rem 0 0;color:var(--wiki-muted);font:400 .78125rem/1.5 var(--font-sans)}.ds-entry{padding:.625rem 1.125rem;border-top:1px solid var(--wiki-line-strong)}.ds-entry h3{margin:0;color:var(--wiki-ink);font:600 .8125rem/1.35 var(--font-sans)}.ds-entry p{margin:.125rem 0 0;color:var(--wiki-text);font:400 .78125rem/1.45 var(--font-sans)}"
     },
     {
       "name": "Terminal example",
       "kind": "custom",
-      "refersTo": "code-frame",
-      "description": "Labeled command frame with neutral code, cobalt first token, and hard offset.",
-      "html": "<div class=\"ds-terminal\"><div class=\"ds-terminal-head\"><span>TERMINAL EXAMPLE</span><button type=\"button\">COPY</button></div><pre><code><span class=\"ds-command\">git</span> status --short</code></pre></div>",
-      "css": ".ds-terminal{border:1px solid var(--atlas-line);border-radius:0;background:var(--atlas-paper);box-shadow:4px 4px 0 var(--atlas-active)}.ds-terminal-head{display:flex;align-items:center;justify-content:space-between;padding:.25rem .9rem;border-bottom:1px solid var(--atlas-line);color:var(--atlas-muted);font:400 .65rem/1.5 var(--font-mono);letter-spacing:.04em}.ds-terminal-head button{min-width:2.9rem;min-height:1.7rem;border:0;color:var(--atlas-muted);background:transparent;font:400 .65rem/1 var(--font-mono);letter-spacing:.04em;cursor:pointer}.ds-terminal-head button:hover{color:var(--atlas-blue)}.ds-terminal-head button:focus-visible{outline:2px solid var(--atlas-blue);outline-offset:3px}.ds-terminal pre{margin:0;padding:1rem;overflow-x:auto;color:var(--atlas-ink);font:400 .82rem/1.65 var(--font-mono)}.ds-command{color:var(--atlas-blue)}"
+      "refersTo": "code-frame-light",
+      "description": "Monochrome code frame: route blue prompt, ink command, muted output.",
+      "html": "<pre class=\"ds-code\"><code><span class=\"ds-line\"><span class=\"ds-prompt\">$</span> git status --short</span>\n<span class=\"ds-out\"> M README.md</span>\n<span class=\"ds-out\">?? untracked.txt</span></code></pre>",
+      "css": ".ds-code{margin:0;padding:.5rem .75rem;overflow-x:auto;border:1px solid var(--wiki-line);background:var(--wiki-ground);color:var(--wiki-ink);font:500 .75rem/1.55 var(--font-mono)}.ds-code code{font:inherit}.ds-prompt{color:var(--wiki-accent)}.ds-out{color:var(--wiki-muted);font-weight:400}.ds-code:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}"
+    },
+    {
+      "name": "Ruled table",
+      "kind": "custom",
+      "refersTo": "table-cell",
+      "description": "Markdown table with a Ground head, rules both ways, and fixed shared column widths from 60rem.",
+      "html": "<table class=\"ds-table\"><thead><tr><th>Key</th><th>Purpose</th><th>Result</th></tr></thead><tbody><tr><td><code>Ctrl+b d</code></td><td>Detach from the current session.</td><td>The session keeps running in the background.</td></tr><tr><td><code>Ctrl+b s</code></td><td>Open session interactive mode.</td><td>A navigable list of sessions appears.</td></tr></tbody></table>",
+      "css": ".ds-table{width:100%;table-layout:fixed;border-collapse:collapse;border-top:1px solid var(--wiki-line-strong);background:var(--wiki-paper);color:var(--wiki-text);font:400 .78125rem/1.45 var(--font-sans)}.ds-table th{padding:.3125rem .75rem;border-bottom:1px solid var(--wiki-line);background:var(--wiki-ground);color:var(--wiki-muted);font-size:.71875rem;font-weight:500;text-align:start}.ds-table td{padding:.3125rem .75rem;border-bottom:1px solid var(--wiki-line);vertical-align:top}.ds-table th+th,.ds-table td+td{border-inline-start:1px solid var(--wiki-line)}.ds-table :is(th,td):first-child{width:13rem;padding-inline-start:1.125rem}.ds-table :is(th,td):nth-child(2){width:34%}.ds-table code{color:var(--wiki-accent);font:500 .75rem/1.45 var(--font-mono)}"
+    },
+    {
+      "name": "Directory row",
+      "kind": "card",
+      "refersTo": "tool-row",
+      "description": "Home directory row: mono tool name, description, counts drawn from content, arrow.",
+      "html": "<a class=\"ds-row\" href=\"#\"><span class=\"ds-row-name\">git</span><span class=\"ds-row-covers\">Config, commit, log, push, worktree, patch, diff, show, pipelines, and stacked rebase.</span><span class=\"ds-row-n\">18</span><span class=\"ds-row-n\">72</span><svg class=\"ds-arrow\" aria-hidden=\"true\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z\"/></svg></a>",
+      "css": ".ds-row{display:grid;grid-template-columns:8rem minmax(0,1fr) 4.5rem 4.5rem 2.25rem;align-items:center;min-height:1.625rem;padding-inline-start:1.125rem;border-bottom:1px solid var(--wiki-line);background:var(--wiki-paper);color:var(--wiki-text);font:400 .78125rem/1.4 var(--font-sans);text-decoration:none}.ds-row:hover,.ds-row:focus-visible{background:var(--wiki-active)}.ds-row:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-row-name{color:var(--wiki-accent);font:600 .78125rem/1.4 var(--font-mono)}.ds-row-covers{overflow:hidden;padding-inline-end:1.125rem;text-overflow:ellipsis;white-space:nowrap}.ds-row-n{padding-inline-end:.875rem;font:400 .75rem/1.4 var(--font-mono);text-align:end}.ds-arrow{color:var(--wiki-muted);transition:transform 160ms cubic-bezier(.16,1,.3,1)}.ds-row:hover .ds-arrow,.ds-row:focus-visible .ds-arrow{transform:translateX(3px)}@media (prefers-reduced-motion:reduce){.ds-arrow{transition:none}}"
+    },
+    {
+      "name": "Collection key",
+      "kind": "chip",
+      "description": "Ruled strip linking to each collection: square route mark, name, muted count.",
+      "html": "<nav class=\"ds-key\"><a href=\"#\"><span class=\"ds-key-mark\"></span>Cheatsheets<span class=\"ds-key-n\">35</span></a><a href=\"#\" data-line=\"neovim\"><span class=\"ds-key-mark\"></span>Neovim Plugins<span class=\"ds-key-n\">1</span></a></nav>",
+      "css": ".ds-key{display:flex;min-height:2rem;border-bottom:1px solid var(--wiki-line);background:var(--wiki-paper)}.ds-key a{display:flex;align-items:center;gap:.4375rem;padding-inline:1.125rem;border-inline-end:1px solid var(--wiki-line);color:var(--wiki-ink);font:600 .78125rem/1.5 var(--font-sans);text-decoration:none}.ds-key a:hover{background:var(--wiki-active)}.ds-key a:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-key-mark{width:.5rem;height:.5rem;background:var(--wiki-accent)}[data-line=\"neovim\"] .ds-key-mark{background:var(--wiki-line-neovim)}.ds-key-n{color:var(--wiki-muted);font:400 .6875rem/1.5 var(--font-mono)}"
     }
   ],
   "narrative": {
-    "northStar": "Reference Atlas",
-    "overview": "A carefully typeset reference for developers working in the middle of a task. The reading pane and navigation share one paper surface; thin rules define the catalog rails, while cobalt shows the path through them. The same structure turns deep blue-green in dark mode.\n\nFraunces gives page titles, sections, and command headings an editorial voice. IBM Plex Sans keeps explanations readable; IBM Plex Mono marks commands, tool names, section labels, and keys. Thin rules and square highlights organize dense information without adding visual weight.",
+    "northStar": "The Railway Timetable",
+    "overview": "A developer reference ruled like a railway timetable. Everything sits on one sheet, so more entries fit per screen, and a reader mid-task can search or scan, open a tool, find a section by name and size, read each entry top to bottom, and copy the command.\n\nThe sheet is white paper on cool grey in light mode and blue-black in dark mode. Mild 1px rules in two weights divide it; there is no radius and no shadow. One route blue does the wayfinding, and green marks the Neovim line. Geist sets prose and titles; Geist Mono sets reference labels and code.\n\nThe system refuses the airy docs page of floating cards and large display titles. Native Starlight behavior stays: search, sidebars, contents, theme control, and code copy are restyled, not replaced.",
     "keyCharacteristics": [
-      "Paired warm-paper and blue-green themes with cobalt wayfinding.",
-      "Serif titles and command headings, sans prose, and mono labels and syntax.",
-      "Flat directory rows, compact controls, and visible keyboard focus."
+      "One ruled sheet, with rules running edge to edge across the reading column.",
+      "Paired light and dark themes built from the same roles.",
+      "Section and entry counts drawn from the content, in the directory and the contents rail.",
+      "Vertical entries for command pages; ruled tables for shortcut pages.",
+      "Monochrome code with a route blue prompt, ink commands, and muted output."
     ],
     "rules": [
       {
-        "name": "The Paired Theme Rule",
-        "body": "Apply the matching light or dark roles together. Keep link and focus treatment cobalt in both.",
+        "name": "The One Route Rule",
+        "body": "Route blue is the only wayfinding color. Links, current state, focus, and prompts all use it, in both themes.",
         "section": "colors"
       },
       {
-        "name": "The Three Voice Rule",
-        "body": "Use serif for major headings, sans for explanation and controls, mono for reference structure and syntax.",
+        "name": "The Neovim Line Rule",
+        "body": "Green only marks the Neovim collection with a square. It never sets text, links, or focus.",
+        "section": "colors"
+      },
+      {
+        "name": "The Paired Theme Rule",
+        "body": "Apply a theme's roles together. Every new surface must work in light and dark before it ships.",
+        "section": "colors"
+      },
+      {
+        "name": "The Reference Mono Rule",
+        "body": "Geist Mono sets tool names, section names on tool pages, keys, counts, and code. It never sets running text: prose, purpose lines, summaries, and table prose stay in Geist.",
         "section": "typography"
       },
       {
-        "name": "The Flat Reference Rule",
-        "body": "Use tonal surfaces and thin (1px) borders. Directory rows and pagination have no shadow. Terminal examples alone use a hard, unblurred (4px) offset in the active tint.",
+        "name": "The Compact Title Rule",
+        "body": "Titles stop at 2.125rem. Density comes first; the sheet does not open on a display headline.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Sheet Rule",
+        "body": "Rules run edge to edge and sections sit flush. No gaps, gutters, or margins separate entries into floating blocks.",
+        "section": "layout"
+      },
+      {
+        "name": "The Shared Columns Rule",
+        "body": "From 60rem, Markdown tables use a fixed layout so column rules line up from one section's table to the next. Tables use a 13rem first column and a 34% second. Four-column tables use 9.5rem for the first two (11rem from 72rem) and 30% for the third.",
+        "section": "layout"
+      },
+      {
+        "name": "The Local Scroll Rule",
+        "body": "Wide code and tables scroll inside themselves; the page never scrolls sideways. Below 50rem, table columns after the first keep a 14rem minimum and the first column does not wrap.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Sheet Rule",
+        "body": "Nothing lifts. If a surface needs separation, give it a rule or a tone.",
         "section": "elevation"
+      },
+      {
+        "name": "The Square Corner Rule",
+        "body": "No radius on any new element, in either theme.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Plain Tint Rule",
+        "body": "Current state is a tint and a text color. No bar, border, dot, or marker.",
+        "section": "components"
+      },
+      {
+        "name": "The Drawn Count Rule",
+        "body": "Section and entry counts come from the page content at build time, never typed by hand.",
+        "section": "components"
+      },
+      {
+        "name": "The Vertical Entry Rule",
+        "body": "Entries flow top to bottom in a single column. Don't arrange them in side-by-side columns or grids.",
+        "section": "components"
+      },
+      {
+        "name": "The Terminal Voices Rule",
+        "body": "Code is monochrome. In shell blocks the `$` is Route Blue, commands are Ink at 500, and output is Muted at 400. No syntax hues, in any language.",
+        "section": "components"
       }
     ],
     "dos": [
-      "**Do** pair each theme's paper, ink, line, and cobalt tokens.",
-      "**Do** keep Fraunces headings, sans reading text, and mono reference labels.",
-      "**Do** preserve native controls, visible focus, and reduced-motion support.",
-      "**Do** stack directory content on narrow screens and scroll wide references locally."
+      "**Do** apply light and dark roles together, and check every surface in both.",
+      "**Do** divide with the two 1px rule weights: Mild Rule between rows and entries, Strong Rule above sections and tables.",
+      "**Do** keep Geist for prose and titles, and Geist Mono for reference labels and code.",
+      "**Do** derive counts from page content.",
+      "**Do** keep native Starlight search, sidebars, contents, theme control, and code copy.",
+      "**Do** hold 2.75rem targets on navigation and controls below 50rem, and scroll wide code and tables locally.",
+      "**Do** keep visible focus and reduced motion support on anything that moves."
     ],
     "donts": [
-      "**Don't** add diffuse shadows to reference surfaces or window dots to terminal headers.",
-      "**Don't** turn the compact directory into spacious promotional cards.",
-      "**Don't** hide table columns or shrink prose to avoid scrolling."
+      "**Don't** add shadows, blur, or radius to any surface.",
+      "**Don't** float directory rows or entries as spaced cards, or open a page on a large display title.",
+      "**Don't** set prose, purpose lines, or summaries in Geist Mono.",
+      "**Don't** add syntax colors to code.",
+      "**Don't** add `###` entries to the contents rail or a bar or marker to its current row.",
+      "**Don't** use Neovim green for text, links, or focus.",
+      "**Don't** hide Markdown table columns to fit narrow screens."
     ]
   }
 }

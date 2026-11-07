@@ -1,120 +1,111 @@
 ---
-import { Image } from "astro:assets";
-import DraftContentNotice from "virtual:starlight/components/DraftContentNotice";
 import { LinkButton } from "@astrojs/starlight/components";
+import { getCollection } from "astro:content";
 
 const { entry } = Astro.locals.starlightRoute;
 const { data } = entry;
-const { title = data.title, tagline, image, actions = [] } = entry.data.hero || {};
-const showSearchTip = data.title === "tools wiki";
-
-let darkImage: ImageMetadata | undefined;
-let lightImage: ImageMetadata | undefined;
-let rawHtml: string | undefined;
-
-if (image) {
-  if ("file" in image) {
-    darkImage = image.file;
-  } else if ("dark" in image) {
-    darkImage = image.dark;
-    lightImage = image.light;
-  } else {
-    rawHtml = image.html;
-  }
-}
+const { title = data.title, tagline, actions = [] } = data.hero || {};
+const docs = await getCollection("docs");
+const lines = [
+  { label: "Cheatsheets", href: "#cheatsheets", line: "cheatsheets", count: docs.filter(doc => doc.id.startsWith("cheatsheets/")).length },
+  { label: "Neovim Plugins", href: "#neovim-plugins", line: "neovim", count: docs.filter(doc => doc.id.startsWith("neovim/")).length },
+];
 ---
 
-<div class:list={["hero", { "wiki-hero": showSearchTip }]}>
-  {
-    darkImage && (
-      <Image
-        src={darkImage}
-        loading="eager"
-        decoding="async"
-        width={400}
-        height={400}
-        alt={image?.alt || ""}
-        class:list={{ "light:sl-hidden": Boolean(lightImage) }}
-      />
-    )
-  }
-  {
-    lightImage && (
-      <Image
-        src={lightImage}
-        loading="eager"
-        decoding="async"
-        width={400}
-        height={400}
-        alt={image?.alt || ""}
-        class="dark:sl-hidden"
-      />
-    )
-  }
-  {rawHtml && <div class="hero-html sl-flex" set:html={rawHtml} />}
-  <div class="sl-flex stack">
-    <div class="sl-flex copy">
-      <h1 id="_top" data-page-title set:html={title} />
-      {data.draft && <DraftContentNotice />}
-      {tagline && <div class="tagline"><span set:html={tagline} /></div>}
-      {
-        showSearchTip && (
-          <div class="search-tip">Use <kbd>ctrl+k</kbd> / <kbd>cmd+k</kbd> to search commands.</div>
-        )
-      }
-    </div>
-    {
-      actions.length > 0 && (
-        <div class="sl-flex actions">
-          {actions.map(({ attrs: { class: className, ...attrs } = {}, icon, link: href, text, variant }) => {
-            const iconName = icon && "name" in icon ? icon.name : undefined;
-            return (
-              <LinkButton {href} {variant} icon={iconName} class:list={[className]} {...attrs}>
-                {text}
-                {icon && "html" in icon && <Fragment set:html={icon.html} />}
-              </LinkButton>
-            );
-          })}
-        </div>
-      )
-    }
+<div class="wiki-hero">
+  <div class="copy">
+    <h1 id="_top" data-page-title set:html={title} />
+    <p>
+      {tagline && <span set:html={tagline} />}
+      Use <kbd>ctrl+k</kbd> / <kbd>cmd+k</kbd> to search commands.
+    </p>
   </div>
+  {
+    actions.length > 0 && (
+      <div class="actions">
+        {actions.map(({ attrs: { class: className, ...attrs } = {}, icon, link: href, text, variant }) => {
+          const iconName = icon && "name" in icon ? icon.name : undefined;
+          return (
+            <LinkButton {href} {variant} icon={iconName} class:list={[className]} {...attrs}>
+              {text}
+              {icon && "html" in icon && <Fragment set:html={icon.html} />}
+            </LinkButton>
+          );
+        })}
+      </div>
+    )
+  }
 </div>
+<nav class="line-key" aria-label="Collections">
+  {lines.map(({ label, href, line, count }) => (
+    <a href={href} data-line={line}><span class="line-mark" aria-hidden="true" />{label}<span class="line-count">{count}</span></a>
+  ))}
+</nav>
 
 <style>
-  .hero { display: grid; gap: 1.5rem; padding-block: 1rem 0.5rem; }
-  .hero > img, .hero > .hero-html {
-    object-fit: contain; width: min(70%, 20rem); height: auto; margin-inline: auto;
+  .wiki-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 1.125rem;
+    padding: 0.875rem var(--sl-content-pad-x);
+    border-bottom: 1px solid var(--wiki-line-strong);
   }
-  .stack { flex-direction: column; gap: 1.5rem; }
-  .copy { flex-direction: column; align-items: flex-start; gap: 0.45rem; }
   h1 {
-    color: var(--atlas-ink); font-family: var(--font-display);
-    font-size: clamp(3.5rem, 7vw, 5.5rem); font-weight: 600;
-    letter-spacing: -0.035em; line-height: 1.03; text-wrap: balance;
+    margin: 0 0 0.125rem;
+    color: var(--wiki-ink);
+    font: 600 2.125rem/1.1 var(--font-sans);
+    letter-spacing: -0.025em;
   }
-  .tagline { color: var(--atlas-text); font-size: 1.1rem; line-height: 1.6; }
-  .search-tip { color: var(--atlas-muted); font-size: 0.75rem; line-height: 1.8; }
-  .search-tip kbd {
-    padding: 0.12em 0.35em; border: 1px solid var(--atlas-line); border-radius: 2px;
-    color: var(--atlas-blue); background: var(--atlas-ground);
-    font-family: var(--font-mono); font-size: 0.6875rem;
+  p { margin: 0; color: var(--wiki-text); font-size: 0.84375rem; line-height: 1.5; }
+  kbd {
+    padding: 0 0.25rem;
+    border: 1px solid var(--wiki-line);
+    background: var(--wiki-ground);
+    font: 500 0.6875rem/1.0625rem var(--font-mono);
   }
-  .actions { gap: 0.5rem; flex-wrap: wrap; justify-content: flex-start; }
-  .hero :global(.sl-link-button) {
-    min-height: 2.6rem; padding: 0.5rem 0.85rem; border-radius: 2px;
-    font-size: 0.8125rem; font-weight: 600;
+  .actions :global(.sl-link-button) {
+    min-height: 1.875rem;
+    margin: 0;
+    padding: 0 0.6875rem;
+    border-radius: 0;
+    font-size: 0.78125rem;
+    font-weight: 500;
+    white-space: nowrap;
   }
-  .hero :global(.sl-link-button.primary) {
-    color: var(--sl-color-text-invert); background: var(--atlas-blue); border-color: var(--atlas-blue);
+  .actions :global(.sl-link-button.primary) {
+    border-color: var(--wiki-accent);
+    background: var(--wiki-accent);
+    color: var(--sl-color-text-invert);
   }
-  .hero :global(.sl-link-button.primary:hover) {
-    background: var(--atlas-blue-hover); border-color: var(--atlas-blue-hover);
+  .actions :global(.sl-link-button.primary:hover) {
+    border-color: var(--wiki-accent-hover);
+    background: var(--wiki-accent-hover);
   }
-  @media (min-width: 50rem) {
-    .wiki-hero > .stack { flex-direction: row; align-items: end; justify-content: space-between; gap: 2rem; }
-    .hero:has(> img, > .hero-html) { grid-template-columns: 1fr 1fr; }
-    .hero > img, .hero > .hero-html { order: 2; width: min(100%, 25rem); }
+  .line-key {
+    display: flex;
+    min-height: 2rem;
+    border-bottom: 1px solid var(--wiki-line);
   }
-  @media (max-width: 49.999rem) { .hero :global(.sl-link-button) { min-height: 2.75rem; } }
+  .line-key a {
+    display: flex;
+    align-items: center;
+    gap: 0.4375rem;
+    padding-inline: var(--sl-content-pad-x);
+    border-inline-end: 1px solid var(--wiki-line);
+    color: var(--wiki-ink);
+    font-size: 0.78125rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .line-key a:hover { background: var(--wiki-active); }
+  .line-key a:focus-visible { outline-offset: -2px; }
+  .line-mark { width: 0.5rem; height: 0.5rem; background: var(--wiki-accent); }
+  [data-line="neovim"] .line-mark { background: var(--wiki-line-neovim); }
+  .line-count { color: var(--wiki-muted); font: 400 0.6875rem var(--font-mono); }
+  @media (max-width: 49.999rem) {
+    .wiki-hero { grid-template-columns: minmax(0, 1fr); }
+    .actions :global(.sl-link-button) { min-height: 2.75rem; }
+    .line-key a { flex: 1; min-height: 2.75rem; padding-inline: 1rem; }
+  }
 </style>

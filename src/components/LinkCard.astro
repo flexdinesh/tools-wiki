@@ -1,0 +1,70 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+import { getEntry } from "astro:content";
+import { countPage } from "../lib/page-counts";
+
+interface Props {
+  title: string;
+  href: string;
+  description: string;
+}
+
+const { title, href, description } = Astro.props;
+const entry = await getEntry("docs", href.replace(/^\/|\/$/g, ""));
+if (!entry) throw new Error(`Home directory link has no page: ${href}`);
+const { sections, entries } = countPage(entry.body ?? "");
+---
+
+<li>
+  <a class="tool-row" href={href}>
+    <span class="tool-name">{title}</span>
+    <span class="tool-covers">{description}</span>
+    <span class="tool-count tool-sections">{sections.length}<span class="sr-only"> sections</span></span>
+    <span class="tool-count">{entries}<span class="tool-unit">{entries === 1 ? " entry" : " entries"}</span></span>
+    <Icon name="right-arrow" class="tool-arrow" size="0.875rem" />
+  </a>
+</li>
+
+<style>
+  .tool-row {
+    display: grid;
+    grid-template-columns: var(--tool-columns);
+    align-items: center;
+    min-height: 1.625rem;
+    padding-inline-start: var(--sl-content-pad-x);
+    border-bottom: 1px solid var(--wiki-line);
+    color: var(--wiki-text);
+    font-size: 0.78125rem;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+  .tool-row:is(:hover, :focus-visible) { background: var(--wiki-active); }
+  .tool-row:focus-visible { outline-offset: -2px; }
+  .tool-name { color: var(--wiki-accent); font: 600 0.78125rem/1.4 var(--font-mono); }
+  .tool-covers { overflow: hidden; padding-inline-end: 1.125rem; text-overflow: ellipsis; white-space: nowrap; }
+  .tool-count { padding-inline-end: 0.875rem; color: var(--wiki-text); font: 400 0.75rem/1.4 var(--font-mono); text-align: end; }
+  .tool-unit {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .tool-row :global(.tool-arrow) { color: var(--wiki-muted); transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1); }
+  .tool-row:is(:hover, :focus-visible) :global(.tool-arrow) { transform: translateX(3px); }
+  @media (max-width: 49.999rem) {
+    .tool-row {
+      grid-template-columns: minmax(0, 1fr) auto 2rem;
+      row-gap: 0.125rem;
+      padding-block: 0.5rem;
+    }
+    .tool-covers { grid-column: 1 / -1; grid-row: 2; padding-inline-end: var(--sl-content-pad-x); white-space: normal; }
+    .tool-sections { display: none; }
+    .tool-count { padding-inline-end: 0.5rem; color: var(--wiki-muted); }
+    .tool-unit { position: static; width: auto; height: auto; overflow: visible; clip-path: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tool-row :global(.tool-arrow) { transition: none; }
+  }
+</style>
