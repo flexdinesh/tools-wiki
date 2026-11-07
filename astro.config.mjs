@@ -1,8 +1,8 @@
 import { readdirSync } from "node:fs";
 import { defineConfig, fontProviders } from "astro/config";
 import starlight from "@astrojs/starlight";
+import { unified } from "@astrojs/markdown-remark";
 
-import tailwindcss from "@tailwindcss/vite";
 import { remarkEntryCounts } from "./src/lib/remark-entry-counts.ts";
 
 const pageCount = directory => String(readdirSync(`src/content/docs/${directory}`).length);
@@ -34,7 +34,7 @@ export default defineConfig({
   ],
 
   markdown: {
-    remarkPlugins: [remarkEntryCounts],
+    processor: unified({ remarkPlugins: [remarkEntryCounts] }),
   },
 
   integrations: [
@@ -61,19 +61,15 @@ export default defineConfig({
           label: "Cheatsheets",
           badge: pageCount("cheatsheets"),
           collapsed: true,
-          autogenerate: { directory: "cheatsheets" },
+          items: [{ autogenerate: { directory: "cheatsheets" } }],
         },
         {
           label: "Neovim Plugins",
           badge: pageCount("neovim"),
           collapsed: true,
-          autogenerate: { directory: "neovim" },
+          items: [{ autogenerate: { directory: "neovim" } }],
         },
       ],
     }),
   ],
-
-  vite: {
-    plugins: [tailwindcss()],
-  },
 });

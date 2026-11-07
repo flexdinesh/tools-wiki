@@ -1,5 +1,9 @@
 minimumReleaseAge: 1440
 allowBuilds:
   esbuild: true
-  sharp: true
+  sharp: false
   workerd: true
+# @astrojs/astro2tsx pins core 1.11.3; a loose peer otherwise floats runtime to an incompatible 2.0 beta.
+overrides:
+  "@emnapi/core": 1.11.3
+  "@emnapi/runtime": 1.11.3
