@@ -32,7 +32,7 @@ and returning to work quickly.
 - Use Starlight's native docs collection and schema, Markdown tool pages, and MDX
   where components are needed.
 - Keep one page per tool; follow AGENTS.md for content structure and approvals.
-- Use pnpm. The existing stack is Astro, Starlight, and Tailwind CSS.
+- Use pnpm. The existing stack is Astro and Starlight, with plain CSS.
 - Keep the home page directory aligned with the published tool pages.
 
 ## Brand Commitments

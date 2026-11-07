@@ -1,15 +1,6 @@
-@layer base, starlight, theme, components, utilities;
-
-@import "@astrojs/starlight-tailwind";
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/utilities.css" layer(utilities);
-
-@theme {
+:root {
   --font-sans: var(--font-geist);
   --font-mono: var(--font-geist-mono);
-}
-
-:root {
   --wiki-ground: #0e1115;
   --wiki-paper: #13171c;
   --wiki-line: #262b33;

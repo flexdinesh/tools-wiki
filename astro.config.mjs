@@ -2,7 +2,6 @@ import { readdirSync } from "node:fs";
 import { defineConfig, fontProviders } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-import tailwindcss from "@tailwindcss/vite";
 import { remarkEntryCounts } from "./src/lib/remark-entry-counts.ts";
 
 const pageCount = directory => String(readdirSync(`src/content/docs/${directory}`).length);
@@ -72,8 +71,4 @@ export default defineConfig({
       ],
     }),
   ],
-
-  vite: {
-    plugins: [tailwindcss()],
-  },
 });
