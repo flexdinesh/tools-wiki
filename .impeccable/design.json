@@ -336,7 +336,7 @@
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Prose and tool summaries; 0.875rem below 50rem."
+        "purpose": "Prose and tool summaries."
       },
       "compact": {
         "displayName": "Compact",
@@ -364,7 +364,7 @@
       },
       "count": {
         "displayName": "Count",
-        "purpose": "Section and entry counts; rail size shown, 0.71875rem on section titles, 0.75rem in the directory."
+        "purpose": "Section and entry counts; rail size shown, 0.875rem on section titles and in the directory."
       },
       "key": {
         "displayName": "Key",
@@ -410,14 +410,14 @@
       "refersTo": "button-primary-light",
       "description": "Square route blue action; one per home page, at the right of the title strip.",
       "html": "<a class=\"ds-action\" href=\"/cheatsheets/git/\">Read git cheatsheet <svg class=\"ds-action-arrow\" aria-hidden=\"true\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z\"/></svg></a>",
-      "css": ".ds-action{display:inline-flex;align-items:center;gap:.5rem;min-height:1.875rem;padding:0 .6875rem;border:1px solid var(--wiki-accent);border-radius:0;background:var(--wiki-accent);color:var(--sl-color-text-invert);font:500 .78125rem/1.5 var(--font-sans);text-decoration:none;white-space:nowrap}.ds-action:hover{border-color:var(--wiki-accent-hover);background:var(--wiki-accent-hover)}.ds-action:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:2px}"
+      "css": ".ds-action{display:inline-flex;align-items:center;gap:.5rem;min-height:var(--wiki-size-action);padding:0 var(--wiki-space-cell-inline);border:1px solid var(--wiki-accent);border-radius:0;background:var(--wiki-accent);color:var(--sl-color-text-invert);font:500 var(--wiki-type-compact)/1.5 var(--font-sans);text-decoration:none;white-space:nowrap}.ds-action:hover{border-color:var(--wiki-accent-hover);background:var(--wiki-accent-hover)}.ds-action:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:2px}"
     },
     {
       "name": "Search trigger",
       "kind": "input",
       "description": "Full-width header search cell with a square key cap.",
       "html": "<button class=\"ds-search\" type=\"button\"><span>Search</span><kbd class=\"ds-search-key\">Ctrl K</kbd></button>",
-      "css": ".ds-search{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:2.75rem;padding-inline:.875rem;border:0;border-radius:0;background:transparent;color:var(--wiki-muted);font:400 .78125rem/1.5 var(--font-sans);cursor:pointer}.ds-search:hover{color:var(--wiki-ink);background:var(--wiki-ground)}.ds-search:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-search-key{padding-inline:.3125rem;border:1px solid var(--wiki-line);background:var(--wiki-ground);color:var(--wiki-text);font:500 .6875rem/1.125rem var(--font-mono)}"
+      "css": ".ds-search{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:var(--wiki-size-header);padding-inline:var(--wiki-space-rail-inline);border:0;border-radius:0;background:transparent;color:var(--wiki-muted);font:400 var(--wiki-type-label)/1.5 var(--font-sans);cursor:pointer}.ds-search:hover{color:var(--wiki-ink);background:var(--wiki-ground)}.ds-search:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-search-key{padding-inline:.3125rem;border:1px solid var(--wiki-line);background:var(--wiki-ground);color:var(--wiki-text);font:500 var(--wiki-type-key)/1.125rem var(--font-mono)}"
     },
     {
       "name": "Left index",
@@ -425,7 +425,7 @@
       "refersTo": "index-row",
       "description": "Collection head with route mark and count, then flush mono rows; current row is a tint.",
       "html": "<nav class=\"ds-index\"><div class=\"ds-index-head\"><span class=\"ds-mark\"></span><span class=\"ds-index-label\">Cheatsheets</span><span class=\"ds-index-count\">35</span></div><a href=\"#\">fd</a><a href=\"#\" aria-current=\"page\">git</a><a href=\"#\">grep</a></nav>",
-      "css": ".ds-index{width:13rem;background:var(--wiki-paper)}.ds-index-head{display:flex;align-items:center;gap:.4375rem;min-height:1.75rem;padding:0 .875rem;border-bottom:1px solid var(--wiki-line);background:var(--wiki-ground)}.ds-mark{flex:none;width:.5rem;height:.5rem;background:var(--wiki-accent)}.ds-index-label{color:var(--wiki-ink);font:600 .75rem/1 var(--font-sans)}.ds-index-count{margin-inline-start:auto;color:var(--wiki-muted);font:400 .6875rem/1 var(--font-mono)}.ds-index a{display:block;padding:0 .875rem;color:var(--wiki-text);font:400 .75rem/1.5rem var(--font-mono);text-decoration:none}.ds-index a:hover{color:var(--wiki-accent);background:var(--wiki-active)}.ds-index a:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-index a[aria-current]{color:var(--wiki-accent);background:var(--wiki-active);font-weight:600}"
+      "css": ".ds-index{width:var(--wiki-size-index-width);background:var(--wiki-paper)}.ds-index-head{display:flex;align-items:center;gap:.4375rem;min-height:var(--wiki-size-rail-head);padding:0 var(--wiki-space-rail-inline);border-bottom:1px solid var(--wiki-line);background:var(--wiki-ground)}.ds-mark{flex:none;width:.5rem;height:.5rem;background:var(--wiki-accent)}.ds-index-label{color:var(--wiki-ink);font:600 var(--wiki-type-label)/1 var(--font-sans)}.ds-index-count{margin-inline-start:auto;color:var(--wiki-muted);font:400 var(--wiki-type-count)/1 var(--font-mono)}.ds-index a{display:block;padding:0 var(--wiki-space-rail-inline);color:var(--wiki-text);font:400 var(--wiki-type-label)/var(--wiki-size-index-row) var(--font-mono);text-decoration:none}.ds-index a:hover{color:var(--wiki-accent);background:var(--wiki-active)}.ds-index a:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-index a[aria-current]{color:var(--wiki-accent);background:var(--wiki-active);font-weight:600}"
     },
     {
       "name": "Contents rail",
@@ -433,14 +433,14 @@
       "refersTo": "contents-row",
       "description": "## sections only, each with its entry count; current row is a plain tint.",
       "html": "<nav class=\"ds-toc\"><div class=\"ds-toc-head\"><span>On this page</span><span class=\"ds-toc-n\">72</span></div><a href=\"#\" aria-current=\"true\"><span>git config</span><span class=\"ds-toc-n\">6</span></a><a href=\"#\"><span>git log</span><span class=\"ds-toc-n\">17</span></a><a href=\"#\"><span>git diff</span><span class=\"ds-toc-n\">11</span></a></nav>",
-      "css": ".ds-toc{width:13.5rem;border-inline-start:1px solid var(--wiki-line);background:var(--wiki-paper)}.ds-toc-head{display:flex;align-items:center;justify-content:space-between;min-height:1.75rem;padding:0 .875rem;border-bottom:1px solid var(--wiki-line);background:var(--wiki-ground);color:var(--wiki-ink);font:600 .75rem/1 var(--font-sans)}.ds-toc-n{flex:none;color:var(--wiki-muted);font:400 .6875rem/1 var(--font-mono)}.ds-toc a{display:flex;align-items:center;justify-content:space-between;gap:.5rem;min-height:1.5625rem;padding:.125rem .875rem;color:var(--wiki-text);font:400 .75rem/1.3 var(--font-sans);text-decoration:none}.ds-toc a:hover{color:var(--wiki-accent);background:var(--wiki-active)}.ds-toc a:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-toc a[aria-current]{color:var(--wiki-accent);background:var(--wiki-active);font-weight:600}.ds-toc a[aria-current] .ds-toc-n{color:inherit}"
+      "css": ".ds-toc{width:var(--wiki-toc-width);border-inline-start:1px solid var(--wiki-line);background:var(--wiki-paper)}.ds-toc-head{display:flex;align-items:center;justify-content:space-between;min-height:var(--wiki-size-rail-head);padding:0 var(--wiki-space-rail-inline);border-bottom:1px solid var(--wiki-line);background:var(--wiki-ground);color:var(--wiki-ink);font:600 var(--wiki-type-label)/1 var(--font-sans)}.ds-toc-n{flex:none;color:var(--wiki-muted);font:400 var(--wiki-type-count)/1 var(--font-mono)}.ds-toc a{display:flex;align-items:center;justify-content:space-between;gap:.5rem;min-height:var(--wiki-size-contents-row);padding:.1875rem var(--wiki-space-rail-inline);color:var(--wiki-text);font:400 var(--wiki-type-label)/1.3 var(--font-sans);text-decoration:none}.ds-toc a:hover{color:var(--wiki-accent);background:var(--wiki-active)}.ds-toc a:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-toc a[aria-current]{color:var(--wiki-accent);background:var(--wiki-active);font-weight:600}.ds-toc a[aria-current] .ds-toc-n{color:inherit}"
     },
     {
       "name": "Section and entry",
       "kind": "custom",
       "description": "Strong-ruled mono section with count, then entries stacked vertically; the first entry takes the strong rule, later ones the mild rule.",
       "html": "<section class=\"ds-sheet\"><div class=\"ds-section\"><h2>git config</h2><span class=\"ds-section-n\">6 entries</span><p>Set identity, signing, editor, and credential behavior.</p></div><div class=\"ds-entry\"><h3>Check config</h3><p>Show all config settings with their source file and scope.</p></div></section>",
-      "css": ".ds-sheet{background:var(--wiki-paper)}.ds-section{position:relative;padding:.75rem 1.125rem .5625rem;border-top:1px solid var(--wiki-line-strong)}.ds-section h2{margin:0;color:var(--wiki-ink);font:600 .9375rem/1.3 var(--font-mono)}.ds-section-n{position:absolute;top:.8125rem;right:1.125rem;color:var(--wiki-muted);font:400 .71875rem/1.3 var(--font-mono)}.ds-section p{margin:.125rem 0 0;color:var(--wiki-muted);font:400 .78125rem/1.5 var(--font-sans)}.ds-entry{padding:.625rem 1.125rem;border-top:1px solid var(--wiki-line-strong)}.ds-entry h3{margin:0;color:var(--wiki-ink);font:600 .8125rem/1.35 var(--font-sans)}.ds-entry p{margin:.125rem 0 0;color:var(--wiki-text);font:400 .78125rem/1.45 var(--font-sans)}"
+      "css": ".ds-sheet{background:var(--wiki-paper)}.ds-section{position:relative;padding:var(--wiki-space-section-top) var(--wiki-space-gutter) var(--wiki-space-purpose-bottom);border-top:1px solid var(--wiki-line-strong)}.ds-section h2{margin:0;color:var(--wiki-ink);font:600 var(--wiki-type-section)/1.3 var(--font-mono)}.ds-section-n{position:absolute;top:calc(var(--wiki-space-section-top) + .125rem);right:var(--wiki-space-gutter);color:var(--wiki-muted);font:400 var(--wiki-type-count-large)/1.3 var(--font-mono)}.ds-section p{margin:.25rem 0 0;color:var(--wiki-muted);font:400 var(--wiki-type-compact)/1.5 var(--font-sans)}.ds-entry{padding:var(--wiki-space-entry-top) var(--wiki-space-gutter);border-top:1px solid var(--wiki-line-strong)}.ds-entry h3{margin:0;color:var(--wiki-ink);font:600 var(--wiki-type-entry)/1.35 var(--font-sans)}.ds-entry p{margin:.25rem 0 0;color:var(--wiki-text);font:400 var(--wiki-type-compact)/1.5 var(--font-sans)}"
     },
     {
       "name": "Terminal example",
@@ -448,7 +448,7 @@
       "refersTo": "code-frame-light",
       "description": "Monochrome code frame: route blue prompt, ink command, muted output.",
       "html": "<pre class=\"ds-code\"><code><span class=\"ds-line\"><span class=\"ds-prompt\">$</span> git status --short</span>\n<span class=\"ds-out\"> M README.md</span>\n<span class=\"ds-out\">?? untracked.txt</span></code></pre>",
-      "css": ".ds-code{margin:0;padding:.5rem .75rem;overflow-x:auto;border:1px solid var(--wiki-line);background:var(--wiki-ground);color:var(--wiki-ink);font:500 .75rem/1.55 var(--font-mono)}.ds-code code{font:inherit}.ds-prompt{color:var(--wiki-accent)}.ds-out{color:var(--wiki-muted);font-weight:400}.ds-code:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}"
+      "css": ".ds-code{margin:0;padding:var(--wiki-space-code-block) .4375rem;overflow-x:auto;border:1px solid var(--wiki-line);background:var(--wiki-ground);color:var(--wiki-ink);font:500 var(--wiki-type-code)/1.6 var(--font-mono)}.ds-code code{font:inherit}.ds-prompt{color:var(--wiki-accent)}.ds-out{color:var(--wiki-muted);font-weight:400}.ds-code:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}"
     },
     {
       "name": "Ruled table",
@@ -456,7 +456,7 @@
       "refersTo": "table-cell",
       "description": "Markdown table with a Ground head, rules both ways, and fixed shared column widths from 60rem.",
       "html": "<table class=\"ds-table\"><thead><tr><th>Key</th><th>Purpose</th><th>Result</th></tr></thead><tbody><tr><td><code>Ctrl+b d</code></td><td>Detach from the current session.</td><td>The session keeps running in the background.</td></tr><tr><td><code>Ctrl+b s</code></td><td>Open session interactive mode.</td><td>A navigable list of sessions appears.</td></tr></tbody></table>",
-      "css": ".ds-table{width:100%;table-layout:fixed;border-collapse:collapse;border-top:1px solid var(--wiki-line-strong);background:var(--wiki-paper);color:var(--wiki-text);font:400 .78125rem/1.45 var(--font-sans)}.ds-table th{padding:.3125rem .75rem;border-bottom:1px solid var(--wiki-line);background:var(--wiki-ground);color:var(--wiki-muted);font-size:.71875rem;font-weight:500;text-align:start}.ds-table td{padding:.3125rem .75rem;border-bottom:1px solid var(--wiki-line);vertical-align:top}.ds-table th+th,.ds-table td+td{border-inline-start:1px solid var(--wiki-line)}.ds-table :is(th,td):first-child{width:13rem;padding-inline-start:1.125rem}.ds-table :is(th,td):nth-child(2){width:34%}.ds-table code{color:var(--wiki-accent);font:500 .75rem/1.45 var(--font-mono)}"
+      "css": ".ds-table{width:100%;table-layout:fixed;border-collapse:collapse;border-top:1px solid var(--wiki-line-strong);background:var(--wiki-paper);color:var(--wiki-text);font:400 var(--wiki-type-compact)/1.5 var(--font-sans)}.ds-table th{padding:var(--wiki-space-cell-block) var(--wiki-space-cell-inline);border-bottom:1px solid var(--wiki-line);background:var(--wiki-ground);color:var(--wiki-muted);font-size:var(--wiki-type-label);font-weight:500;text-align:start}.ds-table td{padding:var(--wiki-space-cell-block) var(--wiki-space-cell-inline);border-bottom:1px solid var(--wiki-line);vertical-align:top}.ds-table th+th,.ds-table td+td{border-inline-start:1px solid var(--wiki-line)}.ds-table :is(th,td):first-child{width:13rem;padding-inline-start:var(--wiki-space-gutter)}.ds-table :is(th,td):nth-child(2){width:34%}.ds-table code{color:var(--wiki-accent);font:500 var(--wiki-type-code)/1.5 var(--font-mono)}"
     },
     {
       "name": "Directory row",
@@ -464,14 +464,14 @@
       "refersTo": "tool-row",
       "description": "Home directory row: mono tool name, description, counts drawn from content, arrow.",
       "html": "<a class=\"ds-row\" href=\"#\"><span class=\"ds-row-name\">git</span><span class=\"ds-row-covers\">Config, commit, log, push, worktree, patch, diff, show, pipelines, and stacked rebase.</span><span class=\"ds-row-n\">18</span><span class=\"ds-row-n\">72</span><svg class=\"ds-arrow\" aria-hidden=\"true\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z\"/></svg></a>",
-      "css": ".ds-row{display:grid;grid-template-columns:8rem minmax(0,1fr) 4.5rem 4.5rem 2.25rem;align-items:center;min-height:1.625rem;padding-inline-start:1.125rem;border-bottom:1px solid var(--wiki-line);background:var(--wiki-paper);color:var(--wiki-text);font:400 .78125rem/1.4 var(--font-sans);text-decoration:none}.ds-row:hover,.ds-row:focus-visible{background:var(--wiki-active)}.ds-row:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-row-name{color:var(--wiki-accent);font:600 .78125rem/1.4 var(--font-mono)}.ds-row-covers{overflow:hidden;padding-inline-end:1.125rem;text-overflow:ellipsis;white-space:nowrap}.ds-row-n{padding-inline-end:.875rem;font:400 .75rem/1.4 var(--font-mono);text-align:end}.ds-arrow{color:var(--wiki-muted);transition:transform 160ms cubic-bezier(.16,1,.3,1)}.ds-row:hover .ds-arrow,.ds-row:focus-visible .ds-arrow{transform:translateX(3px)}@media (prefers-reduced-motion:reduce){.ds-arrow{transition:none}}"
+      "css": ".ds-row{display:grid;grid-template-columns:9rem minmax(0,1fr) 5rem 5rem 2.5rem;align-items:center;min-height:var(--wiki-size-directory-row);padding-inline-start:var(--wiki-space-gutter);border-bottom:1px solid var(--wiki-line);background:var(--wiki-paper);color:var(--wiki-text);font:400 var(--wiki-type-compact)/1.4 var(--font-sans);text-decoration:none}.ds-row:hover,.ds-row:focus-visible{background:var(--wiki-active)}.ds-row:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-row-name{color:var(--wiki-accent);font:600 var(--wiki-type-compact)/1.4 var(--font-mono)}.ds-row-covers{overflow:hidden;padding-inline-end:1.125rem;text-overflow:ellipsis;white-space:nowrap}.ds-row-n{padding-inline-end:var(--wiki-space-cell-inline);font:400 var(--wiki-type-count-large)/1.4 var(--font-mono);text-align:end}.ds-arrow{color:var(--wiki-muted);transition:transform 160ms cubic-bezier(.16,1,.3,1)}.ds-row:hover .ds-arrow,.ds-row:focus-visible .ds-arrow{transform:translateX(3px)}@media (prefers-reduced-motion:reduce){.ds-arrow{transition:none}}"
     },
     {
       "name": "Collection key",
       "kind": "chip",
       "description": "Ruled strip linking to each collection: square route mark, name, muted count.",
       "html": "<nav class=\"ds-key\"><a href=\"#\"><span class=\"ds-key-mark\"></span>Cheatsheets<span class=\"ds-key-n\">35</span></a><a href=\"#\" data-line=\"neovim\"><span class=\"ds-key-mark\"></span>Neovim Plugins<span class=\"ds-key-n\">1</span></a></nav>",
-      "css": ".ds-key{display:flex;min-height:2rem;border-bottom:1px solid var(--wiki-line);background:var(--wiki-paper)}.ds-key a{display:flex;align-items:center;gap:.4375rem;padding-inline:1.125rem;border-inline-end:1px solid var(--wiki-line);color:var(--wiki-ink);font:600 .78125rem/1.5 var(--font-sans);text-decoration:none}.ds-key a:hover{background:var(--wiki-active)}.ds-key a:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-key-mark{width:.5rem;height:.5rem;background:var(--wiki-accent)}[data-line=\"neovim\"] .ds-key-mark{background:var(--wiki-line-neovim)}.ds-key-n{color:var(--wiki-muted);font:400 .6875rem/1.5 var(--font-mono)}"
+      "css": ".ds-key{display:flex;min-height:var(--wiki-size-key-strip);border-bottom:1px solid var(--wiki-line);background:var(--wiki-paper)}.ds-key a{display:flex;align-items:center;gap:.4375rem;padding-inline:var(--wiki-space-gutter);border-inline-end:1px solid var(--wiki-line);color:var(--wiki-ink);font:600 var(--wiki-type-compact)/1.5 var(--font-sans);text-decoration:none}.ds-key a:hover{background:var(--wiki-active)}.ds-key a:focus-visible{outline:2px solid var(--wiki-accent);outline-offset:-2px}.ds-key-mark{width:.5rem;height:.5rem;background:var(--wiki-accent)}[data-line=\"neovim\"] .ds-key-mark{background:var(--wiki-line-neovim)}.ds-key-n{color:var(--wiki-muted);font:400 var(--wiki-type-count)/1.5 var(--font-mono)}"
     }
   ],
   "narrative": {
@@ -507,7 +507,7 @@
       },
       {
         "name": "The Compact Title Rule",
-        "body": "Titles stop at 2.125rem. Density comes first; the sheet does not open on a display headline.",
+        "body": "Titles stop at 2.375rem. The sheet does not open on a display headline.",
         "section": "typography"
       },
       {

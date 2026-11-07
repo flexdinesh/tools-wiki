@@ -10,7 +10,7 @@
 
 <style>
   .tool-index {
-    --tool-columns: 8rem minmax(0, 1fr) 4.5rem 4.5rem 2.25rem;
+    --tool-columns: 9rem minmax(0, 1fr) 5rem 5rem 2.5rem;
   }
   ul { margin: 0; padding: 0; list-style: none; }
   ul :global(li) { margin: 0; }
@@ -18,15 +18,15 @@
     display: grid;
     grid-template-columns: var(--tool-columns);
     align-items: center;
-    min-height: 1.75rem;
+    min-height: var(--wiki-size-directory-row);
     padding-inline-start: var(--sl-content-pad-x);
     border-bottom: 1px solid var(--wiki-line);
     background: var(--wiki-ground);
     color: var(--wiki-muted);
-    font-size: 0.78125rem;
+    font-size: var(--wiki-type-label);
     font-weight: 500;
   }
-  .tool-index-head span:nth-child(n + 3) { padding-inline-end: 0.875rem; text-align: end; }
+  .tool-index-head span:nth-child(n + 3) { padding-inline-end: var(--wiki-space-cell-inline); text-align: end; }
   @media (max-width: 49.999rem) {
     .tool-index-head { display: none; }
   }
