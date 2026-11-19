@@ -1,0 +1,5 @@
+# Own workspace root: keeps the cover's tooling out of the site's install, CI and Docker builds.
+minimumReleaseAge: 1440
+allowBuilds:
+  esbuild: true
+  sharp: true

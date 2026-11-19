@@ -1,5 +1,8 @@
 <a href="https://toolswiki.hoplabs.dev">
-  <img src=".github/assets/readme-cover.webp" alt="tools wiki: press cmd+k, search git, and open the git cheatsheet" width="100%">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset=".github/assets/readme-cover-dark.webp">
+    <img src=".github/assets/readme-cover.webp" alt="tools wiki: press cmd+k, search git, and open the git cheatsheet" width="100%">
+  </picture>
 </a>
 
 # tools wiki

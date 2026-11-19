@@ -4,3 +4,4 @@ dist
 .astro
 .wrangler
 .ai
+.github/readme-cover/node_modules
